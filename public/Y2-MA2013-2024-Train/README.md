@@ -1,0 +1,19 @@
+# BARRIERS
+
+My project is titled Barriers - a website made primarily with the purpose of documenting my train journeys to university. Featuring video and audio recordings, graphs of data as well as a complete database of every single train ticket I have ever bought, I hope to create an immersive experience for users to get a taste of commuting by public transport.
+
+The homepage of the site is made to emulate the ticket machines posted at every train station - complete with the display of current time as well as a directory of popular destinations which acts as the navigation tabs for users. The page acts as the natural first step of every journey by train - the purchase of a ticket.
+![Homepage](https://cdn.glitch.global/059f3b3f-e7ee-491d-810d-05fe3a619f38/home.png?v=1704969917242)
+
+After selecting the destination the user wishes to visit, they are taken to one of the following: a ticket gallery, a graph display or a memories gallery. The ticket gallery is the core part of the site - displaying all of the tickets and breaking each one down to its elements. Each ticket can be clicked on for a closer look, with some featuring short anecdotes from the day of purchase. The gallery acts almost like a diary of each commute - detailing notable events and accompanying them with physical evidence. Through the gallery I want to both emphasise and criticise the value of data collection - as oftentimes human experiences are diminished into numbers. My choice of using physical tickets rather than digital ones also plays a significant role in this, as unlike virtual data collection which can easily be lost or made unavailable by the organisations that actually ‘own’ it, real paper tickets are mine to keep, almost becoming proof of my journeys’ existence.
+![Gallery 1](https://cdn.glitch.global/059f3b3f-e7ee-491d-810d-05fe3a619f38/gal%201.png?v=1704969902367)
+![Gallery 2](https://cdn.glitch.global/059f3b3f-e7ee-491d-810d-05fe3a619f38/gal%202.png?v=1704969905422)
+![Tickets](https://cdn.glitch.global/059f3b3f-e7ee-491d-810d-05fe3a619f38/gal%203.png?v=1704969908680)
+
+Alongside my personal experiences, I have also weaved some facts about the British Railway system which I found particularly interesting. This includes the increase of ticket prices and fines as well as a comment on the Railway suicide rate. Following the pandemic, along with the current cost-of-living crisis I wanted to mention the effects that both have had on the lives of UK citizens, similarly criticising the ways that these often go ignored by major institutes and members of authority.
+
+The second page of the website showcases a series of graphs detailing the information that I have collected from the tickets, ranging from price changes to times that the tickets were purchased. Wishing to comment on the strikes that have been happening for the past year, I turned the page into a puzzle, where the user is given the opportunity to unscramble the graphs and their titles to piece together the data. Through this, I hope to highlight the importance of individuals working in Civil Service and how their work often goes unnoticed and unappreciated by the public.
+![Graphs](https://cdn.glitch.global/059f3b3f-e7ee-491d-810d-05fe3a619f38/gra.png?v=1704969911393)
+
+The last page is a sound gallery that features audio recordings I have taken on the train. This is done with the purpose of adding more immersive elements to the site in order to break away from the formality of numbers. The sound track is made to look like a train going down a train track to make the page more visually interesting. At the moment, there is only one sound track but if given the chance to expand the site, I would add many more audio recordings and potentially even make a gallery of images and videos which can be looked through, similarly to the ticket gallery.
+![Sounds](https://cdn.glitch.global/059f3b3f-e7ee-491d-810d-05fe3a619f38/sound.png?v=1704969920406)
