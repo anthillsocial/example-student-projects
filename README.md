@@ -1,19 +1,19 @@
 # Examples of student projects
 
-[View website](https://anthillsocial.github.io/)
+[This website](https://anthillsocial.github.io/example-student-projects/)
 
 # Year One
 
 MA1805: Coding For The Arts                                            
 
-- [EmailSpaceInvaders](Y1-MA1801-2024-EmailSpaceInvaders)                                 
-- [BubblePop](Y1-MA1805-2024-BubblePop)                                               
-- [DonutDash](Y1-MA1805-2024-DonutDash)
-- [Forrest](Y1-MA1805-2024-Forrest)
+- [EmailSpaceInvaders](https://anthillsocial.github.io/example-student-projects/Y1-MA1801-2024-EmailSpaceInvaders)                                 
+- [BubblePop](https://anthillsocial.github.io/example-student-projects/Y1-MA1805-2024-BubblePop)                                               
+- [DonutDash](https://anthillsocial.github.io/example-student-projects/Y1-MA1805-2024-DonutDash)
+- [Forrest](https://anthillsocial.github.io/example-student-projects/Y1-MA1805-2024-Forrest)
 
 # Year Three
 
 Independent research projects
 
-- [](Y3-MA3017-2024-Praxis-Uncanny-AI)
-- [](Y3-MA3801-2024-AdvancedDigital-AI-bias)
+- [AI and the uncanny](https://anthillsocial.github.io/example-student-projects/Y3-MA3017-2024-Praxis-Uncanny-AI)
+- [AI bias](https://anthillsocial.github.io/example-student-projects/Y3-MA3801-2024-AdvancedDigital-AI-bias)
