@@ -16,7 +16,7 @@ MA2013: Interface Narratives
 - [Train](Y2-MA2013-2024-Train) Ticketing systems
 - [Whats App Warriers](Y2-MA2013-2024-WhatsAppWarriers) Social Media Communications
 - [Not What You Think](Y2-MA2013-2024-NotWhatYouThink) Inverted control 
-- Infinity Scroll (to add)
+- Infinity Scroll (to add)...
 
 ## Year Three 2024
 Independent research projects
