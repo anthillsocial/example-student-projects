@@ -13,11 +13,9 @@ MA1805: Coding For The Arts
 
 MA2806: Data Journalism and Visualisation
 
-- [AnxietyInEurope](2023-24/Y2-MA2806-AnxietyInEurope)
-- [BeyondEntertainment](2023-24/Y2-MA2806-BeyondEntertainment)
-- [BirthRate](2023-24/Y2-MA2806-BirthRate)
-- [Consumer](2023-24/Y2-MA2806-Consumer)
-- [ExportImport](2023-24/Y2-MA2806-ExportImport)
+- [Anxiety In Europe](2023-24/Y2-MA2806-AnxietyInEurope)
+- [Beyond Entertainment](2023-24/Y2-MA2806-BeyondEntertainment)
+- [Fast fashion](2023-24/Y2-MA2806-FastFashion)
 - [PremierLeague](2023-24/Y2-MA2806-PremierLeague)
 - [Subscriber](2023-24/Y2-MA2806-Subscriber)
 
