@@ -1,6 +1,8 @@
-A repository of student projects from the Media Arts department, at Royal Holloway University in the UK. Many students study on the [Digital Media and Culture and Technology (DMCT) BA](https://www.royalholloway.ac.uk/studying-here/undergraduate/media-arts/digital-media-culture-and-technology-ba). The code for these examples can be found [here](https://github.com/anthillsocial/example-student-projects).
+The code for these examples can be found [here](https://github.com/anthillsocial/example-student-projects).
 
-## Year One 2024
+# 2023 to 2024 
+
+## Year One
 
 MA1805: Coding For The Arts                                            
 
@@ -9,15 +11,17 @@ MA1805: Coding For The Arts
 - [DonutDash](2023-24/Y1-MA1805-2024-DonutDash): Mouse control
 - [Forest](2023-24/Y1-MA1805-2024-Forrest) Mouse + arrow key control
 
-## Year Two 2024
+## Year Two
 
 MA2806: Data Journalism and Visualisation
 
-- [Anxiety In Europe](2023-24/Y2-MA2806-AnxietyInEurope)
-- [Beyond Entertainment](2023-24/Y2-MA2806-BeyondEntertainment)
-- [Fast fashion](2023-24/Y2-MA2806-FastFashion)
-- [PremierLeague](2023-24/Y2-MA2806-PremierLeague)
-- [Subscriber](2023-24/Y2-MA2806-Subscriber)
+- [AnxietyInEurope](2023-24/2022-23/Y2-MA2806-AnxietyInEurope)
+- [BeyondEntertainment](2023-24/2022-23/Y2-MA2806-BeyondEntertainment)
+- [BirthRate](2023-24/2022-23/Y2-MA2806-BirthRate)
+- [Consumer](2023-24/2022-23/Y2-MA2806-Consumer)
+- [ExportImport](2023-24/2022-23/Y2-MA2806-ExportImport)
+- [PremierLeague](2023-24/2022-23/Y2-MA2806-PremierLeague)
+- [Subscriber](2023-24/2022-23/Y2-MA2806-Subscriber)
 
 MA2013: Interface Narratives
 
@@ -26,8 +30,22 @@ MA2013: Interface Narratives
 - [Not What You Think](2023-24/Y2-MA2013-2024-NotWhatYouThink) Inverted control 
 - Infinity Scroll (to add)...
 
-## Year Three 2024
+## Year Three
 Independent research projects
 
 - [AI and the uncanny](2023-24/Y3-MA3017-2024-Praxis-Uncanny-AI)
 - [AI bias](2023-24/Y3-MA3801-2024-AdvancedDigital-AI-bias)
+
+# 2022 to 2023 
+
+## Year Two
+
+MA2806: Data Journalism and Visualisation
+
+- [AnxietyInEurope](2023-24/2022-23/Y2-MA2806-AnxietyInEurope)
+- [BeyondEntertainment](2023-24/2022-23/Y2-MA2806-BeyondEntertainment)
+- [BirthRate](2023-24/2022-23/Y2-MA2806-BirthRate)
+- [Consumer](2023-24/2022-23/Y2-MA2806-Consumer)
+- [ExportImport](2023-24/2022-23/Y2-MA2806-ExportImport)
+- [PremierLeague](2023-24/2022-23/Y2-MA2806-PremierLeague)
+- [Subscriber](2023-24/2022-23/Y2-MA2806-Subscriber)
