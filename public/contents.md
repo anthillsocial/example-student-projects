@@ -1,3 +1,5 @@
+A repository of student projects from the Media Arts department, at Royal Holloway University in the UK. Many students study on the [Digital Media and Culture and Technology (DMCT) BA](https://www.royalholloway.ac.uk/studying-here/undergraduate/media-arts/digital-media-culture-and-technology-ba). 
+
 The code for these examples can be found [here](https://github.com/anthillsocial/example-student-projects).
 
 ## Year One 2024
