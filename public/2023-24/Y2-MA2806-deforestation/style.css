@@ -1,0 +1,128 @@
+header {
+  background-size: cover;
+  text-align: center;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Maitree, serif;
+    overflow-y: auto;
+    /* cursor: url("leafcursor.png"); - doesn't work :(*/
+  }
+
+
+    /*colouring*/
+h1 {
+    color: forestgreen;
+    }
+
+h2 {
+    color: forestgreen;
+    }
+
+h3 {
+    color: #533218;
+    }
+
+a {
+    color: forestgreen; 
+    }
+      
+a:hover {
+    color: #533218; 
+    }
+      
+    /* progress bar :(*/
+  .barheader {
+    z-index: 1;
+    width: 100%;
+    background-color: #f1f1f1;
+    position: fixed;
+    top: 0;
+}
+
+.progress-container {
+    background: #533218;
+   width: 100%;
+   height: 7px;
+   position: fixed;
+}
+
+.progress-bar {
+   background: forestgreen;
+   width: 0%;
+   height: 7px;
+}
+
+
+canvas{
+    margin: 0px;
+    padding: 0;
+  }
+
+#visualisation{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+#canvas-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  }
+  
+#context-container{
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+.first-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    margin-top: 30px;
+  }
+
+
+.first-container img {  /* line break*/
+    margin: auto;
+    display: block;
+  }
+
+.first-column {
+    max-width: 600px; /* column width*/
+    position: relative;
+    align-items: center;
+    padding: 5px; 
+    height: 100vh;
+    margin-top: 100px;
+  }
+
+    /* the divs have been split in two to make room for the visualisation in the middle*/
+
+.second-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    margin-top: 660px;     /* to change the gap between the graph and the second div*/
+    position:relative;
+  }
+  
+.second-container img { /* line break*/
+    margin: auto;
+    display: block;
+  }
+
+.second-column {
+    max-width: 600px; 
+    position: relative;
+    padding: 5px; 
+    height: 100vh;
+    margin-top: 660px;
+  }

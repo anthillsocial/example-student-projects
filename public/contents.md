@@ -15,13 +15,13 @@ MA1805: Coding For The Arts
 
 MA2806: Data Journalism and Visualisation
 
-- [AnxietyInEurope](2023-24/2022-23/Y2-MA2806-AnxietyInEurope)
-- [BeyondEntertainment](2023-24/2022-23/Y2-MA2806-BeyondEntertainment)
-- [BirthRate](2023-24/2022-23/Y2-MA2806-BirthRate)
-- [Consumer](2023-24/2022-23/Y2-MA2806-Consumer)
-- [ExportImport](2023-24/2022-23/Y2-MA2806-ExportImport)
-- [PremierLeague](2023-24/2022-23/Y2-MA2806-PremierLeague)
-- [Subscriber](2023-24/2022-23/Y2-MA2806-Subscriber)
+- [Box office](2023-24/Y2-MA2806-Box-Office)
+- [Covid University](2023-24/Y2-MA2806-COVID-University)
+- [Covid Deaths](2023-24/Y2-MA2806-CovidDeaths)
+- [Deforestation](2023-24/Y2-MA2806-deforestation)
+- [School and Crime Rates](2023-24/Y2-MA2806-School-and-Crime-Rates)
+- [Set Jetting](2023-24/Y2-MA2806-Set-Jetting)
+- [Smoke Choke](2023-24/Y2-MA2806-SmokeChoke)
 
 MA2013: Interface Narratives
 
