@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Comics Vs Manga</title>
+    <link rel="stylesheet" href="/book.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script src="/script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div class="information">
+      <h2>Comic Books Vs Manga</h2>
+      <p>
+        Click <a onclick="showInformation()">here</a> for more information about
+        the graphs and data shown in the book below
+      </p>
+    </div>
+
+    <div id="information">
+      <button onclick="showInformation()">
+        <span class="material-icons"> clear </span>
+      </button>
+
+      Analysis and interpretation of physical and digital sales.
+      <br />
+      <br />
+      One Piece dominates both markets because it maintains unbelievable
+      popularity across both distribution channels. <br />
+      Dragon Ball Super’s print production suffers from diminished growth
+      because digital influence remains smaller than previous instalments of the
+      franchise. <br />
+      Naruto keeps its fanbase intact because it finished its storyline while
+      expanding globally in both digital and offline realms. <br />
+      Hunter x Hunter’s content relaunches draw distinctive peaks in reader
+      engagement because of its dedicated community fanbase. <br />
+      Solo Levelling’s digital-first publication has established itself as the
+      most successful webtoon which transformed worldwide digital content
+      popularity. <br />
+      Batman, Spider-Man and X-Men continue to thrive in print since the 1960s
+      while adding digital subscribers to their existing audience base. <br />
+      <br />
+      The above shows how the age of franchises alongside the publishing format
+      and digital capabilities that come with it, determine the sales
+      performance of products. An example of this is seen through One Piece and
+      Batman lasting throughout every publishing platform.
+      <br />
+      <br />
+      <br />
+    Sales and Popularity analysis 
+      <br />
+      <br />
+      In general, Manga popularity is shown to be quite significantly higher (as
+      seen by the Manga Vs Comic Searches graph), however, this doesn't
+      necessarily mean higher sales (Popularity vs Sales chart).
+      For example, Naruto has rather significantly higher searches than both
+      Batman and Superman, suggesting that it's more popular but it has lower
+      sales than both. This is likely because of the fact that Naruto and manga,
+      in general, are finite, contained stories whereas comics are ongoing and
+      constantly being rebooted. The Naruto manga started in 1999 and ran until
+      2014 whereas Superman, for example, first debuted in 1938 and still has
+      comics being made today. This presents a challenge in determining how much
+      popularity affects sales.
+      <br /> <br>
+      To combat this challenge we can look at the most popular manga vs the most
+      popular comic, One Piece vs Spiderman. One Piece began in 1997 and
+      Spiderman's first comic came out in 1962, with both still publishing new
+      issues/chapters today. Despite Spiderman releasing many years prior, One
+      Piece has significantly more sales, at 510 million to Spiderman's 384
+      million, and is more popular judging by total searches, 5.7 Million to
+      4.9, supporting the idea that sales correlates to popularity.
+    </div>
+
+    <div class="book">
+      <div id="leftarrow" class="arrow" onclick="turnLeft()">
+        <span class="material-icons"> arrow_back </span>
+      </div>
+      <div class="scene scene--card">
+        <div id="prev" class="hidden">
+          <div class="content"></div>
+        </div>
+
+        <div class="card left hidden">
+          <div class="card__face card__face--front">
+            <div class="content"></div>
+          </div>
+          <div class="card__face card__face--back">
+            <div class="content"></div>
+          </div>
+        </div>
+
+        <div class="card right is-flipped">
+          <div class="card__face card__face--front">
+            <div class="content">
+              <p>Rate of Physical Sales Over Time</p>
+              <img
+                alt="property"
+                src="https://cdn.glitch.global/9c3bdab9-2275-494f-b512-2e862631f785/physical-sales-analysisb.jpg?v=1746327134259"
+              />
+            </div>
+          </div>
+          <div class="card__face card__face--back">
+            <div class="content">
+              <p>By Aiden, Daniel, Joel, Oscar</p>
+              <img
+                alt="property"
+                src="https://cdn.glitch.global/9c3bdab9-2275-494f-b512-2e862631f785/final-project-coverfr.jpg?v=1746418112621"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div id="next">
+          <div class="content">
+            <p>Graph of Physical Sales</p>
+            <img
+              alt="property"
+              src="https://cdn.glitch.global/9c3bdab9-2275-494f-b512-2e862631f785/physical-sales-chartb.jpg?v=1746327141232"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div id="right-arrow" class="arrow" onclick="turnRight()">
+        <span class="material-icons"> arrow_forward </span>
+      </div>
+    </div>
+  </body>
+</html>
