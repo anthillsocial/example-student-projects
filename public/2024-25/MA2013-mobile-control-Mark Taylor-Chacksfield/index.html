@@ -1,0 +1,637 @@
+
+<!DOCTYPE html>
+<html>
+    <head></head>
+        <style>
+            body {
+                /* grid code from https://stackoverflow.com/questions/3540194/how-to-make-a-grid-like-graph-paper-grid-with-just-css */
+                background-size: 40px 40px;
+                background-image:
+                linear-gradient(to right, rgb(41, 41, 41) 3px, transparent 2px),
+                linear-gradient(to bottom, rgb(41, 41, 41) 3px, #0f0f0f 2px);
+                position: fixed;
+            }
+            .dark-mode{
+                transition: all 3s;
+                background-size: 40px 40px;
+                background-image:
+                linear-gradient(to right, rgb(235, 235, 235) 3px, transparent 2px),
+                linear-gradient(to bottom, rgb(235, 235, 235) 3px, #ffffff 2px);    
+                animation: smooth-moves ease 2s;
+                
+                @keyframes smooth-moves {
+                    0% {
+                        background-image:
+                linear-gradient(to right, rgb(41, 41, 41) 3px, transparent 2px),
+                linear-gradient(to bottom, rgb(41, 41, 41) 3px, #0f0f0f 2px);
+                    },
+                    100% {
+                        background-image:
+                linear-gradient(to right, rgb(235, 235, 235) 3px, transparent 2px),
+                linear-gradient(to bottom, rgb(235, 235, 235) 3px, #ffffff 2px);    
+                    };
+                }
+            }
+            #left-right-margins{
+                /* background-color: darkkhaki; */
+                width: 100vw;
+                height: 100vh;
+            }
+            #central-space{
+                /* background-color: blanchedalmond; */
+                width: 75vw;
+                height: 100vh;
+                translate: transformX(50%);
+            }
+            
+            #phone-pos{
+                display: flex;
+                justify-content: center;
+                position: relative;
+            }
+            #phone-outline {
+                background-color: black;
+                width: 300px;
+                height: 600px;
+                border-radius: 50px;
+                border: 1px solid #ffffff78;
+                box-shadow: 20px 20px 50px rgb(24, 24, 24);
+                position: absolute;
+                /* left: 25%;
+                right: 25%; */
+                translate: 0% 5%;
+                transition: all 0.5s;
+                
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 999;
+                /*border-width: 100px;
+                border-color: black;*/
+            }
+
+            #camera {
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                background-color: rgb(74, 74, 74);
+                border-radius: 20px;
+                translate: 0 -278px;
+            }
+            #speaker {
+                position: absolute;
+                width: 50px;
+                height: 5px;
+                background-color: rgb(39, 39, 39);
+                border-radius: 20px;
+                translate: 0 -262px;
+            }
+
+            #screen {
+                position: absolute;
+                background-color: lightskyblue;
+                height: 487px;
+                width: 279px;
+                /* border-radius: 43px; */
+
+                /* justify-content: center; */
+                /* flex-direction: column; */
+            }
+
+            #app-container {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            #important-apps-container {
+                background-color: rgb(106, 162, 184);
+                border-radius: 15px;
+                /* opacity: 0.5; */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transform: translate(5px, 217px);
+                width: 269px;
+            }
+
+            #home-button {
+                position: absolute;
+                width: 40px;
+                height: 40px;
+                border-radius: 20px;
+                translate: 0 270px;
+
+                background-color: grey;
+                transition: 0.2s
+            }
+                #home-button:hover{
+                    background-color: lightgrey;
+                    transition: 0.2s 
+                }
+
+            .app{
+                background-color: purple;
+                width: 50px;
+                height: 50px;
+                border-radius: 13px;
+                margin: 8px;
+                translate: 14% 20%;
+            }
+            .important-apps{
+                background-color: green;
+                width: 50px;
+                height: 50px;
+                border-radius: 13px;
+                margin: 8px;
+                /* translate: 14% 3%; */
+                /* transform: translateY(215px); */
+            }
+
+            #app1{ /* deconstructing */
+                background-image: url("app-icons/deconstruction.png");
+                background-size: 100%;
+                transform: scale3d(1, 1, 1);
+                transition: 0.3s
+            }
+                #app1:hover{
+                    transform: scale3d(1.1, 1.1, 1.1);
+                    transition: 0.3s
+                }
+
+            #app2{ /* gender */
+                background-image: url("app-icons/gender2.png");
+                background-size: 100%;
+                transform: scale3d(1, 1, 1);
+                transition: 0.3s;
+                background-color: rgb(34, 34, 34);
+            }
+                #app2:hover{
+                    transform: scale3d(1.1, 1.1, 1.1);
+                    transition: 0.3s
+                }
+
+            #app3{ /* settings */
+                background-image: url("app-icons/settings.png");
+                background-size: 100%;
+                transform: scale3d(1, 1, 1);
+                transition: 0.3s;
+                background-color: rgb(92, 92, 92);
+            }
+                #app3:hover{
+                    transform: scale3d(1.1, 1.1, 1.1);
+                    transition: 0.3s
+                }
+
+            #app4{ /* calc */
+                background-image: url("app-icons/calculator.png");
+                background-size: 100%;
+                transform: scale3d(1, 1, 1);
+                transition: 0.3s
+            }
+                #app4:hover{
+                    transform: scale3d(1.1, 1.1, 1.1);
+                    transition: 0.3s
+                }
+
+            #app5{ /* news-politics */
+                background-image: url("app-icons/news-politics.png");
+                background-size: 100%;
+                transform: scale3d(1, 1, 1);
+                transition: 0.3s
+            }
+                #app5:hover{
+                    transform: scale3d(1.1, 1.1, 1.1);
+                    transition: 0.3s
+                }
+
+            #app6{ /* likey */
+                background-image: url("app-icons/likey.png");
+                background-size: 100%;
+                transform: scale3d(1, 1, 1);
+                transition: 0.3s;
+                background-color: rgb(100, 19, 154);
+            }
+                #app6:hover{
+                    transform: scale3d(1.1, 1.1, 1.1);
+                    transition: 0.3s
+                }
+
+            #app7{ /* race */
+                background-image: url("app-icons/race.png");
+                background-size: 100%;
+                transform: scale3d(1, 1, 1);
+                transition: 0.3s;
+                /* background-color: rgb(34, 34, 34); */
+            }
+                #app7:hover{
+                    transform: scale3d(1.1, 1.1, 1.1);
+                    transition: 0.3s
+                }
+
+            #app8{ /* running game */
+                background-image: url("app-icons/jumpy-game.png");
+                background-size: 100%;
+                transform: scale3d(1, 1, 1);
+                transition: 0.3s
+            }
+                #app8:hover{
+                    transform: scale3d(1.1, 1.1, 1.1);
+                    transition: 0.3s
+                }
+
+            #app9{ /* scrolly */
+                background-image: url("app-icons/scrolly.png");
+                background-size: 100%;
+                transform: scale3d(1, 1, 1);
+                transition: 0.3s
+            }
+                #app9:hover{
+                    transform: scale3d(1.1, 1.1, 1.1);
+                    transition: 0.3s
+                }
+
+            #app10{ /* class */
+                background-image: url("app-icons/class.png");
+                background-size: 100%;
+                transform: scale3d(1, 1, 1);
+                transition: 0.3s
+            }
+                #app10:hover{
+                    transform: scale3d(1.1, 1.1, 1.1);
+                    transition: 0.3s
+                }
+            
+            #impApp1{ /* internet */
+                background-image: url("app-icons/internet.png");
+                background-size: 100%;
+                transform: scale3d(1, 1, 1);
+                transition: 0.3s
+            }
+                #impApp1:hover{
+                    transform: scale3d(1.1, 1.1, 1.1);
+                    transition: 0.3s
+                }
+            #impApp2{ /* camera */
+                background-image: url("app-icons/camera.png");
+                background-size: 100%;
+                transform: scale3d(1, 1, 1);
+                transition: 0.3s
+            }
+                #impApp2:hover{
+                    transform: scale3d(1.1, 1.1, 1.1);
+                    transition: 0.3s
+                }
+            #impApp3{ /* phone */
+                background-image: url("app-icons/phone.png");
+                background-size: 100%;
+                transform: scale3d(1, 1, 1);
+                transition: 0.3s
+            }
+                #impApp3:hover{
+                    transform: scale3d(1.1, 1.1, 1.1);
+                    transition: 0.3s
+                }
+            #impApp4{ /* music */
+                background-image: url("app-icons/musica.png");
+                background-size: 100%;
+                transform: scale3d(1, 1, 1);
+                transition: 0.3s
+            }
+                #impApp4:hover{
+                    transform: scale3d(1.1, 1.1, 1.1);
+                    transition: 0.3s
+                }
+
+            #noti {
+                min-width: 260px; 
+                height: 60px; 
+                background-color: rgb(56, 56, 68); 
+                z-index: 100;
+                position: absolute;
+                display: flex;
+                align-items: center;
+                padding: 8px;
+                opacity: 0;
+                border-radius: 18px;
+                transform: translate(0, -300px);
+                backdrop-filter: blur(100px); /* I don't think this does anything*/
+                cursor: pointer;
+                animation: notification 6s ease 1;
+            }
+            .noti-textbox{
+                color: white;
+                padding-left: 20px;
+                line-height: 0px;
+                font-family: sans-serif;  
+                font-size: 15px;              
+            }
+
+            @keyframes notification {
+                0% {transform: translateY(-300px); opacity: 0;}
+                5% {opacity: 0;}
+                10% {transform: translateY(-202px); opacity: 100%;}
+                90% {transform: translateY(-202px); opacity: 100%;}
+                95% {opacity: 0;}
+                100% {transform: translateY(-300px); opacity: 0;}
+            }
+
+            #scroll-div{
+                height: 620px;
+                width: 500px;
+                /* border: dashed rgb(137, 137, 137) 3px;  */
+                transform: translate(800px, 30px);
+                display: flex;
+                flex-direction: column;
+                overflow-y: scroll;
+                padding: 20px;
+                color: white;
+                font-family: 'Courier New', Courier, monospace;
+                opacity: 0;
+                text-align: center;
+                transition: all 0.5s;
+            }
+
+            .info-box{
+                max-width: 480px;
+                height: auto;
+                padding: 10px;
+                background-color: #0f0f0f;
+                opacity: 0.8;
+                border: solid whitesmoke 2px;  
+                word-wrap: break-word;
+                margin-bottom: 10px;
+                transition: ease 0.4s;
+            }
+            .info-box > a{
+                color: lightblue;
+            }
+            /* .info-box > a:visited{
+                color: plum;
+            } */
+            .info-box:hover{
+                background-color: #202020;
+            }
+
+
+        </style>
+        <link rel="stylesheet" type="text/css" href="appStyles.css"></script>
+        <script src="jscript.js"></script>
+        <script src="cameraSketch.js"></script>
+        <script src="p5.min.js"></script>
+
+        <script src="otherPhoneStuff.js"></script>
+
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    </head>
+    
+    <body>
+        <div id="left-right-margins">
+            <div id="central-spcae">
+                <div id="phone-pos">
+                    <div id="phone-outline">
+                        <div id="camera"></div>
+                        <div id="speaker"></div>
+                        <div id="screen">
+                            <div id="app-container">
+                                <div class="app" id="app1" onclick="app1()"></div>
+                                <div class="app" id="app2" onclick="app2()"></div>
+                                <div class="app" id="app3" onclick="app3()"></div>
+                                <div class="app" id="app4" onclick="app4()"></div>
+                                <div class="app" id="app5" onclick="app5()"></div>
+                                <div class="app" id="app6" onclick="app6()"></div>
+                                <div class="app" id="app7" onclick="app7()"></div>
+                                <div class="app" id="app8" onclick="app8()"></div>
+                                <div class="app" id="app9" onclick="app9()"></div>
+                                <div class="app" id="app10" onclick="app10()"></div>
+                            </div>
+                            <div id="important-apps-container">
+                                <div class="important-apps" style="background-color: green;" id="impApp1" onclick="iApp1()"></div>
+                                <div class="important-apps" style="background-color: green;" id="impApp2" onclick="iApp2()"></div>
+                                <div class="important-apps" style="background-color: green;" id="impApp3" onclick="iApp3()"></div>
+                                <div class="important-apps" style="background-color: green;" id="impApp4" onclick="iApp4()"></div>
+                            </div>
+
+                        </div>
+                        <div id="scrolly-top"><h1 style="translate: 22% 20%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">SCROLLY</h1>
+                            <div class="inf-list-main">
+                                <ul id="infinite-list"></ul>
+                            </div>
+                        </div>
+                        <!-- JUMP GAME APP -->
+                    <div id="game" onclick="jump()">
+                        <h1 id="game-title">Tap to Jump!</h1>
+                        <div id="character"></div>
+                        <div id="block"></div>
+                        <button id="game-retry-button" onclick="retry()">PLAY</button>
+                    </div>
+                        <!-- CALCULATOR APP -->
+                    <div id="calc-container">
+                        <div class="calculator">
+                            <input type="text" placeholder="0" id="output-screen">
+                            <button class="calc-button" onclick="clr()">Cl</button>
+                            <button class="calc-button" onclick="del()">DEL</button>
+                            <button class="calc-button" onclick="display('%')">%</button>
+                            <button class="calc-button" onclick="display('/')">/</button>
+                            <button class="calc-button" onclick="display('7')">7</button>
+                            <button class="calc-button" onclick="display('8')">8</button>
+                            <button class="calc-button" onclick="display('9')">9</button>
+                            <button class="calc-button" onclick="display('*')">*</button>
+                            <button class="calc-button" onclick="display('4')">4</button>
+                            <button class="calc-button" onclick="display('5')">5</button>
+                            <button class="calc-button" onclick="display('6')">6</button>
+                            <button class="calc-button" onclick="display('-')">-</button>
+                            <button class="calc-button" onclick="display('1')">1</button>
+                            <button class="calc-button" onclick="display('2')">2</button>
+                            <button class="calc-button" onclick="display('3')">3</button>
+                            <button class="calc-button" onclick="display('+')">+</button>
+                            <button class="calc-button" onclick="display('.')">.</button>
+                            <button class="calc-button" onclick="display('0')">0</button>
+                            <button class="calc-button" onclick="calculate()" class="equal">=</button>
+                        </div>
+                        
+                    </div>
+                        <div onclick="homeFunct()" id="home-button"></div>
+                    </div>
+                    
+                    <div id="scroll-div">
+                        <!-- <h1 style="line-height: 0;">TITLE</h1><br><br>
+                        <div class="info-box">asekjfowiefbwieobfdfnfwuebfwiuefbwufbwifbweufbwiubfwiubfiuwebfiuwbfuwefubuwyi</div>
+                        <div class="info-box">asekjfowiefbwieobfdfnfwuebfwiuefbwufbwifbweufbwiubfwiubfiuwebfiuwbfuwefubuwyi</div>
+                        <div class="info-box">asekjfowiefbwieobfdfnfwuebfwiuefbwufbwifbweufbwiubfwiubfiuwebfiuwbfuwefubuwyi</div> -->
+                    </div>
+                </div>
+                <!-- <button onclick="appSlidePhone()">App stand in</button> -->
+                <!-- <button onclick="homeFunct()">Home button</button> -->
+                <button onclick="rotatePhone()" style="position: absolute; translate: 100%;">Rotate</button>
+            </div>
+        </div>
+        <script>
+            //  GAME  //
+            //I used a tutorial for this code: https://www.youtube.com/watch?v=bG2BmmYr9NQ&pp=ygUWc2ltcGxlIGdhbWUgamF2YXNjcmlwdA%3D%3D
+            //This code wouldn't work in an individual js file for me for some reason
+            
+            // let isPlaying = false;
+            let character = document.getElementById("character");
+            let block = document.getElementById("block");
+
+            function jump(){
+                if(character.classList != "animate"){
+                    character.classList.add("animate");
+                }   
+                setTimeout(function(){
+                    character.classList.remove("animate");
+                },500);
+            }
+            
+            let checkDead = setInterval(function(){
+                let characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"))
+                let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"))
+
+                if(blockLeft < 40 && blockLeft > 15 && characterTop >= 210){
+                    block.style.animation = "none";
+                    // document.getElementById("game-title").innerHTML = "YOU LOSE!"
+                    document.getElementById("game-retry-button").style.opacity = "1.0";
+                    // alert("YOU LOSE!")
+                }
+            }, 10);
+
+            function retry(){
+                block.style.animation = "block 1s linear infinite";
+                document.getElementById("game-title").innerHTML = "Tap to Jump!"
+                document.getElementById("game-retry-button").style.opacity = "0";
+            }
+
+            // CALCULATOR APP //
+            
+            // Using tutorial: https://www.youtube.com/watch?v=dDGvSX6vTFY&pp=ygUVY2FsY3VsYXRvciBqYXZhc2NyaXB0
+            let outputScreen = document.getElementById("output-screen");
+            function display(num){
+                outputScreen.value += num;
+            }
+            function calculate(){
+                try{
+                    outputScreen.value = eval (outputScreen.value);
+                }
+                catch(error){
+                    alert("Invalid");
+                }
+            }
+            function clr(){
+                outputScreen.value = "";
+            }
+            function del(){
+                outputScreen.value = outputScreen.value.slice(0,-1);
+            }
+
+            // SCROLLY APP //
+            //Infinite list tutorial: https://www.youtube.com/watch?v=UGVI7CBwhhE&pp=ygUYaW5maW5pdGUgbGlzdCBqYXZhc2NyaXB0
+            let listElm = document.querySelector('#infinite-list')
+            //adds 20 items:
+            let nextItem = 1;
+            let loadmore = function(){
+                for(let i = 0; i < 20; i++){ //created an array of images for it to pick from to make it seem closer to social media
+                    let post1 = document.createElement('img');
+                    post1.setAttribute("class", "inf-list-li");
+                    post1.setAttribute("src", "scrolly-imgs/monkey-in-hotspring.jpg");
+                    // item.innerText = 'item ' + nextItem++;
+
+                    let post2 = document.createElement('img');
+                    post2.setAttribute("class", "inf-list-li");
+                    post2.setAttribute("src", "scrolly-imgs/gervonta-flip.jpg");
+
+                    let post3 = document.createElement('img');
+                    post3.setAttribute("class", "inf-list-li");
+                    post3.setAttribute("src", "scrolly-imgs/guy-surfing-guy.jpg");
+
+                    let post4 = document.createElement('img');
+                    post4.setAttribute("class", "inf-list-li");
+                    post4.setAttribute("src", "scrolly-imgs/selfie again.jpg");
+                    // item.innerText = 'item ' + nextItem++;
+
+                    let post5 = document.createElement('img');
+                    post5.setAttribute("class", "inf-list-li");
+                    post5.setAttribute("src", "scrolly-imgs/selfie of guy.jpeg");
+
+                    let post6 = document.createElement('img');
+                    post6.setAttribute("class", "inf-list-li");
+                    post6.setAttribute("src", "scrolly-imgs/selfie of woman.jpg");
+
+                    let post7 = document.createElement('img');
+                    post7.setAttribute("class", "inf-list-li");
+                    post7.setAttribute("src", "scrolly-imgs/selfie of another woman.jpg");
+
+                    let post8 = document.createElement('img');
+                    post8.setAttribute("class", "inf-list-li");
+                    post8.setAttribute("src", "scrolly-imgs/location-photo-1.jpeg");
+
+                    let post9 = document.createElement('img');
+                    post9.setAttribute("class", "inf-list-li");
+                    post9.setAttribute("src", "scrolly-imgs/location-photo-2.jpeg");
+
+                    let post10 = document.createElement('img');
+                    post10.setAttribute("class", "inf-list-li");
+                    post10.setAttribute("src", "scrolly-imgs/location-post-3.jpeg");
+
+                    let post11 = document.createElement('img');
+                    post10.setAttribute("class", "inf-list-li");
+                    post10.setAttribute("src", "scrolly-imgs/food-post-1.jpeg");
+
+                    let post12 = document.createElement('img');
+                    post12.setAttribute("class", "inf-list-li");
+                    post12.setAttribute("src", "scrolly-imgs/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg");
+
+                    let post13 = document.createElement('img');
+                    post13.setAttribute("class", "inf-list-li");
+                    post13.setAttribute("src", "scrolly-imgs/desert.jpg");
+
+                    let post14 = document.createElement('img');
+                    post14.setAttribute("class", "inf-list-li");
+                    post14.setAttribute("src", "scrolly-imgs/gq-dior-fw16-ads-asap-rocky.webp");
+
+                    let post15 = document.createElement('img');
+                    post15.setAttribute("class", "inf-list-li");
+                    post15.setAttribute("src", "ootd-1.jpg");
+
+                    let post16 = document.createElement('img');
+                    post16.setAttribute("class", "inf-list-li");
+                    post16.setAttribute("src", "scrolly-imgs/ootd-2.jpg");
+
+                    let post17 = document.createElement('img');
+                    post17.setAttribute("class", "inf-list-li");
+                    post17.setAttribute("src", "scrolly-imgs/saka-50th.webp");
+
+                    let post18 = document.createElement('img');
+                    post18.setAttribute("class", "inf-list-li");
+                    post18.setAttribute("src", "scrolly-imgs/eye-art.webp");
+
+                    let post19 = document.createElement('img');
+                    post19.setAttribute("class", "inf-list-li");
+                    post19.setAttribute("src", "scrolly-imgs/IMG_5826.JPG");
+
+                    let post20 = document.createElement('img');
+                    post20.setAttribute("class", "inf-list-li");
+                    post20.setAttribute("src", "scrolly-imgs/images.jpeg");
+
+                let postArray = [post1, post2, post3, post4, post5, post6, post7, post8, post9, post10, post11, post12, post13, post14, post19/*, post16, post17, post18, post15, post20*/]; //having too many posts stopped the infinite scroll from working
+
+                    let randPostIdx = Math.round(Math.random() * (postArray.length-1)); // A random value between 0 and the div array length (-1 to be used as an index number)
+                    let postIdx = randPostIdx;
+
+                    listElm.appendChild(postArray[postIdx]);
+                }
+            }
+            //detect when scrolled to bottom
+            listElm.addEventListener('scroll', function(){
+                if(listElm.scrollTop + listElm.clientHeight >= listElm.scrollHeight){
+                    loadmore();
+                }
+            })
+            //initially load items:
+            loadmore();
+
+            // function likePhotoScrolly(){             //couldn't get this to work
+                // document.getElementsByClassName('inf-list-li').style.animation = "likeAnimScrolly";
+            // }
+        </script>
+    </body>
+</html>
