@@ -4,7 +4,7 @@ The code for these examples can be found [here](https://github.com/anthillsocial
 MA2013 Interface narratives
 
 - [Technical overwhelm](2024-25/MA2013-ElizabethClaridge/index.html)
-- [Mobile control](2024-25/MA2013-mobile-control-Mark Taylor-Chacksfield/index.html)
+- [Mobile control](2024-25/MA2013-mobile-control-MarkTaylorChacksfield/index.html)
 - [Spotify Data](MA2013-2024-Christina-Barmaksezian-SpotifyData/index2.html)
 
 
