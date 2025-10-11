@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        /* Sets background*/
+        html, body{
+            margin:0px;
+            background-color: rgba(1, 1, 1, 0.923);
+            color: #e53935;
+        }
+
+        /* Design for header*/
+        #header, #footer{
+            height:50px;
+            padding-left: 25px;
+        }
+        /* Design for flexbox*/
+        .flexbox {
+            display: flex;
+            flex: 1 1 1;
+            width: 33%;
+            flex-flow: ;
+        }
+        .flexbox > div {
+            flex: 1;
+            outline: 1px solid #ccc;
+            color: #e53935;
+        }
+    </style>
+</head>
+
+<body id="main">
+    <!-- Creates class called flexbox -->
+    <h1>TITLE</h1>
+
+    <div class="flexbox">
+        <div class="center">
+            <div class="flexbox"> <!-- Adds flexboxes to class -->
+                ONE
+            </div>
+            <div class="flexbox">
+                <div>1st</div>
+            </div>
+            <div class="flexbox">
+                <div class="hoverbox" >Block1</div>
+                <div class="hoverbox" >Block2</div>
+                <div class="hoverbox" >Block3</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flexbox">
+        <div id="header" class="col1">FOOTER</div>
+    </div>
+
+
+
+  </body>
+</html>

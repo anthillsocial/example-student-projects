@@ -1,0 +1,60 @@
+{
+  "topArtists": {
+    "numUniqueArtists": 263,
+    "topArtists": [
+      {
+        "artistUri": "spotify:artist:3TVXtAsR1Inumwj472S9r4",
+        "monthlyStreams": [
+          {
+            "month": 5,
+            "biweeklyStreams": [
+              {
+                "period": 2,
+                "numStreams": 36
+              },
+              {
+                "period": 1,
+                "numStreams": 48
+              }
+            ]
+          },
+    "topArtistMilliseconds": 184086807,
+    "topArtistFanPercentage": 0.010306304
+  },
+  "topGenres": {
+    "topGenres": [
+      "rap",
+      "pop",
+      "r&b",
+      "alternative r&b"
+    ],
+    "numberGenres": 10
+  },
+  "topPodcasts": {
+    "topPodcastsUri": [
+    ],
+    "topPodcastPercentage": 0.0,
+    "totalPodcastMilliseconds": 150506
+  },
+  "topTracks": {
+    "topTracks": [
+      "spotify:track:2ZL7WZcjuYKi1KUDtp4kCC",
+      "spotify:track:5c3luoCub1Z1Gg74NdNtuq",
+      "spotify:track:0aFObVR01JzPbBMjze4xPV",
+      "spotify:track:2Kbxfq8wkjMCno1QJe4yyw",
+      "spotify:track:2Ii1GRrLqdZCmMLLsxKhlG"
+    ],
+    "topTrackPlayCount": 92,
+    "topTrackFirstPlayedDate": "2023-01-02",
+    "distinctTracksPlayed": 559
+  },
+  "yearlyMetrics": {
+    "totalMsListened": 678420505,
+    "mostListenedDay": "2023-09-30",
+    "mostListenedDayMinutes": 211.89104,
+    "percentGreaterThanWorldwideUsers": 70.78939
+  },
+  "darkMode": {
+    "creatureOfHabit": "PURIST"
+  }
+}
