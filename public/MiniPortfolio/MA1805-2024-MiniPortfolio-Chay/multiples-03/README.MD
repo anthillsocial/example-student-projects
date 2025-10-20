@@ -1,0 +1,5 @@
+// ik this is not a read me file. my apologies. i want to be able to call specific words out of the array that the above text has already been made into but i dont know how. for example I want to be able to take out words that contain specific lettes or apitals or punctuation and doe something with them, colour or rotate or move them in some way. but i am stuck on how to 'call' a specific word out of the array as idk what the array itself is called. PLEASE HELP. 
+
+Dont worry, i got it downn. I am really happy with this piece atually, I did a lot of research on how to change colours according to what i pick within the text array and alter that specifically. for example the words containing th letter a all change colour. 
+
+The colour i have chnaged to a sandy brown which really fits the theme of OZYMANDIUS which was a staple poem in all secondary school education in england. 
