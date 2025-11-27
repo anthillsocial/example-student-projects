@@ -104,16 +104,16 @@ h1 { margin-bottom: 0px; font-size: 1.8rem; opacity:0.9;}
   padding: 20px; 
 }
 .filters{
-  padding-bottom:5px;
+  padding-bottom:0px;
 }
 a, a:link{color: #fff; opacity:0.8;}
 
 /* Filters */
-.filters { display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center; font-size: 0.85rem; }
-.filter-group { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.filters {font-size: 0.85rem; }
+.filter-group {display:inline }
 .filter-label { font-weight: 600; }
-.filter-buttons { display: flex; flex-wrap: wrap; gap: 6px; }
-.filter-btn { border: 1px solid #444; background: #eee; color: #111; border-radius: 999px; padding: 4px 10px; cursor: pointer; font-size: 0.75rem; transition: background 0.15s ease-out, color 0.15s ease-out, border-color 0.15s ease-out; }
+.filter-buttons { display:inline; }
+.filter-btn {margin-right:5px; border: 1px solid #444; background: #eee; color: #111; border-radius: 999px; padding: 4px 10px; cursor: pointer; font-size: 0.75rem; transition: background 0.15s ease-out, color 0.15s ease-out, border-color 0.15s ease-out; margin-bottom:5px;}
 .filter-btn:hover { background: #ddd; }
 .filter-btn.active { background: #111; color: #fff; border-color: #111; }
 
