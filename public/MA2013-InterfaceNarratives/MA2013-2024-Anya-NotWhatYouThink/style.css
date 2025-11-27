@@ -1,0 +1,144 @@
+html, body {
+  
+  height: 100%;
+  cursor: none;
+
+}
+
+body {
+
+  margin: 0;
+  display: flex;
+
+  /* This centers our sketch horizontally. */
+  justify-content: center;
+
+  /* This centers our sketch vertically. */
+  align-items: center;
+
+}
+
+canvas {
+  display: block;
+}
+
+#inpOnePos {
+
+  top: 28%;
+  left: calc(20% - 100px);
+  position: absolute;
+  
+}
+
+#inpTwoPos {
+
+  top: 18%;
+  left: calc(70% - 100px);
+  position: absolute;
+  
+}
+
+#inpThreePos {
+
+  top: 40%;
+  left: calc(50% - 100px);
+  position: absolute;
+  
+}
+
+#inpFourPos {
+
+  top: 60%;
+  left: calc(30% - 100px);
+  position: absolute;
+  
+}
+
+#inpFivePos {
+
+  top: 55%;
+  left: calc(75% - 100px);
+  position: absolute;
+  
+}
+
+#inpSixPos {
+
+  top: 80%;
+  left: calc(60% - 100px);
+  position: absolute;
+  
+}
+
+#copyText {
+
+  top: 50%;
+  left: 50%;
+  position: absolute;
+
+}
+
+#inpTextPos {
+
+  top: 30%;
+  left: 30%;
+  position: absolute;
+
+}
+
+#scroll-container-one {
+  height: 100%;
+  width: 50%;
+  overflow: visible;
+  position: absolute;
+  left: 0%;
+
+}
+
+#scroll-text-one {
+  height: 100%;
+  text-align: left;
+  opacity: 0.5;
+  color: red;
+
+  /* animation properties */
+  animation: my-animation-one 8s linear infinite;
+}
+
+/* animation keyframes */
+@keyframes my-animation-one {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+#scroll-container-two {
+  height: 800%;
+  width: 50%;
+  overflow: visible;
+  position: absolute;
+  right: 0%;
+
+}
+
+#scroll-text-two {
+  height: 100%;
+  text-align: right;
+  opacity: 0.5;
+  color: green;
+
+  /* animation properties */
+  animation: my-animation-two 30s linear infinite;
+}
+
+@keyframes my-animation-two {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}

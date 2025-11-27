@@ -1,0 +1,34 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", Helvetica sans-serif;
+  font-size: 1.1em;
+  text-align: center;
+  color: red;
+  
+}
+
+.main header,
+.main footer,
+
+
+.main-content {
+  padding: 20px;
+}
+
+.main header,
+.main footer {
+  background: white;
+
+}
+
+
+.center {
+  margin: auto;
+  width: 60%;
+
+}
+
+.key {
+  color: white;
+}

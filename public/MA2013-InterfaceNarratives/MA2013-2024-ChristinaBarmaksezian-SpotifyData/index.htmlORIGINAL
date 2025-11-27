@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<style>
+
+    /* Design for header Spotify photo*/
+    .header img{
+	width:90px;
+	margin-top:20px;
+	margin-bottom: 15px;
+	margin-left: 1050px;
+	}
+
+    /* Background color*/
+    html, body{
+    background-color: #343435;    
+    }  
+    
+    /* aligns to center*/
+.mid{
+	margin-left:610px;
+}
+
+/*line #2*/
+.divider{
+	margin-top:100px;
+	margin-left:555px;
+	margin-right:555px;
+}
+
+/*Facebook login*/
+.btn1{
+	margin-top:30px;
+	width:370px;
+	height:40px;
+	border-width:0px;
+	border-radius:20px;
+	background-color:#0866ff;
+	color:white;
+	font-family: 'Kanit', sans-serif;
+	font-size:13px;
+	background-image:url("facebook.svg");
+	background-repeat:no-repeat;
+	background-position:50px;
+	background-size:25px;
+    margin-left: 300px;
+}
+
+/*Apple login*/
+.btn2{
+	margin-top:8px;
+	width:370px;
+	height:40px;
+	border-width:0px;
+	border-radius:20px;
+	background-color:black;
+	color:white;
+	font-size:13px;
+	font-family: 'Kanit', sans-serif;
+	background-image:url("apple32.png");
+	background-repeat:no-repeat;
+	background-position:50px;
+	background-size:25px;
+    margin-left: 300px;
+}
+
+/*Google login*/
+.btn3{
+	margin-top:8px;
+	width:370px;
+	height:40px;
+	border-width:1px;
+	border-radius:20px;
+	background-color:white;
+	color:rgb(0, 0, 0);
+	font-family: 'Kanit', sans-serif;
+	font-size:13px;
+	background-image:url("google.png");
+	background-repeat:no-repeat;
+	background-position:50px;
+	background-size:25px;
+    margin-left: 300px;
+}
+
+/*Email and password*/
+.input{
+	margin-top:50px;
+	margin-left:600px;
+}
+
+/* Design for username, email and password*/
+fieldset{
+	font-family: 'Kanit', sans-serif;
+	width:370px;
+	height:20px;
+	border-width:0px;
+    margin-left: 295px;
+    color:rgb(255, 255, 255);
+}
+
+/* Username input field*/
+#uname{
+	font-family: 'Kanit', sans-serif;
+	width:365px;
+	height:40px;
+	border-radius:5px;
+	border-width:1px;
+	transition-property:transform scale;
+	transition-duration:1s;
+	transition-delay:0.5s;
+}
+
+/* HOver effect*/
+#uname:hover{
+	transform:scale(1.2);
+	
+}
+
+/* Password input field*/
+/*password*/
+#upass{
+	font-family: 'Kanit', sans-serif;
+	margin-top:5px;
+	width:365px;
+	height:40px;
+	border-radius:5px;
+	border-width:1px;
+	transition-property:transform scale;
+	transition-duration:1s;
+	transition-delay:0.5s;
+}
+
+/* Hover effect*/
+#upass:hover{
+	transform:scale(1.2);
+}
+
+/* Links forgot password*/
+a{
+	font-family: 'Kanit', sans-serif;
+	margin-left:305px;
+	color:gray;
+}
+a:hover{
+	text-decoration:none;
+}
+
+/*remember me*/
+.footer{
+	margin-top:50px;
+	margin-left:885px;
+	font-family: 'Kanit', sans-serif;
+    color:#ffffff;
+}
+
+/*login button*/
+.fbtn{
+	float:right;
+	position:absolute;
+	margin-left: 1015px;
+	bottom:570px;
+	/*margin-right:650px;*/
+}
+
+#lgbtn{
+	width:150px;
+	height:45px;
+	border-radius:20px;
+	border-width:1px;
+    background-color:#1ed760
+	
+}
+#lgbtn:hover{
+	animation-name:loginbtn;
+	animation-duration:1s;
+	animation-timing-function:ease-in-out;
+	animation-iteration-count:;
+}
+
+/* Kreyframes for login button*/
+@keyframes loginbtn{
+	from{
+		background-color:#1ed760;
+	}
+	to{
+		background-color:#13863b;
+	}
+}*/
+/* Hover animation effect*/
+@keyframes loginbtn:hover{
+	0%{background-color:white};
+	100%{background-color:#1ed760};
+    
+}
+
+/*Don't have an account*/
+.crtacc{
+	margin-top:30px;
+	margin-left:980px;
+	font-size:20px;
+	font-family: 'Kanit', sans-serif;
+}
+
+/*Sign up*/
+#signup{
+	margin-top:30px;
+	margin-left:890px;
+	width:400px;
+	height:40px;
+	border-radius:20px;
+	border-width:2px;
+	border-color:black;
+	background-color:#9b9c9b;
+	font-family: 'Kanit', sans-serif;
+}
+
+
+</style>
+
+	<head>
+		<title>
+			Spotify|Log-in
+		</title>
+		<!--<link rel="stylesheet" href="assets/css/style.css"/> -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<script src="main.js"></script>
+
+	</head>
+	<body>
+            <!-- Header  -->
+		<div class="header">
+			<img src="logo.png"/>
+			<hr>
+		</div>
+
+        <!-- Login through social media-->
+		<div class="mid">
+			<input type="submit" value="CONTINUE WITH FACEBOOK " class="btn1" /> 
+		</div>
+		<div class="mid">
+			<input type="submit" value="CONTINUE WITH APPLE" class="btn2"/> 
+		</div>
+		<div class="mid">
+			<input type="submit" value="CONTINUE WITH GOOGLE" class="btn3"/>
+		</div>
+		<!--- login and linking to second page--->
+	<form action="index2.html">
+		<div class="input">
+		<fieldset>
+		<legend>Email address or username</legend>
+			<input type="Email" id="uname" name="username" placeholder="Email address or username"/>
+		</fieldset>
+		</div>
+		
+        <!-- Password-->
+		<div class="input">
+		<fieldset>
+		<legend>Password</legend>
+			<input type="password" id="upass" name="password" placeholder="Password"/>
+		</fieldset>
+		</div>
+		
+        <!-- Forgot your password-->
+		<div class="input">
+			<a href="#">Forgot Your Password?</a>
+		</div>
+	
+        <!-- Remember me-->
+	<div class="footer">
+		<input type="checkbox" id="chckbox" name="rememberme"/>
+		<label for="chckbox">Remember Me</label>
+	</div>
+
+    <!-- Login button-->
+	<div class="fbtn">
+			<input type="submit" id="lgbtn" name="login" value="LOG IN"/>
+			<button></button>
+	</div>
+
+	<hr class="divider">
+
+    <!-- Sign up-->
+	<div class="crtacc">
+		<strong>
+			Don't have an account?
+		</strong>
+	</div>
+	<div>
+		<!---<input type="submit" value="SIGN UP FOR SPOTIFY" onclick="expand()" id="signup" name="createaccount" />--->
+		<button id="signup" onclick="expand()">SIGN UP FOR SPOTIFY</button>
+	</div>
+	</form>
+	<script src="https://kit.fontawesome.com/43732edd53.js" crossorigin="anonymous"></script>
+	</body>
+</html>

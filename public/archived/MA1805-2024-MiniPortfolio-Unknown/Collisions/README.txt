@@ -1,0 +1,5 @@
+Inspiration: This small game i made is inspired by the physical wire and loop game where the player has to move the rod carefully across the wire without touching the wire, otherwise it makes a buzz sound. I changed it around so that the rectangle cannot touch the other rectangles, challenging the player's steady hand until it reaches the end.
+
+Struggles: Originally when my avatar collided with the orange rectangles it filled the colour with more than one of them instead of that one rectangle it came in contact with. I then fixed this issue by creating a custom function where i placed it at the start of the draw function so that the fill is seperated from the other rectangles. allowing the rectangles to change colour when interacted, individually.
+
+Outcome: I now have a functioning game which is unique and challenging to those with a unsteady hand. If I were more experienced at coding on p5.js. I would like to have created a gameover screen for when the player touches the rectangles and when they finish the game. 

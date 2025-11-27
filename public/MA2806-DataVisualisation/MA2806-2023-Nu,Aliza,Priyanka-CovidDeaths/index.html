@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>Infectious Disease; Covid-related Deaths in the UK</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+ <!--THE BELOW LINE LOADS IN P5.JS. DO NOT EDIT!-->
+ <script src="https://cdn.jsdelivr.net/npm/p5"></script>
+ <!--LOAD THE mappa.js EXTENSION-->
+ <script src="./mappa.js" type="text/javascript"></script>
+ <!--LOAD each visualisation-->
+ <script src="sketch.js"></script>
+ <script src="linegraph.js"></script>
+
+ <script src="barchart.js"></script>
+</head>
+
+<body>
+<!--IMPORTANT: THE BELOW <SCRIPT> TAG LINKS OUR CODE FILE INTO OUR PROJECT'S WEBPAGE.-->
+  <script src="sketch.js"></script>
+
+<!-- Sidebar/menu -->
+<div id="sidebar">
+<nav class="w3-sidebar w3-blue w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px"></a>
+
+  <!--<div class="w3-container"> <h3 class="w3-padding-64"><b>All<br>Visualisations</b></h3> </div> -->
+
+  <div class="w3-bar-block">
+    <a href="#linegraph" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Line graph - Quantity of deaths directly resulted from Covid-19</a> 
+     <a href="#barchart" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Bar Chart - Ethnicities most impacted</a> 
+     <a href="#piechart" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Pie Chart - The ages of the deceased</a> 
+     <a href="#map" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Interactive map - Overall deaths by area</a> 
+  </div>
+
+  <div class="w3-container"> <h3 class="w3-padding-64"><b>Themes of intersectionality revisits the early days of data collection and what it means to make data open-source to the public. <br> <br> This website, for example, focuses on the quantity of COVID-19-related deaths, and focusses on the unconventional data source of social media as having a key role to humanise the virus and its devastation as more than just quanitfiable data-points.</b></h3> </div>
+
+</div>
+</nav>
+
+<!-- FORMAT main text alignment -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <!-- Title -->
+  <div class="w3-container" style="margin-top:80px" id="map">
+    <h1 class="w3-jumbo"><b>Covid-19 related Deaths in the UK</b></h1>
+    <h1 class="w3-xxxlarge w3-text-green"><b>At the height of the pandemic (March - December 2020)</b></h1>
+    <!--<hr style="width:900px;border:5px solid red" class="w3-round">-->
+  </div>
+  
+   <!-- Grid (modal) -->
+   <div class="w3-row-padding">
+    <div class="w3-half">
+
+       <!-- Embedded visualisations -->
+      <iframe height="600px" width="200%" src="line.html"></iframe>
+      <iframe height="700px" width="200%" src="bar.html"></iframe>
+      <iframe height="633px" width="200%" src="pie.html"></iframe>
+      <iframe height="633px" width="200%" src="map2.html"></iframe>
+    </div>
+  </div>
+  
+  <!-- Data sources - title and overview text -->
+  <div class="w3-container" id="designers" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-black"><b>Data sources</b></h1>
+    <p> Data about public health in the UK is available on the UKHSA data dashboard. It contains a range of information on the topic, such as COVID instances, fatalities, medical care, and vaccinations in addition to testing. For each topic, there is a multitude of statistics detailing precise and regularly updated data using the largest collection source; the NHS as a mediator of the pandemic. For example, the number of people needing hospital admissions had grown throughout the pandemic, yet weekly deaths were recorded as being reduced substantially since the height of thr pandemic in 2020.</p>
+    <p> By breaking down the number of COVID-19 deaths by age, sex, and ethnic group, we are able to obtain more accurate data for specific visualisations to publish the open-source information in dynamic ways. For example, it is recorded that black men are 4.2 times more likely than white men and women to die from COVID-19, while black women are 4.3 times more likely. This comparison demonstrates how racial differences are used to gauge human behaviour rather than factors such as health status or the ability of the immune system to combat infection. And by displaying the ranges of those hit hardest with the disease, our visualisations provide immediate understanding and a human connection to any and all viewers of them. </p>
+    <p> UK death toll figures and the causes of the wide variations in the figures over time. For example, as of the end of July 2022, 180,000 individuals had died from COVID-19, accounting for approximately 1 in 8 of all deaths that occurred in England and Wales throughout the pandemic. Keeping track of the fatalities and injuries is crucial as it enables us to determine if the restrictions are effective. This is helpful since it shows how the average has changed or increased each month in a similar trend to the death tolls during the height of the pandemic itself. In this way, the persobal accounts of covid-19 related death 'stories' sourced from social media platforms (which became rife as the consequence of lockdown and working/ schooling from home) allows a new type of data collection where it is almost uncooked as we see the beginnings of a trending culture being formed on what caused the entire world to shift to The Digital at an increased rate.</p>
+    <p> Gathering 'pre-cooked' data from largely trusted and reputable sources such as the NHS, the Government, and crowdfunded ventures like Statista, on a topic that is extremely well-documented and still observed to this day means that Covid-19 was a turning point for public interest in their own health as well as others. Over the course of multiple lockdowns and nearly three years, we saw intense debate both in Parliament, and across the World Wide Web; leading to instances where these large databases could collect and organise thought and feeling, converting them into case studies and reports on the intensified human experience that saw many meet their end in isolation and pain, given solace only through being able to share their story to the world on their terms.</p>
+  </div>
+  <!-- Data sources -->
+  <div class="w3-row-padding w3-grayscale">
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <img src="/w3images/team2.jpg" alt="NHS Data" style="width:100%">
+        <div class="w3-container">
+          <h3>NHS (National Health Service)</h3>
+          <p class="w3-opacity">Pre-cooked data</p>
+          <p><a href="https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-deaths/"> <th> (Discontinued) COVID-19 Deaths</th></a> </p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <img src="/w3images/team1.jpg" alt="Government data" style="width:100%">
+        <div class="w3-container">
+          <h3>Gov.uk (Government-regulated information)</h3>
+          <p class="w3-opacity">Pre-cooked data</p>
+          <p><a href="https://ukhsa-dashboard.data.gov.uk/topics/covid-19"> <th> COVID-19 - COVID-19 is a respiratory infection caused by the SARS-CoV-2 virus</th></a> </p>
+          <p><a href="https://ukhsa-dashboard.data.gov.uk"> <th>UKHSA data dashboard</th></a> </p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <img src="/w3images/team3.jpg" alt="Statista" style="width:100%">
+        <div class="w3-container">
+          <h3>Statista (Open-source platform)</h3>
+          <p class="w3-opacity">Open-sourced cooked data</p>
+          <p><a href="https://www.statista.com/statistics/1291744/covid-19-deaths-in-the-united-kingdom-by-age-and-gender/"> <th>Number of deaths involving COVID-19 in the United Kingdom</th></a> </p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <img src="/w3images/team4.jpg" alt="Citizens creating their own data" style="width:100%">
+        <div class="w3-container">
+          <h3>Multimedia (increased quarantine time = increased online activity for self-collected data)</h3>
+          <p class="w3-opacity">Uncooked and unregulated data</p>
+          <p><a href="https://news.sky.com/story/lost-to-covid-19-the-families-stories-as-uk-records-100-000-deaths-12199329"> <th> These are 100 of those 100,000 lost to COVID.</th></a> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<!-- End page content -->
+
+<div id= "image13">
+  <marquee><img src="13.png" width="450px" height="900"></marquee>
+     </div>
+     <div id= "image14">
+      <marquee direction = "up"><img src="14.png" width="550px" height="700"></marquee>
+         </div>
+         <div id= "image15">
+          <marquee></marquee><img src="15.png" width="550px" height="700"></marquee>
+             </div>
+             <div id= "image16">
+              <marquee direction = "down"><img src="16.png" width="550px" height="700"></marquee>
+                 </div>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Game</title>
+
+    <link rel="stylesheet" href="style1.css" />
+    <script src="script.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nova+Round&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="passbody" onload="javascript:start()">
+    <article class="passart" id="passart">
+      <h1 class="title" id="round">Round 1</h1>
+
+      <span class="info"> -------------------------------------- </span><br />
+
+      <span class="info" id="question">
+        question<br />
+        <br />
+      </span>
+
+      <table class="ptable" id="quiz">
+        <tr>
+          <td class="poem">
+            <button onclick="javascript:answer(1)" class="button" id="option1">
+              Random Answer 1
+            </button>
+          </td>
+          <td class="poem">
+            <button onclick="javascript:answer(2)" class="button" id="option2">
+              Random Answer 2
+            </button>
+          </td>
+        </tr>
+      </table>
+
+      <span class="info" id="score"> </span><br />
+
+      <span class="trufal" id="result"> Which one is made by a human? </span
+      ><br />
+
+      <span class="info" id="diary">
+        You have unlocked <a id="studyL" href="chapter1.html">the study</a
+        ><br />
+        <br />
+      </span>
+
+      <span class="info" id="clue">
+        Hint<br />
+        <br />
+      </span>
+
+      <span class="info"> -------------------------------------- </span><br />
+
+      <table class="ptable" id="gactive">
+        <tr>
+          <td class="poem">
+            <button onclick="javascript:move()" class="navigate" id="next">
+              Next Round
+            </button>
+          </td>
+          <td class="poem">
+            <button onclick="javascript:reveal()" class="navigate" id="hint">
+              Hint Reveal
+            </button>
+          </td>
+        </tr>
+      </table>
+
+      <span class="info">
+        <a href="index.html"
+          ><button class="navigate" id="again">Start Over</button></a
+        > </span
+      ><br />
+    </article>
+  </body>
+</html>

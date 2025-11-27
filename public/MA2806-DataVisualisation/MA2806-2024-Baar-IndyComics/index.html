@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homepage | Indie Comics Project</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+  
+  body  {
+    background-image: url("https://cdn.glitch.global/8457bd66-4c79-44ae-9f75-0708b49527d1/Indie%20Comics%20Homepage%20Background.gif?v=1745431259502"); 
+    background-color: black;
+    height: 1500px;
+    width: 990px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    font-family: "Comic Sans MS";
+     }
+        .speech {
+        width: 60%;
+        border-radius:70%;
+        border: 2px solid black;
+        margin: 0;
+        position: absolute;
+        z-index: 1;
+        background: snow ;
+        padding: 40px;
+        top: -15px;
+        text-align: center;
+      }
+      /* Advanced CSS for the speech pointer */
+      .speech:after {
+        border-color: snow transparent;
+        border-style: solid;
+        border-width: 13px 13px 0;
+        bottom: -11px;
+        content: "";
+        display: block;
+        left: 50%;
+        margin-left:-14px;
+        position: absolute;
+        width: 0;
+      }
+      .speech:before {
+        border-color: black transparent;
+        border-style: solid;
+        border-width: 16px 16px 0;
+        bottom: -15px;
+        content: "";
+        display: block;
+        left: 50%;
+        margin-left:-17px;
+        position: absolute;
+        width: 0;
+      }
+      .speech.left {
+        left:100px;
+      }
+      .speech.right {
+        right:100px;
+      }
+      footer {
+        clear: both;
+      }
+  
+/*   MAIN DATA LINK */
+  a img.hover {
+    display: none;
+    position: absolute;
+    left: 1.8%;
+    transform: translateY(40%);
+   }
+  
+  a img.default {
+    display: inherit;
+    position: absolute;
+    left: 1.8%;
+    transform: translateY(40%);
+   }
+  
+  a:hover img.hover {
+    display: inherit;
+    position: absolute;
+    left: 1.8%;
+    transform: translateY(40%);
+   }
+  
+  a:hover img.default {
+    display: none;
+    position: absolute;
+    left: 1.8%;
+    transform: translateY(40%);
+}
+  
+/*   RESEARCH LINK */
+  a img.hover2 {
+    display: none;
+    position: absolute;
+    left: 76.8%;
+    transform: translateY(119%);
+   }
+  
+  a img.default2 {
+    display: inherit;
+    position: absolute;
+    left: 76.8%;
+    transform: translateY(119%);
+   }
+  
+  a:hover img.hover2 {
+    display: inherit;
+    position: absolute;
+    left: 76.8%;
+    transform: translateY(119%);
+   }
+  
+  a:hover img.default2 {
+    display: none;
+    position: absolute;
+    left: 76.8%;
+    transform: translateY(119%);
+}
+  
+/*   VISUALS LINK */
+  a img.hover3 {
+    display: none;
+    position: absolute;
+    left: 1.8%;
+    transform: translateY(291.5%);
+   }
+  
+  a img.default3 {
+    display: inherit;
+    position: absolute;
+    left: 1.8%;
+    transform: translateY(291.5%);
+   }
+  
+  a:hover img.hover3 {
+    display: inherit;
+    position: absolute;
+    left: 1.8%;
+    transform: translateY(291.5%);
+   }
+  
+  a:hover img.default3 {
+    display: none;
+    position: absolute;
+    left: 1.8%;
+    transform: translateY(291.5%);
+}
+  
+/*   HISTORY LINK */
+  a img.hover4 {
+    display: none;
+    position: absolute;
+    left: 51.7%;
+    transform: translateY(291.5%);
+   }
+  
+  a img.default4 {
+    display: inherit;
+    position: absolute;
+    left: 51.7%;
+    transform: translateY(291.5%);
+   }
+  
+  a:hover img.hover4 {
+    display: inherit;
+    position: absolute;
+    left: 51.7%;
+    transform: translateY(291.5%);
+   }
+  
+  a:hover img.default4 {
+    display: none;
+    position: absolute;
+    left: 51.7%;
+    transform: translateY(291.5%);
+}
+  
+/*   REFERENCES LINK */
+  a img.hover5 {
+    display: none;
+    position: absolute;
+    left: 106%;
+    transform: translateY(291.5%);
+   }
+  
+  a img.default5 {
+    display: inherit;
+    position: absolute;
+    left: 106%;
+    transform: translateY(291.5%);
+   }
+  
+  a:hover img.hover5 {
+    display: inherit;
+    position: absolute;
+    left: 106%;
+    transform: translateY(291.5%);
+   }
+  
+  a:hover img.default5 {
+    display: none;
+    position: absolute;
+    left: 106%;
+    transform: translateY(291.5%);
+}
+
+/*   SUMMARY LINK */
+  a img.hover6 {
+    display: none;
+    position: absolute;
+    left: 1.8%;
+    transform: translateY(480.5%);
+   }
+  
+  a img.default6 {
+    display: inherit;
+    position: absolute;
+    left: 1.8%;
+    transform: translateY(480.5%);
+   }
+  
+  a:hover img.hover6 {
+    display: inherit;
+    position: absolute;
+    left: 1.8%;
+    transform: translateY(480.5%);
+   }
+  
+  a:hover img.default6 {
+    display: none;
+    position: absolute;
+    left: 1.8%;
+    transform: translateY(480.5%);
+}
+  
+  .a { /* Scientist */
+    position: absolute;
+    left: 70%;
+    transform: translateY(73%);
+}  
+  
+  .a2 { /* Mark Grayson */
+    position: absolute;
+    left: 40%;
+    transform: translateY(13%);
+} 
+  
+  .a3 { /* Speech bubble */
+    position: absolute;
+    left: 65%;
+    transform: translateY(49%);
+}  
+  
+      .content-block { /* Data Project text */
+        /* background: #FFCD1D; */
+        padding: 30px;
+        margin: -650px;
+        width: 350px;
+        height: 260px;
+        font-size:30px;
+        font-family:Comic Sans MS;
+        transform: translateX(402.5%) translateY(160.5%);
+      }
+</style>
+  </head>
+
+  <body>
+    
+    <h1> <h1 style="font-family:Comic Sans MS;
+                    width: 1074px; 
+                    height: 220px; 
+                    transform: translate(26%, 15%); 
+                    color: yellow;">
+      <p></p>
+      </h1></h1>
+        
+                        <a href="data.html">
+    <img class="default" src="https://cdn.glitch.global/8457bd66-4c79-44ae-9f75-0708b49527d1/Main%20Data%20button.jpeg?v=1745342263460"
+            style="width: 734px; height: 547px"/>
+    <img class="hover" src="https://cdn.glitch.global/8457bd66-4c79-44ae-9f75-0708b49527d1/Main%20Data%20hover.gif?v=1745342278357"
+            style="width: 734px; height: 547px"/>
+</a>
+    
+                            <a href="research.html">
+    <img class="default2" src="https://cdn.glitch.global/8457bd66-4c79-44ae-9f75-0708b49527d1/Research%20button.png?v=1745347996669"
+            style="width: 729px; height: 350px"/>
+    <img class="hover2" src="https://cdn.glitch.global/8457bd66-4c79-44ae-9f75-0708b49527d1/Research%20hover.gif?v=1745348002866"
+            style="width: 729px; height: 350px"/>
+</a>
+    
+                            <a href="visuals.html">
+    <img class="default3" src="https://cdn.glitch.global/8457bd66-4c79-44ae-9f75-0708b49527d1/Visuals%20button.jpeg?v=1745430405142"
+            style="width: 484px; height: 320.5px"/>
+    <img class="hover3" src="https://cdn.glitch.global/8457bd66-4c79-44ae-9f75-0708b49527d1/Visuals%20hover.gif?v=1745430420829"
+            style="width: 484px; height: 320.5px"/>
+</a>
+    
+                            <a href="history.html">
+    <img class="default4" src="https://cdn.glitch.global/8457bd66-4c79-44ae-9f75-0708b49527d1/History%20button.png?v=1745436351975"
+            style="width: 532px; height: 320.5px"/>
+    <img class="hover4" src="https://cdn.glitch.global/8457bd66-4c79-44ae-9f75-0708b49527d1/History%20hover.gif?v=1745437098939"
+            style="width: 532px; height: 320.5px"/>
+</a>
+    
+                            <a href="references.html">
+    <img class="default5" src="https://cdn.glitch.global/8457bd66-4c79-44ae-9f75-0708b49527d1/References%20button.png?v=1745438990591"
+            style="width: 444px; height: 320.5px"/>
+    <img class="hover5" src="https://cdn.glitch.global/8457bd66-4c79-44ae-9f75-0708b49527d1/References%20hover.gif?v=1745438993996"
+            style="width: 444px; height: 320.5px"/>
+</a>
+    
+                           <a href="summary.html">
+    <img class="default6" src="https://cdn.glitch.global/8457bd66-4c79-44ae-9f75-0708b49527d1/Summary%20Button.jpeg?v=1746472541002"
+            style="width: 1474px; height: 160.5px"/>
+    <img class="hover6" src="https://cdn.glitch.global/8457bd66-4c79-44ae-9f75-0708b49527d1/Summary%20Hover.gif?v=1746472555875"
+            style="width: 1474px; height: 160.5px"/>
+</a>
+    
+        <div class="a">
+      <img
+        src="https://cdn.glitch.global/8457bd66-4c79-44ae-9f75-0708b49527d1/Scientist.png?v=1745347994229"
+        width="374"
+        height="440"
+      />
+    </div>
+    
+            <div class="a2">
+      <img
+        src="https://cdn.glitch.global/8457bd66-4c79-44ae-9f75-0708b49527d1/Invincible.png?v=1745442279970"
+        width="454"
+        height="290"
+      />
+    </div>
+    
+        <div class="a3">
+        <p class="speech left">Behold: a magnificent discovery!</p>
+      <img
+        src="https://cdn.glitch.global/8457bd66-4c79-44ae-9f75-0708b49527d1/transparent.png?v=1745417049021"
+        width="404"
+        height="490"
+      />
+    </div>
+    
+          <div class="content-block yellow">
+        <h1>ㅤA Data<br>
+            Visualisation<br>
+          ㅤProject!</h1>
+      </div>
+
+
+  </body>
+    </html>

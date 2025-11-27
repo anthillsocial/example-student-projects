@@ -1,0 +1,280 @@
+/*organise*/
+
+.passbody {
+  background-color: #d5dde0;
+  font-family: "Nova Round", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.passart {
+  width: 950px;
+  display: block;
+  margin: auto;
+  margin-top: 5%;
+  font-size: 17px;
+  position: relative;
+}
+
+/*content*/
+
+.title {
+  text-align: center;
+}
+
+.info {
+  text-align: center;
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+
+.ptable {
+  margin: auto;
+  text-align: justify;
+  border-spacing: 50px 5px;
+}
+
+.poem {
+  padding: 0px;
+  width: 50%;
+}
+
+/*buttons*/
+
+.button {
+  padding: 10px;
+  background-color: #b1b9bd;
+  width: 100%;
+  font-size: 13px;
+  border: none;
+  color: black;
+  text-align: left;
+
+  font-family: "Nova Round", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.buttonFalse {
+  padding: 10px;
+  background-color: #b86c63;
+  width: 100%;
+  font-size: 13px;
+  border: none;
+  color: black;
+  text-align: left;
+
+  font-family: "Nova Round", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.buttonTrue {
+  padding: 10px;
+  background-color: #98a883;
+  width: 100%;
+  font-size: 13px;
+  border: none;
+  color: black;
+  text-align: left;
+
+  font-family: "Nova Round", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.button:hover {
+  padding: 10px;
+  background-color: white;
+  width: 100%;
+  font-size: 13px;
+  border: none;
+  color: black;
+
+  font-family: "Nova Round", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.button:disabled {
+  padding: 10px;
+  background-color: #b1b9bd;
+  width: 100%;
+  font-size: 13px;
+  border: none;
+  color: black;
+
+  font-family: "Nova Round", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*navigation*/
+
+.navigate {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 0px;
+  text-align: justify;
+  visibility: hidden;
+  border: none;
+  background: none;
+
+  font-family: "Nova Round", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.navigate:hover {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 0px;
+  text-align: justify;
+  visibility: visible;
+  background: white;
+
+  font-family: "Nova Round", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.navigateP {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 0px;
+  text-align: justify;
+  visibility: visible;
+  border: none;
+  background: none;
+
+  font-family: "Nova Round", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.navigateP:hover {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 0px;
+  text-align: justify;
+  visibility: visible;
+  background: white;
+
+  font-family: "Nova Round", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*result*/
+
+#result {
+  visibility: visible;
+  font-family: "Nova Round", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.trufal {
+  text-align: center;
+  width: 80%;
+  display: block;
+  margin: auto;
+  visibility: visible;
+  font-family: "Nova Round", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.trufalTrue {
+  text-align: center;
+  color: #788a63;
+  width: 80%;
+  display: block;
+  margin: auto;
+  visibility: visible;
+  font-family: "Nova Round", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.trufalFalse {
+  text-align: center;
+  color: #9e5b52;
+  width: 80%;
+  display: block;
+  margin: auto;
+  visibility: visible;
+  font-family: "Nova Round", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*hints*/
+
+#clue {
+  color: #858b8f;
+  display: none;
+}
+
+#again {
+  visibility: hidden;
+}
+
+/*the study*/
+
+#studyL {
+  color: black;
+}
+#studyL:hover {
+  color: black;
+  background: white;
+  text-decoration: none;
+}
+
+#diary {
+  display: none;
+}
+
+#chapter1 {
+  display: block;
+}
+
+.study {
+  text-align: left;
+  width: 78%;
+  display: block;
+  margin: auto;
+}
+
+.study2 {
+  text-align: right;
+  width: 78%;
+  display: block;
+  margin: auto;
+}
+
+.proof {
+  width: 100%;
+}
+
+.proof2 {
+  width: 100%;
+}
+
+.diaryTable {
+  text-align: left;
+  width: 80%;
+  display: block;
+  margin: auto;
+  border-spacing: 10px 0px;
+}
+
+.diaryTableSection {
+  width: 50%;
+}
+
+.title2 {
+  text-align: center;
+  padding: 0px;
+}

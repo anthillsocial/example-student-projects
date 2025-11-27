@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<head>
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+    <style>
+
+        /* Sets background*/
+        html, body{
+            margin:0px;
+            background-color: rgba(1, 1, 1, 0.923);
+        }
+
+        /* Design for header*/
+        #header, #footer{
+            height:50px;
+            padding-left: 25px;
+        }
+        /* Design for flexbox*/
+        .flexbox {
+            display: flex;
+            width: 2000px;
+        }
+        .flexbox > div {
+            outline: 1px solid;
+        }
+
+        /* Design for col1*/
+        .col1 {
+            flex: 1;
+            color: rgb(8, 8, 8);
+        }
+
+        /* Design for center*/
+        .center {
+            flex: 0 0 1400px;
+            color: rgb(13, 13, 13);
+        }
+        /* Design for hoverbox*/
+        .hoverbox{
+            flex: 1;
+            height: 399px;
+            background:#d6e2da;
+        }
+
+        /* Design for hoverbox1*/
+        .hoverbox1{
+            flex: 1;
+            height: 200px;
+            background:#d6e2da;
+            padding-top: 20px;
+        }
+
+        /* Hover effect to change size*/
+        .hoverbox:hover{   
+            transform: scale(1.05);
+        }
+
+        /* Design for pop-up windows*/
+        #mywindow{
+            position:absolute;
+            top:15px;
+            left:50px;
+            right:50px;
+            bottom:50px;
+            padding:10px;
+            padding-top:130px;
+            background-color: rgba(16, 44, 27, 0.899);
+            z-index: 1000;
+            color: rgb(123, 222, 116);
+            font-family: "Verdana", Sans-serif;
+            font-size: 25px;
+            overflow: auto;   
+        }
+
+        /* Design for the data*/
+        .boxText{
+            padding-top:310px;
+            padding-left: 30px;
+            color: rgb(123, 222, 116);
+            font-family: "Verdana", Sans-serif;
+        }
+        /* P5 JS ELEMENTS */
+        main{
+            z-index:10000;
+        }
+
+        /* Properties for canvas*/
+        canvas {
+            display:block;
+            position:absolute;
+            border-radius: 5px;
+            top:30px;
+            left:60px;
+            width:100%;
+            height:100%;
+            z-index:1001;
+            top:-600px; /* hide off screen until window is open */
+        }
+
+        /* Design for flexbox1*/
+        .flexbox1 {
+        background-color: #d6e2da;
+        font-family: "Verdana", Sans-serif;
+        font-size: 25px;
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    /* Design for flexbox1*/
+    .button-container {
+        margin-top: 30px;
+    }
+
+    /* Design for accept and reject button*/
+    .accept-btn, .reject-btn {
+        background-color: #d6e2da;
+        color: #000;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px 20px;
+        margin: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        padding-bottom: 10px;
+    }
+
+    /* Creates hover effect for accept button*/
+    .accept-btn:hover {
+        background-color: #22ab30;
+        color: white;
+    }
+
+    /* Creates hover effect for reject button*/
+    .reject-btn:hover {
+        background-color: #e53935;
+        color: white;
+    }
+
+    /* Hidden message */
+    .hidden-message {
+        display: none; /* Initially hidden */
+        color: rgb(0, 0, 0); /* text color */
+        margin-top: 20px;
+        font-size: 16px;
+        
+    }
+    /* Design for when message is visible*/
+    .visible-message {
+        display: block; /* Show when buttons are hidden */
+        padding-bottom: 15px;
+    }
+    </style>
+
+</head>
+
+<body id="main">
+    <!-- Creates class called flexbox -->
+    <div class="flexbox">
+        <div id="header" class="col1"></div>
+        <img src="header.png">  <!-- Adds photo for header -->
+    </div>
+    <div class="flexbox">
+        <div class="col1">Left</div>
+        <div class="center">
+            <div class="flexbox"> <!-- Adds flexboxes to class -->
+                <div class="hoverbox" style='background:url("playlisticon.png");' onClick="win('DuoNewFamily.json')">DuoNewFamily.json <!-- Adding background, title, and OnClick function -->
+                    <div class="boxText"><b>DuoNewFamily.json</b></div></div>
+                <div class="hoverbox" style='background:url("playlisticon.png");' onClick="win('Follow.json')">Follow.json
+                    <div class="boxText"><b>Follow.json</b></div>
+                </div>
+                <div class="hoverbox" style='background:url("playlisticon.png");' onClick="win('Identifiers.json')">Identifiers.json
+                    <div class="boxText"><b>Identifiers.json</b></div></div>
+                <div class="hoverbox" style='background:url("playlisticon.png");' onClick="win('Identity.json')">Identity.json
+                    <div class="boxText"><b>Identity.json</b></div></div>
+                <div class="hoverbox" style='background:url("playlisticon.png");' onClick="win('Inferences.json')">Inferences.json
+                    <div class="boxText"><b>Inferences.json</b></div></div>
+                <div class="hoverbox" style='background:url("playlisticon.png");' onClick="win('Marquee.json')">Marquee.json
+                    <div class="boxText"><b>Marquee.json</b></div></div>
+            </div>
+            <div class="flexbox">
+                <div class="hoverbox" style='background:url("playlisticon.png");' onClick="win('Payments.json')">Payments.json
+                    <div class="boxText"><b>Payments.json</b></div></div>
+                <div class="hoverbox" style='background:url("playlisticon.png");' onClick="win('Playlist1.json')">Playlist1.json
+                    <div class="boxText"><b>Playlist1.json</b></div></div>
+                <div class="hoverbox" style='background:url("playlisticon.png");' onClick="win('PlaylistInABottle.json')">PlaylistInABottle.json
+                    <div class="boxText"><b>PlaylistInABottle.json</b></div></div>
+                <div class="hoverbox" style='background:url("playlisticon.png");' onClick="win('SearchQueries.json')">SearchQueries.json
+                    <div class="boxText"><b>SearchQueries.json</b></div></div>
+                <div class="hoverbox" style='background:url("playlisticon.png");' onClick="win('StreamingHistory_music_0.json')">StreamingHistory_music_0.json
+                    <div class="boxText"><b>StreamingHistory_music_0.json</b></div></div>
+                    <div class="hoverbox" style='background:url("playlisticon.png");' onClick="win('Userdata.json')">Userdata.json
+                        <div class="boxText"><b>Userdata.json</b></div></div>
+            </div>
+            <div class="flexbox">
+                <div class="hoverbox" style='background:url("playlisticon.png");' onClick="win('Wrapped2023.json', 'noplay')">Wrapped2023.json
+                    <div class="boxText"><b>Wrapped2023.json</b></div></div>
+                <div class="hoverbox" style='background:url("playlisticon.png");' onClick="win('YourLibrary.json')">YourLibrary.json]
+                    <div class="boxText"><b>YourLibrary.json</b></div></div>
+                <div class="hoverbox" style='background:url("playlisticon copy.png");' onClick="win('Block17')">Block17</div>
+                <div class="hoverbox" style='background:url("playlisticon copy.png");' onClick="win('Block18')">Block18</div>
+                <div class="hoverbox" style='background:url("playlisticon copy.png");' onClick="win('Block18')">Block19</div>
+                <div class="hoverbox" style='background:url("playlisticon copy.png");' onClick="win('Block18')">Block20</div>
+            </div>
+
+            <!-- Creates a div and flexbox1 class -->
+            <div class="flexbox1">
+                ACCEPT COOKIES <!-- Adds text -->
+                <div id="button-container" class="button-container">
+                    <button class="accept-btn" onClick="handleClick()">ACCEPT</button> <!-- Class accept-btn and handleClick() function -->
+                    <button class="reject-btn" onClick="handleClick()">REJECT</button>
+                </div>
+                <p id="message" class="hidden-message">Almost 40% of Americans blindly click 'Accept' whenever they encounter cookie prompts, <br>while about one-fifth (18%) consistently choose to reject cookies.</p>
+            </div>
+            
+
+        </div>
+
+        <div class="col1">Right</div>
+
+    </div>
+
+    <div class="flexbox">
+        <div id="header" class="col1">FOOTER</div>
+    </div>
+
+    <script src="libraries/p5.speech.js"></script>
+    <script src="sketch.js"></script>
+    <script>
+
+function handleClick() {
+        // Hides the button container
+        document.getElementById("button-container").style.display = "none";
+
+        // Shows the message
+        const message = document.getElementById("message");
+        message.classList.remove("hidden-message");
+        message.classList.add("visible-message");
+    }
+
+        // Allows the p5.js sketch to access the current filename
+        let filename;
+        let myText = false; // Used in p5 sketch
+        let soundState ;
+
+        // Opens a popup window with content
+        function win(newFilename, theState){
+            // Saves the current filename being loaded
+            filename = newFilename; 
+            // Determines if the sound should play or not
+            soundState = theState;
+            console.log(theState);
+            // Closes an old window if its already open
+            closeme();
+            // Creates the window DIV
+            let element = document.createElement("div");  
+            element.setAttribute("id", "mywindow");     
+            element.setAttribute("onClick", "closeme()");   
+            element.innerHTML = newFilename;                                                 
+            document.body.appendChild(element); 
+            // Adds the text of a file to the DIV
+            grabText(element, newFilename);
+            // Makes the p5 JS canvas element visible 
+            let elements = document.getElementsByTagName("canvas");
+            elements.forEach(element => {
+                element.style.top = "25px"; 
+            });
+        }
+
+        // Closes the open window
+        function closeme(){
+            // Hides the p5 js canvas element
+            let elements = document.getElementsByTagName("canvas");
+            elements.forEach(element => {
+                element.style.top = "-600px"; 
+            });
+            // Disables sound playing
+            stopMySound();
+            // Deletes an already open window
+            let window = document.getElementById("mywindow");
+            if(window != null){
+                window.remove();
+            }
+        }
+
+        // Loads an external text file
+        function grabText(div, filename){
+            fetch(filename)
+                .then(response => response.text())
+                .then((data) => {
+                    myText = filename; 
+                    myText += data; 
+                    myText += filename; 
+                    myText += "<br />PRIVATE INFORMATION"; 
+                    // Displays the text in the popup
+                    document.getElementById("mywindow").innerHTML = myText;
+                    // Plays sound in the p5.js sktch
+                    playMySound();
+            });
+
+        
+        }
+      
+    </script>
+
+  </body>
+</html>

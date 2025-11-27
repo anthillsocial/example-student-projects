@@ -1,0 +1,1 @@
+Game - Navigate the platform with arrow keys. Shoot falling blocks with the mouse

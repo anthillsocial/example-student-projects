@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Transatlantic Slave Trade Routes</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+      html,
+      body,
+      #map,
+      .leaflet-container {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        font-family: "Arial", sans-serif;
+        background: linear-gradient(to bottom, #f5f3f0, #e7ddd4);
+      }
+
+      #map {
+        filter: saturate(1.2) contrast(1.05);
+      }
+
+      .leaflet-popup-content-wrapper {
+        background-color: #fffaf3;
+        border-left: 6px solid #d2691e;
+        font-size: 14px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .leaflet-popup-content {
+        color: #3e2f2f;
+      }
+
+      .leaflet-marker-icon {
+        transition: transform 0.5s ease; /* Smooth transition for scaling */
+      }
+
+      .leaflet-marker-icon:hover {
+        transform: scale(1.2); /* we changed this multiple times to change the icon on hover */
+      }
+
+      #sidebar {
+        position: absolute;
+        display: none;
+        top: 0;
+        right: 0;
+        width: 300px;
+        background-color: white;
+        height: 100vh;
+        z-index: 700;
+        padding: 1em;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.15);
+        font-size: 14px;
+      }
+
+      #sidebar div {
+        padding: 10px;
+      }
+
+      .legend {
+        position: absolute;
+        left: 10px;
+        background: #fffaf3;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        color: black; 
+        border: 1px solid #ccc;
+        max-height: 200px; 
+        overflow-y: auto; /* Enable scrolling if content exceeds the height that we write down*/
+      }
+
+      /* we can adjust this to prevent overlap with main legend */
+      #legendContainer {
+        bottom: 20px; 
+        height: 150px; 
+        width: 200px; 
+      }
+
+
+      .legend span {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin-right: 5px;
+        border-radius: 50%;
+      }
+
+      .legend h4 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        color: black;
+      }
+
+      .leaflet-marker-icon {
+        transition: transform 0.5s ease; /* keeping a smooth transition for scaling but there are still some issues?? */
+      }
+
+      .leaflet-marker-icon:hover {
+        transform: scale(1.2); /* Grow the icon on hover */
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="sidebar"></div>
+    <div id="legend" class="legend">
+      <p>
+        <span style="background: #b30900; border: 1px solid #ccc"></span> Europe
+        to Africa (Goods)
+      </p>
+      <p>
+        <span style="background: #095700"></span> Middle Passage (Enslaved
+        individuals)
+      </p>
+      <p>
+        <span style="background: #000000"></span> Americas to Europe (Goods)
+      </p>
+    </div>
+
+    <div id="legendContainer" class="legend">
+      <!-- Default legend content (e.g. for the first layer shown) -->
+      <h4>Triangular Trade Routes</h4>
+      <p><span style="color: #800000">●</span> Europe to Africa (Goods)</p>
+      <p>
+        <span style="color: #006400">●</span> Middle Passage (Enslaved
+        individuals)
+      </p>
+      <p><span style="color: #000000">●</span> Americas to Europe (Goods)</p>
+    </div>
+
+    <script>
+      // Initialize map
+      const map = L.map("map", { zoomControl: false }).setView([20, -30], 3);
+
+      // Base Layer - OpenStreetMap
+      const openStreetMapLayer = L.tileLayer(
+        "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+          maxZoom: 19,
+          attribution:
+            '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        }
+      ).addTo(map);
+
+      
+      // lucia note - make sure that this works for all the curves, some keep glitching and its not working??
+      // Function to create Bezier curves
+      function getBezierCurve(start, end, curvature) {
+        // Calculate midpoint
+        const midLat = (start[0] + end[0]) / 2;
+        const midLng = (start[1] + end[1]) / 2;
+
+        // Calculate control point (perpendicular to the line)
+        const dx = end[1] - start[1];
+        const dy = end[0] - start[0];
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        const curvatureFactor = distance * curvature;
+
+        const controlLat = midLat + (dx / distance) * curvatureFactor;
+        const controlLng = midLng - (dy / distance) * curvatureFactor;
+
+        // Generate points along the curve
+        const points = [];
+        for (let t = 0; t <= 1; t += 0.02) {
+          const lat =
+            (1 - t) * (1 - t) * start[0] +
+            2 * (1 - t) * t * controlLat +
+            t * t * end[0];
+          const lng =
+            (1 - t) * (1 - t) * start[1] +
+            2 * (1 - t) * t * controlLng +
+            t * t * end[1];
+          points.push([lat, lng]);
+        }
+
+        return points; // Return curve points
+
+      } 
+
+      // Define custom icons
+      const customIcon = L.icon({
+        iconUrl:
+          "https://cdn.glitch.global/4998c4c1-7e7a-4cc9-9fc4-794ec0bfe582/marker2.jpg?v=1746302374012",
+        iconSize: [38, 38],
+        iconAnchor: [19, 38],
+        popupAnchor: [0, -38],
+      });
+
+      const arrowIcon = L.icon({
+        iconUrl:
+          "https://upload.wikimedia.org/wikipedia/commons/6/6a/Arrow_icon.svg",
+        iconSize: [20, 20],
+        iconAnchor: [10, 10],
+        popupAnchor: [0, -10],
+      });
+
+      const labourIcon = L.icon({
+        iconUrl:
+          "https://cdn.glitch.global/4998c4c1-7e7a-4cc9-9fc4-794ec0bfe582/labour.png?v=1743418062535",
+        iconSize: [30, 30],
+        iconAnchor: [15, 15],
+        popupAnchor: [0, -15],
+      });
+
+      const consumerIcon = L.icon({
+        iconUrl:
+          "https://cdn.glitch.global/4998c4c1-7e7a-4cc9-9fc4-794ec0bfe582/consumer.png?v=1743417516006",
+        iconSize: [30, 30],
+        iconAnchor: [15, 15],
+        popupAnchor: [0, -15],
+      });
+
+      // Define all checkpoints for the first layer -- these coordinates are for all ports involved in the transatlantic slave trade
+      const checkpoints = [
+        { name: "Virginia", coords: [36.809285, -76.047363] },
+        { name: "Boston", coords: [42.358544, -71.037598] },
+        { name: "Newport", coords: [41.492121, -71.345215] },
+        { name: "New York", coords: [40.713956, -74.014893] },
+        { name: "Annapolis", coords: [38.978443, -76.49218] },
+        { name: "Charleston", coords: [32.833443, -79.980469] },
+        { name: "Savannah", coords: [32.0809, -81.0912] },
+        { name: "St. Helena", coords: [-15.965, -5.7089] },
+        { name: "Biloxi", coords: [30.40591788561421, -88.77285165687432] },
+        {
+          name: "New Orleans",
+          coords: [29.949298853737734, -90.06522659332146],
+        },
+        { name: "Nassau", coords: [25.04055546823429, -77.3850466532824] },
+        { name: "Cuba", coords: [21.61574887934758, -78.90330547243904] },
+        { name: "Jamaica", coords: [18.14431405374966, -77.36977822037547] },
+        {
+          name: "Santo Domingo",
+          coords: [18.47453416213026, -69.94267299170747],
+        },
+        {
+          name: "Puerto Rico",
+          coords: [18.260987943063935, -66.50023686109789],
+        },
+        {
+          name: "Cayenne, French Guiana",
+          coords: [5.132276095192733, -52.25683497049437],
+        },
+        {
+          name: "Para, Brazil",
+          coords: [-5.472287350383543, -52.283682257643875],
+        },
+        {
+          name: "Maranhao",
+          coords: [-2.4809764486254973, -44.275392107768226],
+        },
+        { name: "Taipu", coords: [-5.4066694041047425, -35.53015901491047] },
+        {
+          name: "Paraiba (Joao Pessoa)",
+          coords: [-7.112123428927773, -34.885963587288856],
+        },
+        {
+          name: "Marina Farhina",
+          coords: [-7.855157399604565, -34.83262535072249],
+        },
+        {
+          name: "Pernambucco",
+          coords: [-8.243514247833183, -37.956636425761346],
+        },
+        { name: "Bahia", coords: [-12.031021016956727, -41.66083565550143] },
+        { name: "Campos", coords: [-20.428445537817762, -33.036016573559564] },
+        {
+          name: "Cabo Frio",
+          coords: [-22.884388698614192, -42.02037525496238],
+        },
+        { name: "Macae", coords: [-22.386181689737448, -41.78066127322673] },
+        {
+          name: "Rio de Janeiro",
+          coords: [-22.886479021564984, -43.27476744473582],
+        },
+        { name: "Santos", coords: [-23.94042834087288, -46.30010495683764] },
+        {
+          name: "Ilha Grande",
+          coords: [-23.148982361239238, -44.23300009136945],
+        },
+        {
+          name: "Sao Sebastao",
+          coords: [-23.801726702445006, -45.397678218542005],
+        },
+        { name: "Paranagua", coords: [-25.51699862459232, -48.52776052583337] },
+        {
+          name: "Montevideo",
+          coords: [-34.90959638053603, -56.152534532858276],
+        },
+        {
+          name: "Buenos Aires",
+          coords: [-34.601252874263075, -58.398815629576234],
+        },
+        { name: "Gorée", coords: [14.666832046174246, -17.39844349895323] },
+        { name: "Cacheu", coords: [12.273271073402555, -16.166596496898283] },
+        { name: "Bissau", coords: [11.835704531345296, -15.490085154550965] },
+        { name: "Rio Pongo", coords: [10.056668152877842, -14.06501981475845] },
+        {
+          name: "Freetown, Sierra Leone",
+          coords: [8.487616096452491, -13.23887461455107],
+        },
+        {
+          name: "Sherbro Island",
+          coords: [7.557008709106513, -12.649530035519167],
+        },
+        { name: "Gallinhas", coords: [11.46462554505259, -15.945114100850045] },
+        { name: "Monrovia", coords: [7.800753421778559, -11.001098504711264] },
+        { name: "Bassa", coords: [5.892582862134684, -10.0433554339095] },
+        {
+          name: "Gold Coast, Africa",
+          coords: [5.621237236379753, -0.17603479533212],
+        },
+        { name: "Lagos", coords: [6.513655823434146, 3.3918967441318415] },
+        {
+          name: "Bight of Benin",
+          coords: [5.002136347788952, 2.099998132787663],
+        },
+        {
+          name: "Bight of Bonny",
+          coords: [3.231179401635861, 8.149653314413452],
+        },
+        { name: "Loango", coords: [-4.63023218092063, 11.852287448349303] },
+        { name: "Malembo", coords: [-5.3383311226623045, 12.18731384033591] },
+        { name: "Cabinda", coords: [-5.570006822126092, 12.200373256520331] },
+        { name: "Ambriz", coords: [-7.860978982112393, 13.11868285003918] },
+        { name: "Luanda", coords: [-8.812693172264362, 13.238666289865543] },
+        { name: "Benguela", coords: [-12.589855508580584, 13.416900427014133] },
+        {
+          name: "Cape Town",
+          coords: [-33.927455865520955, 18.485535764822114],
+        },
+        { name: "Whitehaven", coords: [54.54857923289212, -3.587534605958781] },
+        {
+          name: "Lancaster",
+          coords: [54.044760413169264, -2.7985687285377705],
+        },
+        { name: "Liverpool", coords: [53.41116181122573, -2.9913844487536467] },
+        { name: "Bristol", coords: [51.45474401954665, -2.585989019873164] },
+        { name: "London", coords: [51.50937292164379, -0.06606992624469994] },
+        { name: "Copenhagen", coords: [55.67453104947686, 12.565325646515292] },
+        { name: "Hamburg", coords: [53.55159243566743, 10.008805387468955] },
+        { name: "Emden", coords: [53.357872821563, 7.218447149888784] },
+        { name: "Amsterdam", coords: [52.36587296221777, 4.903949799930262] },
+        { name: "Rotterdam", coords: [51.92245252298187, 4.477092485364073] },
+        {
+          name: "Vlissingen, Zeeland",
+          coords: [51.45416015723992, 3.570512251142603],
+        },
+        { name: "Dunkirk", coords: [51.03552697019006, 2.3749628068175777] },
+        { name: "Le Havre", coords: [49.49533920690447, 0.10303888277233139] },
+        { name: "St Malo", coords: [48.6608643786844, -1.9128221849676792] },
+        { name: "Brest", coords: [48.39063322102179, -4.489975083260611] },
+        { name: "Lorient", coords: [47.747824115949314, -3.370467866493175] },
+        { name: "Nantes", coords: [47.21837533727744, -1.391709537477451] },
+        { name: "Vienne", coords: [45.52621691372897, 4.875416251680804] },
+        { name: "Rochefort", coords: [45.91949101910802, -0.8107368456152336] },
+        { name: "Bordeaux", coords: [44.84275694658723, -0.5812087550109547] },
+        { name: "Marseille", coords: [43.308707438586126, 5.378564836737026] },
+        { name: "Bayonne", coords: [43.51035919422295, -1.3751500752790722] },
+        {
+          name: "Santander",
+          coords: [43.464202701240346, -3.8234974716073835],
+        },
+        { name: "Oporto", coords: [41.157917310302366, -8.627104324801628] },
+        { name: "Lisbon", coords: [38.71887529760304, -9.133646719728098] },
+        {
+          name: "Sanlucar de Barrameda",
+          coords: [36.77184356688252, -6.359058465159651],
+        },
+        { name: "Sevilla", coords: [37.39171019966752, -5.9880207438088915] },
+        { name: "Cadiz", coords: [36.49037602736774, -5.988744425832666] },
+      ];
+
+      // Define coffee trade routes
+      const coffeeTradeRoutes = [
+    {
+        name: "South America to Europe",
+        description: "Fairtrade coffee is exported from Brazil, a leading producer, to Germany, where it supports sustainable practices and ethical sourcing.",
+        coords: [
+            [-14.235, -51.9253], // Brazil
+            [51.1657, 10.4515], // Germany
+        ],
+        curvePoints: [
+            getBezierCurve([-14.235, -51.9253], [51.1657, 10.4515], 0.5),
+        ],
+        category: "SouthAmerica-Europe",
+    },
+    {
+        name: "South America to North America",
+        description: "Brazilian coffee reaches the USA, fostering economic stability for farmers through fair trade certification and consumer awareness.",
+        coords: [
+            [-14.235, -51.9253], // Brazil
+            [37.0902, -95.7129], // USA
+        ],
+        curvePoints: [
+            getBezierCurve([-14.235, -51.9253], [37.0902, -95.7129], 0.4),
+        ],
+        category: "SouthAmerica-NorthAmerica",
+    },
+    {
+        name: "Asia to Europe",
+        description: "Vietnamese coffee, known for its unique flavors, is exported to Germany, promoting fair trade practices that benefit local growers.",
+        coords: [
+            [14.0583, 108.2772], // Vietnam
+            [51.1657, 10.4515], // Germany
+        ],
+        curvePoints: [
+            getBezierCurve([14.0583, 108.2772], [51.1657, 10.4515], 0.3),
+        ],
+        category: "Asia-Europe",
+    },
+    {
+        name: "Africa to Europe",
+        description: "Ugandan coffee, celebrated for its quality, is traded with Germany, ensuring fair wages for farmers through ethical sourcing.",
+        coords: [
+            [1.3733, 32.2903], // Uganda
+            [51.1657, 10.4515], // Germany
+        ],
+        curvePoints: [
+            getBezierCurve([1.3733, 32.2903], [51.1657, 10.4515], 0.4),
+        ],
+        category: "Africa-Europe",
+    },
+    {
+        name: "Mexico to Europe",
+        description: "Mexican coffee, rich in flavor, is exported to Germany, supporting local farmers and promoting sustainable agriculture.",
+        coords: [
+            [23.6345, -102.5528], // Mexico
+            [51.1657, 10.4515], // Germany
+        ],
+        curvePoints: [
+            getBezierCurve([23.6345, -102.5528], [51.1657, 10.4515], 0.2),
+        ],
+        category: "Mexico-Europe",
+    },
+    {
+        name: "Mexico to USA",
+        description: "Coffee from Mexico reaches the USA, strengthening local economies and ensuring fair trade practices are upheld.",
+        coords: [
+            [23.6345, -102.5528], // Mexico
+            [37.0902, -95.7129], // USA
+        ],
+        curvePoints: [
+            getBezierCurve([23.6345, -102.5528], [37.0902, -95.7129], 0.3),
+        ],
+        category: "Mexico-USA",
+    },
+    {
+        name: "Africa to America",
+        description: "Ugandan coffee is exported to the USA, providing fair wages to farmers and promoting ethical consumption.",
+        coords: [
+            [1.3733, 32.2903], // Uganda
+            [37.0902, -95.7129], // USA
+        ],
+        curvePoints: [
+            getBezierCurve([1.3733, 32.2903], [37.0902, -95.7129], 0.4),
+        ],
+        category: "Africa-America",
+    },
+    {
+        name: "Africa to Canada",
+        description: "Quality coffee from Uganda is traded with Canada, supporting fair trade initiatives that benefit local communities.",
+        coords: [
+            [1.3733, 32.2903], // Uganda
+            [56.1304, -106.3468], // Canada
+        ],
+        curvePoints: [
+            getBezierCurve([1.3733, 32.2903], [56.1304, -106.3468], 0.4),
+        ],
+        category: "Africa-Canada",
+    },
+];
+
+      // Define all Triangular Trade routes -- We liked that we had a description for each of the trade routes so it would go more in depth
+      const triangularTradeRoutes = [
+        // EUROPE TO AFRICA (WHITE)
+        {
+          name: "Liverpool to Gold Coast",
+          description:
+            "European manufactured goods (guns, textiles, alcohol) traded for enslaved Africans",
+          coords: [
+            [53.41116181122573, -2.9913844487536467], // Liverpool
+            [5.621237236379753, -0.17603479533212], // Gold Coast
+          ],
+          curvePoints: [
+            getBezierCurve(
+              [53.41116181122573, -2.9913844487536467],
+              [5.621237236379753, -0.17603479533212],
+              0.3
+            ),
+          ],
+          category: "Europe-Africa",
+        },
+        {
+          name: "Nantes to Loango",
+          description: "French manufactured goods traded for enslaved Africans",
+          coords: [
+            [47.21837533727744, -1.391709537477451], // Nantes
+            [-4.63023218092063, 11.852287448349303], // Loango
+          ],
+          curvePoints: [
+            getBezierCurve(
+              [47.21837533727744, -1.391709537477451],
+              [-4.63023218092063, 11.852287448349303],
+              0.4
+            ),
+          ],
+          category: "Europe-Africa",
+        },
+        {
+          name: "Lisbon to Luanda",
+          description: "Portuguese goods traded for enslaved Africans",
+          coords: [
+            [38.71887529760304, -9.133646719728098], // Lisbon
+            [-8.812693172264362, 13.238666289865543], // Luanda
+          ],
+          curvePoints: [
+            getBezierCurve(
+              [38.71887529760304, -9.133646719728098],
+              [-8.812693172264362, 13.238666289865543],
+              0.3
+            ),
+          ],
+          category: "Europe-Africa",
+        },
+
+        // AFRICA TO AMERICAS - MIDDLE PASSAGE (RED)
+        {
+          name: "Gold Coast to Jamaica",
+          description:
+            "Enslaved Africans transported to Caribbean sugar plantations",
+          coords: [
+            [5.621237236379753, -0.17603479533212], // Gold Coast
+            [18.14431405374966, -77.36977822037547], // Jamaica
+          ],
+          curvePoints: [
+            getBezierCurve(
+              [5.621237236379753, -0.17603479533212],
+              [18.14431405374966, -77.36977822037547],
+              0.5
+            ),
+          ],
+          category: "Africa-Americas",
+        },
+        {
+          name: "Luanda to Bahia",
+          description:
+            "Enslaved Africans transported to Brazilian sugar plantations",
+          coords: [
+            [-8.812693172264362, 13.238666289865543], // Luanda
+            [-12.031021016956727, -41.66083565550143], // Bahia
+          ],
+          curvePoints: [
+            getBezierCurve(
+              [-8.812693172264362, 13.238666289865543],
+              [-12.031021016956727, -41.66083565550143],
+              0.5
+            ),
+          ],
+          category: "Africa-Americas",
+        },
+        {
+          name: "Bight of Benin to Virginia",
+          description:
+            "Enslaved Africans transported to North American tobacco plantations",
+          coords: [
+            [5.002136347788952, 2.099998132787663], // Bight of Benin
+            [36.809285, -76.047363], // Virginia
+          ],
+          curvePoints: [
+            getBezierCurve(
+              [5.002136347788952, 2.099998132787663],
+              [36.809285, -76.047363],
+              0.4
+            ),
+          ],
+          category: "Africa-Americas",
+        },
+
+        // AMERICAS TO EUROPE (BLUE)
+        {
+          name: "Jamaica to Bristol",
+          description: "Caribbean sugar transported to British markets",
+          coords: [
+            [18.14431405374966, -77.36977822037547], // Jamaica
+            [51.45474401954665, -2.585989019873164], // Bristol
+          ],
+          curvePoints: [
+            getBezierCurve(
+              [18.14431405374966, -77.36977822037547],
+              [51.45474401954665, -2.585989019873164],
+              -0.3
+            ),
+          ],
+          category: "Americas-Europe",
+        },
+        {
+          name: "Rio de Janeiro to Lisbon",
+          description: "Brazilian gold and sugar transported to Portugal",
+          coords: [
+            [-22.886479021564984, -43.27476744473582], // Rio
+            [38.71887529760304, -9.133646719728098], // Lisbon
+          ],
+          curvePoints: [
+            getBezierCurve(
+              [-22.886479021564984, -43.27476744473582],
+              [38.71887529760304, -9.133646719728098],
+              -0.3
+            ),
+          ],
+          category: "Americas-Europe",
+        },
+        {
+          name: "Virginia to Liverpool",
+          description: "Tobacco and cotton transported to British markets",
+          coords: [
+            [36.809285, -76.047363], // Virginia
+            [53.41116181122573, -2.9913844487536467], // Liverpool
+          ],
+          curvePoints: [
+            getBezierCurve(
+              [36.809285, -76.047363],
+              [53.41116181122573, -2.9913844487536467],
+              -0.3
+            ),
+          ],
+          category: "Americas-Europe",
+        },
+      ];
+
+      // Color scheme for the Triangular Trade routes - did this for Pan African Flag
+      const routeColors = {
+        "Europe-Africa": "#b30900", // Red
+        "Africa-Americas": "#095700", // Green
+        "Americas-Europe": "#000000", // Black
+      };
+
+  // Layer groups for organisation
+      const originalLayer = L.layerGroup();
+      const coffeeIndustryLayer = L.layerGroup();
+      const mergedLayer = L.layerGroup();
+
+      // Draw the Triangular Trade routes onto the map
+      triangularTradeRoutes.forEach((route) => {
+        const routeColor = routeColors[route.category];
+        const isMiddlePassage = route.category === "Africa-Americas";
+
+        route.curvePoints.forEach((curveSegment) => {
+          // Add to original layer with original styling
+          L.polyline(curveSegment, {
+            color: routeColor,
+            weight: isMiddlePassage ? 6 : 4,
+            opacity: 0.9,
+          })
+            .addTo(originalLayer)
+            .bindPopup(`<b>${route.name}</b><br>${route.description}`);
+
+          // Add to merged layer with UNIFORM white dotted styling -- we wanted these lines to be differentiated from the first map as we appreciate the user is now aware of what they represent
+          L.polyline(curveSegment, {
+            color: "#b0b0b0", // All lines are grey
+            weight: 4, // Consistent thickness
+            opacity: 1,
+            dashArray: "5, 5", // All lines dashed
+          }).addTo(mergedLayer);
+        });
+      });
+
+      // Draw coffee trade routes only on the merged layer
+      coffeeTradeRoutes.forEach((route) => {
+        route.curvePoints.forEach((curveSegment) => {
+          L.polyline(curveSegment, {
+            color: "#e6de00", // Yellow for merged layer
+            weight: 4,
+            opacity: 1,
+          })
+            .addTo(mergedLayer)
+            .bindPopup(`<b>${route.name}</b><br>${route.description}`);
+        });
+      });
+
+      // Add checkpoints to map
+      checkpoints.forEach((location) => {
+        L.marker(location.coords, { icon: customIcon })
+          .addTo(originalLayer)
+          .bindPopup(`<b>${location.name}</b>`);
+      });
+
+      // Coffee industry data
+      const coffeeExportingCountries = [
+        {
+          name: "1. Brazil",
+          coords: [-14.235, -51.9253],
+          info: "Largest coffee producer in the world, with 38% of global production. In 2024, Brazil produced 66.4 Million 60kg bags of coffee.",
+        },
+        {
+          name: "2. Vietnam",
+          coords: [14.0583, 108.2772],
+          info: "17% of global production, producing 30.1 Million 60kg bags of coffee in 2024.",
+        },
+        {
+          name: "3. Colombia",
+          coords: [4.5709, -74.2973],
+          info: "7% of global production, producing 12.9 Million 60kg bags of coffee in 2024.",
+        },
+        {
+          name: "4. Indonesia",
+          coords: [0.7893, 113.9213],
+          info: "6% of global production, producing 10.9 Million 60kg bags of coffee in 2024.",
+        },
+        {
+          name: "5. Ethiopia",
+          coords: [9.145, 40.4897],
+          info: "5% of global production, producing 8.36 Million 60kg bags of coffee in 2024.",
+        },
+        {
+          name: "6. Uganda",
+          coords: [1.3733, 32.2903],
+          info: "4% of global production, producing 6.4 Million 60kg bags of coffee in 2024.",
+        },
+        {
+          name: "7. India",
+          coords: [20.5937, 78.9629],
+          info: "4% of global production, producing 6.2 Million 60kg bags of coffee in 2024.",
+        },
+        {
+          name: "8. Honduras",
+          coords: [15.2, -86.2419],
+          info: "3% of global production, producing 5.3 Million 60kg bags of coffee in 2024.",
+        },
+        {
+          name: "9. Peru",
+          coords: [9.19, -75.0152],
+          info: "2% of global production, producing 4.35 Million 60kg bags of coffee in 2024.",
+        },
+        {
+          name: "10. Mexico",
+          coords: [23.6345, -102.5528],
+          info: "2% of global production, producing 3.87 Million 60kg bags of coffee in 2024.",
+        },
+      ];
+
+      const coffeeImportingCountries = [
+        {
+          name: "1. USA",
+          coords: [38.7946, -106.5348],
+          info: "Largest coffee importer worldwide.",
+        },
+        {
+          name: "2. Germany",
+          coords: [51.1657, 10.4515],
+          info: "Europe's largest coffee importer.",
+        },
+        {
+          name: "3. France",
+          coords: [46.2276, 2.2137],
+          info: "Famous for café culture, among the top coffee-consuming nations.",
+        },
+        {
+          name: "4. Italy",
+          coords: [41.8719, 12.5674],
+          info: "Known for its espresso culture, Italy has the highest consumption of espresso per capita.",
+        },
+        {
+          name: "5. Canada",
+          coords: [56.1304, -106.3468],
+          info: "Among the highest consumption per capita.",
+        },
+        {
+          name: "6. Japan",
+          coords: [36.2048, 138.2529],
+          info: "Large market for specialty coffee.",
+        },
+        {
+          name: "7. Netherlands",
+          coords: [52.1326, 5.2913],
+          info: "Hosts some of the biggest coffee trading hubs in the world.",
+        },
+        {
+          name: "8. Spain",
+          coords: [40.4637, -3.7492],
+          info: "Spanish coffee is named after the amount of milk added to the coffee.",
+        },
+        {
+          name: "9. UK",
+          coords: [55.3781, -3.436],
+          info: "Known for its high coffee-shop culture.",
+        },
+        {
+          name: "10. Switzerland",
+          coords: [46.8182, 8.2275],
+          info: "Home to major coffee brands and instant coffee producers.",
+        },
+      ];
+
+      // Add coffee exporting markers to the coffeeIndustryLayer
+      // Add coffee exporting markers to the mergedLayer
+      coffeeExportingCountries.forEach((country) => {
+        const labourMarker = L.marker(country.coords, { icon: labourIcon })
+          .addTo(coffeeIndustryLayer) // Add to coffeeIndustryLayer
+          .addTo(mergedLayer)
+          .bindPopup(`<b>${country.name}</b><br>${country.info}`);
+
+        // Add hover effect for labour markers
+        labourMarker.on("mouseover", function () {
+          this.setIcon(
+            L.icon({
+              iconUrl:
+                "https://cdn.glitch.global/4998c4c1-7e7a-4cc9-9fc4-794ec0bfe582/labour.png?v=1743418062535",
+              iconSize: [60, 60], // enlarged size
+              iconAnchor: [30, 60],
+              popupAnchor: [0, -30],
+            })
+          );
+        });
+
+        labourMarker.on("mouseout", function () {
+          this.setIcon(labourIcon); // back to original
+        });
+      });
+
+      // Add coffee importing markers to the coffeeIndustryLayer
+      // Add coffee importing markers to the mergedLayer
+      coffeeImportingCountries.forEach((country) => {
+        const consumerMarker = L.marker(country.coords, { icon: consumerIcon })
+          .addTo(coffeeIndustryLayer) // Add to coffeeIndustryLayer
+          .addTo(mergedLayer)
+          .bindPopup(`<b>${country.name}</b><br>${country.info}`);
+
+        // Add hover effect for consumer markers - there is a bit of a glitch when zooming in??
+        consumerMarker.on("mouseover", function () {
+          this.setIcon(
+            L.icon({
+              iconUrl:
+                "https://cdn.glitch.global/4998c4c1-7e7a-4cc9-9fc4-794ec0bfe582/consumer.png?v=1743417516006",
+              iconSize: [40, 40], // enlarge for hover
+              iconAnchor: [20, 40],
+              popupAnchor: [0, -40],
+            })
+          );
+        });
+
+        consumerMarker.on("mouseout", function () {
+          this.setIcon(consumerIcon); // back to original
+        });
+      });
+
+      const comparisonLayer = L.layerGroup();
+
+      // Add coffee exporting countries to comparisonLayer
+      coffeeExportingCountries.forEach((country) => {
+        L.marker(country.coords, { icon: labourIcon }) //
+          .addTo(comparisonLayer)
+          .bindPopup(`<b>${country.name}</b><br>${country.info}`);
+      });
+
+      // Add coffee importing countries to comparisonLayer
+      coffeeImportingCountries.forEach((country) => {
+        L.marker(country.coords, { icon: consumerIcon }) //
+          .addTo(comparisonLayer)
+          .bindPopup(`<b>${country.name}</b><br>${country.info}`);
+      });
+
+      // Add layers to map
+      originalLayer.addTo(map);
+
+      // Create layer control and assign labels
+      L.control
+        .layers(
+          {
+            "Transatlantic Slave Trade Routes": originalLayer,
+            "Coffee Industry": coffeeIndustryLayer,
+            Comparison: mergedLayer,
+          },
+          {}
+        )
+        .addTo(map);
+
+      // LEGEND CONTROL LOGIC -- we created the layering key boxes with this function, allowing it to change with each switch of the toggle
+      //lucia note -- we had some issues due to the overlapping boxes and some would still show. For Example the slave trade routes key showed up on the second and third -- but with trial and error we figured it out
+      
+      const legends = {
+        "Transatlantic Slave Trade Routes": `
+    <h4>Triangular Trade Routes</h4>
+    <p><span style="color:#800000;">●</span> Europe to Africa (Goods)</p>
+    <p><span style="color:#006400;">●</span> Middle Passage (Enslaved individuals)</p>
+    <p><span style="color:#000000;">●</span> Americas to Europe (Goods)</p>
+    <p><span style="color:#fe5108;">●</span> Ports Involved</p>
+
+  `,
+        "Coffee Industry": `
+    <h4>Coffee Industry Flows</h4>
+    <p><img src="https://cdn.glitch.global/4998c4c1-7e7a-4cc9-9fc4-794ec0bfe582/labour.png?v=1743418062535" width="20" /> Largest Coffee Producers</p>
+    <p><img src="https://cdn.glitch.global/4998c4c1-7e7a-4cc9-9fc4-794ec0bfe582/consumer.png?v=1743417516006" width="20" />  Largest Coffee Consumer </p>
+  `,
+        Comparison: `
+  <h4>Comparison View</h4>
+    <p><span style="color:#b0b0b0;">●</span> Triangular Trade Routes</p>
+    <p><span style="color:#e6de00;">●</span> Coffee Trade Routes</p>
+    <p><img src="https://cdn.glitch.global/4998c4c1-7e7a-4cc9-9fc4-794ec0bfe582/labour.png?v=1743418062535" width="20" /> Coffee Labour Origins</p>
+    <p><img src="https://cdn.glitch.global/4998c4c1-7e7a-4cc9-9fc4-794ec0bfe582/consumer.png?v=1743417516006" width="20" /> Major Consumer Countries</p>
+  `,
+      };
+
+      // Update legend when base layer changes
+      map.on("baselayerchange", function (e) {
+        const legendContainer = document.getElementById("legendContainer");
+        legendContainer.innerHTML = legends[e.name] || "";
+      });
+
+      // Add zoom controls
+      L.control.zoom({ position: "topright" }).addTo(map);
+
+      document.getElementById("legendContainer").innerHTML =
+        legends["Transatlantic Slave Trade Routes"];
+    </script>
+  </body>
+</html>

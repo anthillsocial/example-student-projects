@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <!-- Makes the page look good on all screen sizes -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        .stopwatch-container {
+            position: fixed;
+            bottom: 60px;
+            left: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+      /* Styles the stopwatch canvas */
+      /* basic layout of the stopwatch, canvas size for stopwatch*/
+        #stopwatchCanvas {
+            width: 300px;
+            height: 300px;
+            border-radius: 0%;
+        }
+    </style>
+</head>
+  <script src="script.js"></script>
+<body>
+    <div class="stopwatch-container">
+          <!-- where the stop watch will appear/placement of stopwatch -->
+        <canvas id="stopwatchCanvas" width="300" height="300"></canvas>
+    </div>
+
+    <script>
+        const canvas = document.getElementById("stopwatchCanvas");
+        const ctx = canvas.getContext("2d");
+
+          <!-- time for the stopwatch -->
+        let startTime = null;
+        let running = false;
+        let elapsedTime = 0;
+
+        const img = new Image();
+        img.src = "https://cdn.glitch.global/0411e11b-b8ee-4189-bfbf-de1e42351972/labour.jpg?v=1743355928378";
+          <!-- where the stop watch will appear/placement of stopwatch -->
+        window.addEventListener('message', (event) => {
+            if (event.data.type === 'start') {
+                  <!-- type of research into the stopwatch, timer-seconds to be visible -->
+                startTime = event.data.time * 1000;  
+                running = true;
+                requestAnimationFrame(animate);
+            }
+        });
+
+          <!-- makes sure the timer is visible in the stopwatch-->
+          <!-- If removed there is no timer which appears visible so do NOT REMOVE -->
+        function formatTime(ms) {
+            let minutes = Math.floor(ms / 60000);
+            let seconds = Math.floor((ms % 60000) / 1000);
+            return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+        }
+
+                  <!-- the circle has been coded here:-->
+                  <!-- outer circle creating the visual of a clock -->
+        function draw(angle) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.arc(150, 150, 100, 0, 2 * Math.PI);
+            ctx.strokeStyle = "#5d4037";
+            ctx.lineWidth = 5;
+            ctx.stroke();
+
+            <!-- make the whole visual center of the canva-->
+            ctx.drawImage(img, 25, 25, 250, 250);
+
+           <!-- direction & angle of the arrrow which goes round the clock-->
+            <!-- angle of the arrow to go round 360 degrees in a straight line-->
+            let rad = angle * (Math.PI / 180);
+            let x = 150 + Math.cos(rad - Math.PI / 2) * 80;
+            let y = 150 + Math.sin(rad - Math.PI / 2) * 80;
+
+           <!-- for the clock the arrow which goes round in a circle-->
+            ctx.beginPath();
+            ctx.moveTo(150, 150);
+            ctx.lineTo(x, y);
+            ctx.lineWidth = 4;
+            ctx.lineCap = "round";
+            ctx.strokeStyle = "#5d4037";
+            ctx.stroke();
+
+           <!-- format for the stopwatch timer-->
+            ctx.font = "24px Arial";
+            ctx.fillStyle = "#5d4037";
+            ctx.textAlign = "center";
+            ctx.fillText(formatTime(elapsedTime), 150, 180);
+        }
+
+          <!-- stopwatch -->
+        function animate(t) {
+            if (!startTime) startTime = t; 
+            <!-- time for the timer -->
+            elapsedTime = t - startTime;        
+                      <!-- time for the timer -->
+            let angle = (elapsedTime / 1000) % 60 * 6; 
+                  <!-- so that the stopwatch starts, that the timer -->
+            draw(angle);                   
+            if (running) requestAnimationFrame(animate); 
+        }
+    <!-- when first loading onto the website you can see the visual of the stopwatch straight away, hopefully -->
+        img.onload = () => draw(0);
+          
+    </script>
+</body>
+</html>

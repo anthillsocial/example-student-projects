@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee and Labour</title>
+    <link rel="stylesheet" href="style.css" />
+    
+  </head>
+  
+  
+  
+    <!-- =================== -->
+    <!-- Header Section START -->
+    <!-- =================== -->
+  <body>
+    
+    <!-- Christina's added video-->
+    <!-- Header Section with Video Background -->
+    <header>
+      <video autoplay muted loop id="bg-video">
+        <source
+          src="https://cdn.glitch.me/4998c4c1-7e7a-4cc9-9fc4-794ec0bfe582/coffee-pouringcropped.mov?v=1745246116529"
+          type="video/mp4"
+        />
+      </video>
+      
+      
+          <!-- Lucia's animation effect-->
+    <div class="hero">
+      <h1 class="animate-section">What is Brewing Behind the Coffee Industry?</h1>
+      <p class="animate-section">Unveiling the journey behind every sip — from farm to cup.</p>
+    </div>
+  </header>
+
+    
+    
+    <!-- =================== -->
+    <!-- Intro Section STARTs here -->
+    <!-- =================== -->
+  <section id="intro">
+    <h1 class="animate-section">Every Cup Tells a Story ☕</h1>
+    <p class="animate-section">
+      Behind every sip lies a narrative of labor, inequality, and history.
+    </p>
+
+      <div class="down-arrow"></div>
+    </section>
+    
+      <!-- GSAP Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+    
+
+    <!-- Stopwatch Section with Coffee Beans -->
+<section id="sectionwatch">
+  <div class="text-container">
+    <h2><br />The Birth of a Coffee Bean</h2>
+  </div>
+
+  <!-- Modal with Stopwatch and Video -->
+  <div class="modal2" style="display: flex; gap: 20px; justify-content: center; align-items: center; flex-wrap: wrap; padding: 20px;">
+    
+    <!-- Starbutton -->     <!-- Stopwatch -->   <!-- Coffee video -->
+     <div class="modal2-content">
+      <iframe src="startbutton.html" width="100%" height="400px" style="border: none;"></iframe>
+    </div>
+    
+  </div>
+</section>
+
+
+ <!-- Lucia's info bubble effect which can engage more interactivity-->
+      <div class="info-bubble">
+        <p class="info-title">
+          <strong>Why every 6 seconds?</strong>
+          <img
+            src="https://cdn.glitch.global/4998c4c1-7e7a-4cc9-9fc4-794ec0bfe582/beans.jpg?v=1745238612546"
+            alt="Coffee Bean"
+            class="bean-icon"
+          />
+        </p>
+          
+        
+        <span class="info-detail">
+          Each coffee bean appearing every 6 seconds symbolizes the average
+          amount of manual labor involved in its production — from harvesting
+          and drying to sorting and packaging. While many stages happen in bulk,
+          this estimate reflects the time and effort that goes into every single
+          bean before it reaches your cup.
+        </span>
+      </div>
+
+
+ <!-- We liked the idea of creating impatience, Christina wrote out this section making the user understand how long it really takes to produce an espresso-->
+      <section class="section" id="text1">
+        <div class="text1style">
+          <h2>How Long Did You Really Watch?</h2>
+          <p>
+            The truth is that we often lack the patience to appreciate the
+            significant labour that goes into the coffee we enjoy every day.
+            While an espresso takes only 25 to 30 seconds to brew, only three
+            out of the required 64 coffee beans have been harvested during that
+            brief period. Behind every sip lies hours of physically demanding
+            work. This involves planting, hand-picking, drying, sorting, and
+            roasting. Most of this work is executed by underpaid workers in the
+            Global South, while the largest coffee consumers remain in the
+            Global North. The gap between the swift consumption of coffee and
+            the tedious, labour-intensive production process represents the
+            disregarded inequality and invisibility of labour in the global
+            coffee supply chain.
+          </p>
+        </div>
+        <div class="video-box">
+      <iframe src="animation.html" frameborder="0"></iframe>
+    </div>
+      </section>
+
+
+ <!-- Ivi's Visualisation to show fair trade and its wages-->
+
+<!-- **Section 1: Coffee Beans ( REVISED)** -->
+<section class="section" id="section1">
+  <h2>Meeting the Benchmark</h2>
+  <div class="content">
+    
+    <div class="text">
+      <p>
+        Fair trade associations have long worked to define a living income benchmark defined as “the net annual income required for a household in a particular place to afford a decent standard of living for all members.” This benchmark is central to address one of key challenges that coffee farmers face: poverty. Its aim is to ensure that families earn enough to meet their basic needs and have a decent standard of living.
+        <br><br>
+        However, as this visualization shows, most households in the world’s top five coffee-producing countries are still showing a significant income gap.
+        <br><br>
+        The same beans that fuel productivity and wealth around the world are harvested by families trapped in poverty, exposing a serious imbalance at the core of the coffee industry. Acknowledging this disparity is the first step towards building a fairer system that values the people behind the product.
+      </p>
+    </div>
+    
+    <div class="image-container">
+      <img
+        src="https://cdn.glitch.global/4998c4c1-7e7a-4cc9-9fc4-794ec0bfe582/BRAZIL.png?v=1745510337664"
+        alt="Coffee Beans"
+      />
+    </div>
+    
+  </div>
+</section>
+
+
+
+      <!-- Christina and Lucia had the idea to create pop-up buttons. Alongisde, Christina writing out and researching the plantations and the different stages -->
+      <section class="section" id="section2">
+        <div class="text2">
+          <h2>From Seed to Sip: A Story of Inequality</h2>
+          <p>
+            Today's coffee industry has a complex and deeply rooted history
+            which links back to colonialism and the transatlantic slave trade.
+            Also known as the triangular trade, the transatlantic slave trade
+            forcibly took enslaved Africans to work on plantations in the
+            Americas. This system of trade operated in three stages:
+          </p>
+        </div>
+
+        <!-- Grouped Annotation Buttons -->
+      <div class="annotations-group">
+        <button class="research-btn" data-research="section2-research">
+           1. Europe to Africa
+        </button>
+        <button class="research-btn" data-research="section2-research2">
+          2. Africa to Americas
+        </button>
+        <button class="research-btn" data-research="section2-research3">
+          3. Americas to Europe
+        </button>
+      </div>
+
+        <!-- Popups -->
+        <div id="section2-research" class="research-popup">
+          <button class="close-btn">&times;</button>
+          <h3>Europe to Africa</h3>
+          <p>
+            European merchants transported manufactured items, including
+            textiles, alcohol, and weapons, to Africa in exchange for enslaved
+            individuals.
+          </p>
+        </div>
+
+        <div id="section2-research2" class="research-popup">
+          <button class="close-btn">&times;</button>
+          <h3>Africa to the Americas</h3>
+          <p>
+            This stage, also referred to as the Middle Passage, transported
+            enslaved Africans across the Atlantic Ocean under brutal conditions.
+          </p>
+        </div>
+
+        <div id="section2-research3" class="research-popup">
+          <button class="close-btn">&times;</button>
+          <h3>The Americas to Europe</h3>
+          <p>
+            This final stage transported plantation products such as coffee,
+            sugar, cotton, and tobacco, all produced by enslaved labour, to
+            Europe for sale.
+          </p>
+        </div>
+
+        <div class="text2">
+          <p>
+            The slave trade set the foundation of today's global trade habits,
+            which we can see through today's coffee distribution. These events
+            shifted global power, distinguishing the Global North as more
+            dominant. When comparing the two maps, a distinct pattern between
+            the transatlantic slave trade and global coffee distribution becomes
+            apparent. The same regions that once enslaved individuals to work on
+            plantations now obtain major coffee-consuming markets. Those
+            countries import large quantities of coffee produced in the same
+            areas where enslaved people were once forced to work on plantations.
+            People of colour continue to be exploited within the supply chain,
+            supplying demanding labour while often receiving very little
+            compensation. The sector continues to reflect deep economic
+            disparities, characterised by a clear racial and ethnic divide
+            between those who profit and those who perform extensive labour.
+          </p>
+        </div>
+      </section>
+
+      <!-- **Christina researched most of the historical slave trade routes alongside the coffee routes** -->
+      <!-- **Lucia and Christina implemented the code for this map -- so we did a lot of trial and error, deciding what we what information should be shown on the maps -- resulting in the different toggles and how it shows the relation between coffee routes and the slave routes** -->
+
+      <!-- Section 4 -->
+      <section id="section4">
+        <h2>The Transatlantic Slave Trade’s Influence on the Coffee Industry</h2>
+        
+        <!-- Embedded Map Modal -->
+        <div class="modal">
+          <div class="modal-content">
+            <iframe src="toggle.html" width="100%" height="400px"></iframe>
+          </div>
+        </div>
+      </section>
+
+
+
+      <!-- **Christina had an idea last minute that we should relate the colours of the map to the Pan African flag. Lucia and Christina both decided to go forward with this idea as it represents the history of labour and enslavement** -->
+
+<!-- Section 5: Interaction Prompt & Pan-African Flag Meaning -->
+<section id="section5">
+  <div class="interaction-container">
+    <div class="map-tooltip">
+      <button class="info-btn">!</button>
+      <div class="tooltip-text">Interact with items on the map for more info</div>
+    </div>
+  </div>
+
+  <div class="paf-section">
+    <img
+      src="https://cdn.glitch.global/4998c4c1-7e7a-4cc9-9fc4-794ec0bfe582/PAF.jpg?v=1746305060951"
+      alt="Pan-African Flag"
+      class="paf-image"
+    />
+    <p class="paf-text">
+      We chose to use the Pan-African flag colours—red, black, and green—to visually represent the historical and racialised labour behind the coffee trade. Red symbolises the blood shed through centuries of enslavement and exploitation, black stands for the African people whose forced labour built global industries, and green represents the rich land that was cultivated at great human cost. By embedding these colours into the map’s trade routes, we aimed to memorialise the suffering, resilience, and systemic injustice experienced by enslaved and exploited workers—making their invisible labour visible to today’s coffee consumers.
+    </p>
+  </div>
+</section>
+
+
+<script>
+  window.addEventListener('load', () => {
+    const text = document.querySelector('.paf-text');
+    setTimeout(() => {
+      text.style.opacity = '1';
+    }, 800); // Delay for a cooler staggered effect
+  });
+</script>
+
+
+
+<!-- Christina and Lucia added this section --  we wanted to show users what we actually researched and maybe they would understand the thought process behind creating all three visualisations and how they all link -->
+      <!-- Footer -->
+      <footer>
+        <p>
+          To learn more about this topic, <a href="references.html">click here to dive into our references</a>.
+        </p>
+      </footer>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const researchButtons = document.querySelectorAll(".research-btn");
+
+          researchButtons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+              const popupId = btn.getAttribute("data-research");
+              const popup = document.getElementById(popupId);
+              if (popup) {
+                popup.classList.add("active");
+              }
+            });
+          });
+
+          const closeButtons = document.querySelectorAll(".close-btn");
+          closeButtons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+              btn.parentElement.classList.remove("active");
+            });
+          });
+        });
+      </script>
+
+
+    </section>
+  </body>
+</html>
