@@ -75,80 +75,124 @@ cat >"$OUTPUT" <<EOF
 <title>DMCT Projects</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-* { box-sizing: border-box; margin:0; padding:0; }
-body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #ccc; color: #111;}
-h1 { margin-bottom: 0px; font-size: 1.8rem; opacity:0.9;}
+:root {
+  --font-size-default: 0.85rem;
+  --font-size-small: 0.75rem;
+  --font-size-smaller: 0.65rem;
+  --font-size-header: 1.8rem;
+  --opacity-light: 0.8;
+  --opacity-lighter: 0.7;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: var(--font-size-default);
+  background: #ccc;
+  color: #111;
+}
+
+h1 { font-size: var(--font-size-header); opacity: 0.9; margin-bottom: 0; }
+
 #header {
   background: #555;
-  padding: 20px;
   color: #fff;
-  display: flex;             /* Enable flexbox */
-  flex-direction: row;       /* Horizontal layout */
-  flex-wrap: wrap;           /* Allow wrapping on small screens */
-  gap: 20px;                 /* Space between columns */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
 }
 
-#header h1 {
-  flex: 1 1 600px;           /* Grow/shrink, minimum width 200px */
-  margin: 0;
-}
-
+#header h1 { flex: 1 1 600px; }
 #overview {
-  flex: 2 1 400px;           /* Wider column for paragraph */
-  font-size: 0.8rem;
-  line-height: 0.85rem;
-  opacity: 0.8;
+  flex: 2 1 400px;
+  font-size: var(--font-size-small);
+  line-height: 1.1;
+  opacity: var(--opacity-light);
   margin: 0;
 }
-.filters, .grid{
-  padding: 20px; 
-}
-.filters{
-  padding-bottom:0px;
-}
-a, a:link{color: #fff; opacity:0.8;}
 
-/* Filters */
-.filters {font-size: 0.85rem; }
-.filter-group {display:inline }
+a, a:link { color: #fff; opacity: 0.8; }
+
+.filters, .grid { padding: 20px; }
+.filters { padding-bottom: 0; font-size: var(--font-size-default); }
+
+.filter-group { display: inline; }
 .filter-label { font-weight: 600; }
-.filter-buttons { display:inline; }
-.filter-btn {margin-right:5px; border: 1px solid #444; background: #eee; color: #111; border-radius: 999px; padding: 4px 10px; cursor: pointer; font-size: 0.75rem; transition: background 0.15s ease-out, color 0.15s ease-out, border-color 0.15s ease-out; margin-bottom:5px;}
+.filter-buttons { display: inline; }
+.filter-btn {
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding: 4px 10px;
+  border: 1px solid #444;
+  border-radius: 999px;
+  background: #eee;
+  color: #111;
+  font-size: var(--font-size-small);
+  cursor: pointer;
+  transition: background 0.15s ease-out, color 0.15s ease-out, border-color 0.15s ease-out;
+}
 .filter-btn:hover { background: #ddd; }
 .filter-btn.active { background: #111; color: #fff; border-color: #111; }
 
-/* Grid and Cards */
+/* Grid & Cards */
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-.card { position: relative; display: block; min-height: 200px; border-radius: 12px; text-decoration: none; color: #fff; background-color: #333; background-size: cover; background-position: center; background-repeat: no-repeat; overflow: hidden; transition: transform 0.15s ease-out, box-shadow 0.15s ease-out; }
+.card {
+  position: relative;
+  display: block;
+  min-height: 200px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #333;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+}
 .card::before { content: ""; position: absolute; inset: 0; z-index: 0; }
 
 /* Bottom bar */
 .bottom-bar {
-  position: absolute; left:0; right:0; bottom:0;
-  z-index: 2; background: rgba(0,0,0,0.7); padding: 8px 12px;
+  position: absolute; left: 0; right: 0; bottom: 0;
+  z-index: 2;
+  background: rgba(0,0,0,var(--opacity-lighter));
+  padding: 8px 12px;
   transition: opacity 0.3s ease;
 }
 .card:hover .bottom-bar { opacity: 0; }
-.bottom-bar .title{ font-size: 0.8rem; font-weight: 600; margin-bottom: 4px; }
-.bottom-bar .module{ font-size: 0.8rem; opacity:0.8; }
+
+.bottom-bar .title, .bottom-bar .module {
+  font-size: var(--font-size-small);
+}
+.bottom-bar .title { font-weight: 600; margin-bottom: 4px; }
+.bottom-bar .module { opacity: var(--opacity-light); }
 
 /* Hover overlay */
 .hover-overlay {
   position: absolute; inset: 0;
-  background: rgba(0,0,0,0.85); color: #fff; padding: 16px;
-  opacity: 0; transition: opacity 0.3s ease; overflow-y: auto;
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  padding: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  overflow-y: auto;
 }
 .card:hover .hover-overlay { opacity: 1; }
 
-.hover-overlay .module, 
+.hover-overlay .module,
 .hover-overlay .title,
 .hover-overlay .student,
 .hover-overlay .cohort,
-.hover-overlay .meta { font-size: 0.75rem; }
-.hover-overlay .cohort{font-size: 0.65rem;opacity:0.8; }
-.hover-overlay .meta, .hover-overlay .cohort { opacity: 0.9; }
+.hover-overlay .meta {
+  font-size: var(--font-size-small);
+}
+.hover-overlay .cohort { font-size: var(--font-size-smaller); opacity: var(--opacity-light); }
+.hover-overlay .meta { opacity: 0.9; }
 
 .card:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0,0,0,0.35); }
+
 </style>
 </head>
 <body>
