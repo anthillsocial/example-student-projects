@@ -1,0 +1,3 @@
+A random 5-word sentence generator that 
+pre-determines sentences from the start 
+but gives the illusion of thinking.
