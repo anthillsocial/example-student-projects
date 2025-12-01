@@ -212,7 +212,7 @@ a, a:link { color: #fff; opacity: 0.8; text-decoration: none; }
 <body>
 <div id=header>
   <h1>DMCT Student Projects</h1>
-  <p id="overview">Year 1 (Y1), year 2 (Y2), and year 3 (Y3) work from the <a href="https://www.royalholloway.ac.uk/studying-here/undergraduate/media-arts/digital-media-culture-and-technology-ba/">BA Digital Media Culture and Technology (DMCT)</a> at Royal Holloway University. Code hosted on <a href="https://github.com/anthillsocial/example-student-projects">GitHub</a>.</p>
+  <p id="overview">Year one (Y1) year two (Y2) and year three (Y3) work from the <a href="https://www.royalholloway.ac.uk/studying-here/undergraduate/media-arts/digital-media-culture-and-technology-ba/">BA Digital Media Culture and Technology (DMCT)</a> at Royal Holloway University. Code hosted on <a href="https://github.com/anthillsocial/example-student-projects">GitHub</a>.</p>
 </div>
 
 <div class="filters">
