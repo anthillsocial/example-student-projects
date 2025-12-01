@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+cd public
 OUTPUT="index.html"
 
 # Function: turn CamelCase into "Camel Case"
