@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Analytics - Patient Path</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!--chart.js -->
+</head>
+<body>
+<div id="flexContainer">
+    <div id="mainLeft">
+        <header id="header"></header>
+        <nav id="sidebarMenu">
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="appointments.html">Appointments</a></li>
+                <li><a href="schedules.html">Schedules</a></li>
+                <li><a href="invoices.html">Invoices</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+               <li><a href="emailmessages.html">Email/Messages</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="mainRight">
+        <h2>Enhanced Analytics Overview</h2>
+        <p>Explore interactive charts to understand performance metrics and operational challenges.</p>
+
+        <!-- Appointments Not Attended -->
+        <section>
+            <h3>Appointments Not Attended</h3>
+            <canvas id="missedAppointmentsChart" width="800" height="400"></canvas>
+        </section>
+
+        <!-- Patient Feedback -->
+        <section>
+            <h3>Patient Feedback</h3>
+            <canvas id="patientFeedbackRadarChart" width="800" height="400"></canvas>
+        </section>
+
+        <!-- Waiting Times by Imaging Type -->
+        <section>
+            <h3>Waiting Times by Imaging Type</h3>
+            <canvas id="waitingTimesBubbleChart" width="800" height="400"></canvas>
+        </section>
+
+        <!-- Imaging Performance -->
+        <section>
+            <h3>Imaging Performance Analysis</h3>
+            <canvas id="performanceHeatmapChart" width="800" height="400"></canvas>
+        </section>
+        <!-- Floating images outside the main layout -->
+  <img src="https://cdn.glitch.global/aa16dca8-8894-4a99-b08a-40895eba3ff2/Screenshot%202025-04-09%20at%205.52.05%E2%80%AFpm.png?v=1744505581165" class="floating-image" id="float1" />
+  <img src="https://cdn.glitch.global/aa16dca8-8894-4a99-b08a-40895eba3ff2/Screenshot%202025-04-09%20at%204.49.29%E2%80%AFpm.png?v=1744505578566" class="floating-image" id="float2" />
+  <img src="https://cdn.glitch.global/aa16dca8-8894-4a99-b08a-40895eba3ff2/Screenshot%202025-04-09%20at%205.03.01%E2%80%AFpm.png?v=1744505575830" class="floating-image" id="float3" />
+  <img src="https://cdn.glitch.global/aa16dca8-8894-4a99-b08a-40895eba3ff2/Screenshot%202025-04-09%20at%204.50.10%E2%80%AFpm.png?v=1744505573875" class="floating-image" id="float4" />
+    </div>
+</div>
+  
+   <div class="scrollablefloatingRightText">
+    <p>
+      When I first started working in the imaging department, I thought hospitals would have some sort of data system to gather feedback, measure performance, and assist staff in improving procedures. However, I rapidly realised that this was not the case.
+
+During my interview, I asked about the department's performance and whether patient feedback was collected anywhere. My clinical lead simply shrugged and told me, "We have Google reviews and occasionally receive emails about how we're doing, but nothing specific. The majority of the data is handled by higher-level staff."
+
+I was stunned.
+
+In an industry where mistakes can have major implications, we had no practical means to track problems or improve operations. In other industries, AI and digital technology analyse performance automatically, allowing organisations to operate more efficiently. However, in my hospital, we rely on intuition, assumptions, and waiting for something to go wrong. Instead of learning from data, we respond to problems that are already out of control.
+
+That lack of awareness does more than simply slow us back; it causes unnecessary tension and sets us up for failure.
+One evening, I worked a late shift. To save money, only one worker is scheduled to work at the front desk at night. Because the hospital works shorter hours, late shifts are typically quiet with only one or two patients.
+
+But summer was different.
+
+Unlike daylight shifts, you can't observe what's going on in other departments. I can see who is booked for imaging, but I don't have any information on last-minute walk-ins, emergency referrals, or scan requests from consultants. That night, the department quickly filled up.
+At the same time, I had to leave my desk to get referral letters protocolled, so patients had to wait even longer. Just as I believed I had the matter under control, I received a call from my clinical lead. He requested that I gather data on missed appointments and booking numbers for the week and email it to him for a meeting the following morning.
+
+I had no idea how chaotic the night was going to be.
+When the rush hit, I was forced to choose between two difficult tasks: help patients or manually hunt for data buried in an old system.
+
+If I declined my clinical lead's request, he would arrive at his meeting empty-handed, which would reflect negatively on him. If I tried to do both, I'd fall behind in serving patients, worsening an already difficult shift. But I didn't have a choice: I agreed to submit the data.
+
+After eventually closing the department for the night, I stayed behind for two more hours, looking through paper files, double-checking information, and delving into a system that made finding simple numbers feel like solving a mystery. What should have taken seconds turned out to take hours.
+I was able to collect the data and send the email, but I couldn't stop wondering about why this wasn't automated.
+Nobody noticed how late I stayed that night. Nobody thanked me. Nobody acknowledged the strain of balancing patient care with a work that should not have been my responsibility.
+
+If we had a solid data system, my clinical lead could have obtained the numbers immediately, saving me from having to scurry at the last minute. Instead, I was left wasting hours, as patients waited for assistance.
+
+It made me realise something: this hospital is behind not only in technology, but also in basic efficiency.
+
+We live in a world where data drives decisions and information is readily available across most industries. But working here? It feels as if I've been transported back in time.
+
+     </p>
+<script src="analytics.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

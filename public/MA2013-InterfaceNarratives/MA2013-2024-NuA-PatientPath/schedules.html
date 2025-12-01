@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Staff Scheduling - Patient Path</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="flexContainer">
+  <div id="mainLeft">
+    <header id="header"></header>
+    <nav id="sidebarMenu">
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="appointments.html">Appointments</a></li>
+        <li><a href="schedules.html">Schedules</a></li>
+        <li><a href="invoices.html">Invoices</a></li>
+        <li><a href="reports.html">Reports</a></li>
+        <li><a href="analytics.html">Analytics</a></li>
+        <li><a href="emailmessages.html">Email/Messages</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div id="mainRight">
+    <h2>Staff Schedule</h2>
+
+    <!-- Clock In/Out Section -->
+    <div id="clockInOut">
+      <h3>Clock In / Out</h3>
+      <button onclick="clockIn()">Clock In</button>
+      <button onclick="startBreak()">Start Break</button>
+      <button onclick="endBreak()">End Break</button>
+      <button onclick="clockOut()">Clock Out</button>
+      <p id="clockStatus">Status: Not Clocked In</p>
+    </div>
+
+    <!-- Payslip Info -->
+    <div id="payslip">
+      <h3>Payslip</h3>
+      <p>Hours Worked: <span id="hoursWorked">0</span></p>
+      <p>Hourly Rate: £<span id="hourlyRate">15</span></p>
+      <p>Total Pay: £<span id="totalPay">0</span></p>
+    </div>
+    
+<!-- Holiday Request Section -->
+<div style="margin: 20px 0;">
+  <h3>Holiday Request</h3>
+  <button onclick="showHolidayForm()">Request Holiday</button>
+</div>
+
+<!-- Holiday Form Modal -->
+<div id="holidayForm" class="hidden">
+  <div class="form-popup">
+    <h3>Request Holiday</h3>
+    <label for="holidayStart">Start Date:</label>
+    <input type="date" id="holidayStart"><br>
+    <label for="holidayEnd">End Date:</label>
+    <input type="date" id="holidayEnd"><br>
+    <button onclick="submitHolidayRequest()">Submit</button>
+    <button onclick="closeHolidayForm()">Cancel</button>
+  </div>
+</div>
+
+
+
+    <!-- Live Updates -->
+    <div id="liveUpdates">
+      <h3>Live Schedule Updates</h3>
+      <ul id="scheduleUpdates"></ul>
+    </div>
+
+    <!-- Reality Overlay -->
+    <div id="realityOverlay" class="hidden">
+      <p id="overlayMessage">Important Scheduling Issue</p>
+    </div>
+
+    <!-- Schedule Table -->
+    <table id="scheduleTable">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Monday</th>
+          <th>Tuesday</th>
+          <th>Wednesday</th>
+          <th>Thursday</th>
+          <th>Friday</th>
+          <th>Saturday</th>
+          <th>Sunday</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>8:00 AM - 10:00 AM</td>
+          <td>Dr. Smith</td>
+          <td>Dr. Green</td>
+          <td>Dr. Brown</td>
+          <td>Dr. Wilson</td>
+          <td>Dr. Taylor</td>
+          <td>Dr. Adams</td>
+          <td>Time Off</td>
+        </tr>
+        <tr>
+          <td>10:00 AM - 12:00 PM</td>
+          <td>Nurse Kelly</td>
+          <td>Nurse White</td>
+          <td>Nurse Davis</td>
+          <td>Nurse Moore</td>
+          <td>Nurse Lopez</td>
+          <td>Time Off</td>
+          <td>Time Off</td>
+        </tr>
+        <tr>
+          <td>12:00 PM - 2:00 PM</td>
+          <td>Radiographer Lee</td>
+          <td>Radiographer Lee</td>
+          <td>Radiographer Lee</td>
+          <td>Radiographer Lee</td>
+          <td>Radiographer Lee</td>
+          <td>Time Off</td>
+          <td>Time Off</td>
+        </tr>
+        <tr>
+          <td>2:00 PM - 4:00 PM</td>
+          <td>Consultant Gray</td>
+          <td>Consultant Gray</td>
+          <td>Consultant Gray</td>
+          <td>Consultant Gray</td>
+          <td>Consultant Gray</td>
+          <td>Time Off</td>
+          <td>Time Off</td>
+        </tr>
+    
+      </tbody>
+    </table>
+            <!-- Floating images outside the main layout -->
+  <img src="https://cdn.glitch.global/aa16dca8-8894-4a99-b08a-40895eba3ff2/Screenshot%202025-04-09%20at%207.08.46%E2%80%AFpm.png?v=1744504289144" class="floating-image" id="float1" />
+  <img src="https://cdn.glitch.global/aa16dca8-8894-4a99-b08a-40895eba3ff2/Screenshot%202025-04-09%20at%207.08.07%E2%80%AFpm.png?v=1744504292655" class="floating-image" id="float2" />
+<img src="https://cdn.glitch.global/aa16dca8-8894-4a99-b08a-40895eba3ff2/Screenshot%202025-04-09%20at%205.03.50%E2%80%AFpm.png?v=1744504286311" class="floating-image" id="float3" />
+  </div>
+</div>
+  
+   <div class="scrollablefloatingRightText">
+  <p>
+    Scheduling in a hospital is more than just organising shifts; it is the basis that keeps everything running smoothly. People take time off for birthdays, holidays, religious festivals, and personal reasons, and this is perfectly acceptable. However, in a hospital, where things can change at any time, even one missing employee might set off a chain reaction that disrupts the entire operation.
+When someone calls in ill, it affects not only their role but also the entire department. Patients cannot be properly checked in if an administrative staff is not there, which causes delays for doctors and radiologists. If a doctor is unavailable, every appointment scheduled for the day must be cancelled or rescheduled, resulting in frustrated patients and an overwhelmed staff. If an expert, such as a radiologist or technician, is not accessible, urgent scans and treatments are delayed, which can be fatal in some situations.
+It appears obvious that a hospital should keep track of when extra staff is required, anticipate peak times, and have an adequate system in place to ensure coverage. However, none of these things exist at the hospital where I work. There is no real-time tracking of absences, no backup plan, and no planned approach to dealing with personnel shortages only reactionary a chaos when things begin to come apart.
+As a banker worker, I don't have a set timetable. My position is to come in when extra hands are needed, usually when someone is on vacation or out sick. The idea is that bank employees give flexibility and extra coverage so that things don't get out of hand when the usual staff is unavailable.
+
+One morning, I received a call from my clinical lead asking if I could come in because several employees had reported sick. Assuming it was a minor matter, I agreed. But once I walked in, I realised how horrible things were.
+The reception area was overcrowded. Files were thrown everywhere, phone lines were ringing nonstop and a long queue of patients stretched out the door, eager to be checked in. Nothing had been completed since the beginning of the shift because there simply wasn't enough staff to handle the workload.
+
+The pressure was immediate. No matter how quickly I worked, it wasn't enough. Patients kept arriving, phones kept ringing, and paperwork continued to pile up. Just as I was getting a grasp on the situation, my clinical lead appeared and informed me that I needed to perform a CT scan because the CT technician had unexpectedly left. Without hesitation, he walked away, leaving me to sort it out.
+At that moment, pure panic set in.
+The challenge was simple: I'd never used a CT machine before.
+
+I had only been working at the hospital for a week. I had no formal medical training and no knowledge how to use the medical device. And yet, here I was, responsible for scanning a young child brought in by her parents.
+
+I led them to the CT room, trying to appear confident despite my pounding heart. My clinical lead had provided me a printed instruction to using the machine. I read it through once, twice, and three times. But no matter how hard I tried, I couldn't understand the directions.
+Time was running short, and the stress was tremendous. I could feel my tension physically manifesting itself sweating on my palms, stress patches on my arms and cheeks. I had no choice but to proceed, following the guide's instructions as carefully as possible.
+
+After what seemed like the longest few minutes of my life, the scan was completed. The relief was immediate, but the weight of responsibility remained heavy in my chest.
+Later that day, I sent the scan to the doctor for review. Shortly later, I was informed that something was wrong. The scan indicated a tumour that had grown. If it hadn't been caught, things could have turned out very differently for that young child.
+
+That realisation struck me harder than anything else.
+
+This was more than just a tough workday; it was about a flawed system that failed its patients. I wasn't supposed to be in that CT room alone, trying to figure things out. The scan was only completed because three workers called in sick, and there was no formal backup plan to replace them.
+The incident was completely avoidable. If the hospital had a solid scheduling system, a real-time absence tracker, and a streamlined means to call in backup staff, this situation would not have occurred. Instead, a patient's medical treatment was left to chance.
+
+     </p>
+  
+
+<!-- Scripts -->
+<script src="schedule.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emails & Messages - Patient Path</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="flexContainer">
+    <div id="mainLeft">
+        <header id="header"></header>
+        <nav id="sidebarMenu">
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="appointments.html">Appointments</a></li>
+                <li><a href="schedules.html">Schedules</a></li>
+                <li><a href="invoices.html">Invoices</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+                <li><a href="emailmessages.html">Email/Messages</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="mainRight">
+        <h2>Emails & Messages</h2>
+      
+      <!-- Communication Status and Audit Log -->
+<section id="commRealities">
+  <h3>Communication Monitor</h3>
+  <div id="commWarnings"></div>
+</section>
+
+
+        <!-- Email Section -->
+        <section id="emails">
+            <h3>Email Inbox</h3>
+            <div id="emailContainer">
+                <div id="emailList">
+                    <ul>
+                        <li><button onclick="viewEmail('Subject: MRI Appointment Update', 'This is an update about the MRI appointment for patient John Doe.')">MRI Appointment Update</button></li>
+                        <li><button onclick="viewEmail('Subject: Staff Meeting Reminder', 'Reminder: There will be a staff meeting on Friday at 3 PM.')">Staff Meeting Reminder</button></li>
+                        <li><button onclick="viewEmail('Subject: New Scheduling Policy', 'Please review the updated scheduling policy effective next month.')">New Scheduling Policy</button></li>
+                    </ul>
+                </div>
+                <div id="emailViewer">
+                    <h4 id="emailSubject">Select an email to read</h4>
+                    <p id="emailBody"></p>
+                </div>
+            </div>
+            <button class="action-btn" onclick="composeEmail()">Compose New Email</button>
+        </section>
+
+        <!-- Messaging Section -->
+        <section id="messages">
+            <h3>Staff Messages</h3>
+            <div id="messageList">
+                <ul>
+                    <li><strong>Dr. Smith:</strong> Can you confirm the CT schedule for tomorrow?</li>
+                    <li><strong>Nurse Kelly:</strong> The MRI room needs cleaning after today’s procedures.</li>
+                    <li><strong>Admin Team:</strong> Don’t forget to submit invoices by Friday.</li>
+                </ul>
+            </div>
+            <textarea id="messageInput" placeholder="Write a message..."></textarea>
+            <button class="action-btn" onclick="sendMessage()">Send</button>
+        </section>
+        <!-- Floating images outside the main layout -->
+  <img src="https://cdn.glitch.global/aa16dca8-8894-4a99-b08a-40895eba3ff2/Screenshot%202025-04-09%20at%206.21.59%E2%80%AFpm.png?v=1744506134915" class="floating-image" id="float1" />
+  <img src="https://cdn.glitch.global/aa16dca8-8894-4a99-b08a-40895eba3ff2/Screenshot%202025-04-09%20at%207.22.10%E2%80%AFpm.png?v=1744506138196" class="floating-image" id="float2" />
+  <img src="https://cdn.glitch.global/aa16dca8-8894-4a99-b08a-40895eba3ff2/Screenshot%202025-04-09%20at%207.05.07%E2%80%AFpm.png?v=1744506141792" class="floating-image" id="float3" />
+    </div>
+</div>
+   <div class="scrollablefloatingRightText">
+     <p>
+       When I first started working at the hospital, I thought emails would be the main way of communication fast, efficient, and dependable. But I quickly realised this was not the case. Emails are viewed as a last resort, used only when desperately needed. The hospital continues to rely largely on phone calls and in-person encounters, making everything feel outdated and slow.
+I work with a lot of elderly staff, and many of them struggle with technology. Sending an email is a difficult and time-consuming activity for them, and even something as basic as attaching a document may seem impossible to achieve. Over time, I began to wonder if the hospital's old-fashioned methods were not only about patient privacy or finances, but also about making things easier for workers who are accustomed to working in a specific way.
+To be fair, many of the elderly patients who visit the hospital struggle with technology, so a purely digital system may not be suitable for them either. However, this does not justify continuing to rely on outdated technologies that slow things down. Some departments still use pagers instead of smartphones, and going across the hospital only to deliver a message is still deemed normal.
+
+Despite the fact that the hospital produces millions of pounds every year, there is no significant investment in communication system upgrades. And when emails are not used appropriately, errors occur. I found out the hard way when I was nearly linked for a huge security breach.
+After a month of working at the hospital, I was finally granted access to the department email. Unlike personal work emails, department emails are used to process appointment requests, booking confirmations, and referral letters. Only after completing probation do you have access, which made it feel like a huge burden.
+
+One day, a man called to schedule an appointment. I followed protocol and informed him that we needed a referral letter to process his request. He instantly informed me that he had already spoken with another staff member and that she had his referral.
+The staff member he told me was not there that day, so I reviewed the email logs. Sure enough, I discovered an email sequence in which she plainly stated that he needed a referral from his general practitioner. When I asked him again if he had one, he paused and said, "What's on a referral letter?"
+
+That's when I realised he didn't have one. He was only trying to get an appointment without it. Instead of arguing, I told him to send it through and I'd call him back when I got it.
+
+A few days later, I came at work and noticed the same man's name on the appointments list, sitting in the waiting area. I assumed he had sorted everything out because I had not scheduled him.
+Then my clinical lead burst into the office.
+
+His tone was serious: "Who booked this man in with a fake referral letter?"
+
+For a brief moment, my heart rate plummeted. I couldn't recall if I had scheduled him or not, and I began shaking. A false referral letter is a major security breach, and I knew I'd be in big trouble if I made that mistake.
+
+But that wasn't me. It came out that after speaking with me, the man called back later that day, spoke with another staff member, and submitted a completely fake referral letter.
+One of my senior coworkers scheduled him in because she believed his document was genuine. She wasn't trained to recognise fraudulent information, and without sufficient security measures, she had no way of knowing.
+
+I felt terrible. I had thought something was wrong and should have warned her. But I wasn't sure at the time, what if he actually sent one in?
+
+As a result, the entire department had to go through obligatory training on how to recognise false emails, scams, and fraudulent medical records.
+The incident taught me a crucial lesson: emails are more than simply convenience; they are also about security.
+
+If we had a better system in place—one that highlighted suspicious communications, needed document verification, or had tougher controls—this would not have occurred. The hospital takes pride in its traditional ways, but without adequate protections, these antiquated procedures increase the likelihood of errors.
+
+Emails are intended to make our jobs simpler, but without proper training and security, they can become a vulnerability. The hospital must modernise, not only to improve communication, but also to safeguard both staff and patients from errors that should never have occurred in the first place.
+
+     </p>
+<script src="emailmessages.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
+

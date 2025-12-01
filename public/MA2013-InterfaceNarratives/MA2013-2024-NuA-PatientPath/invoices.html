@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Invoices - Patient Path</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="flexContainer">
+  <div id="mainLeft">
+    <header id="header"></header>
+    <nav id="sidebarMenu">
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="appointments.html">Appointments</a></li>
+        <li><a href="schedules.html">Schedules</a></li>
+        <li><a href="invoices.html">Invoices</a></li>
+        <li><a href="reports.html">Reports</a></li>
+        <li><a href="analytics.html">Analytics</a></li>
+        <li><a href="emailmessages.html">Email/Messages</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div id="mainRight">
+    <h2>Invoices</h2>
+    <p>Manage patient invoices and payment status.</p>
+
+    <table id="invoiceTable">
+      <thead>
+        <tr>
+          <th>Patient Name</th>
+          <th>Service</th>
+          <th>Amount (£)</th>
+          <th>Status</th>
+          <th>Notes</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+      <!-- Floating images outside the main layout -->
+  <img src="https://cdn.glitch.global/aa16dca8-8894-4a99-b08a-40895eba3ff2/Screenshot%202025-04-10%20at%201.51.59%E2%80%AFpm.png?v=1744504862975" class="floating-image" id="float1" />
+  <img src="https://cdn.glitch.global/aa16dca8-8894-4a99-b08a-40895eba3ff2/Screenshot%202025-04-10%20at%201.48.10%E2%80%AFpm.png?v=1744504859259" class="floating-image" id="float2" />
+   <img src="https://cdn.glitch.global/aa16dca8-8894-4a99-b08a-40895eba3ff2/Screenshot%202025-04-10%20at%201.56.22%E2%80%AFpm.png?v=1744504856824" class="floating-image" id="float3" />
+  </div>
+</div>
+
+<!-- Overlay Popups -->
+<div id="invoiceOverlay"><p id="overlayText"></p></div>
+<div id="invoiceNotification"><p id="notificationText"></p></div>
+  
+  <!-- Transcript Overlay -->
+<div id="transcriptOverlay" class="hidden">
+  <div class="transcriptBox" id="transcriptBox"></div>
+</div>
+  
+   <div class="scrollablefloatingRightText">
+    <p>
+      Working in hospital administration, invoicing are expected to be an important part of my job. They assist in determining if patients have received or paid for their appointments, operations, or procedures. Most of the patients I deal with have healthcare insurance, which is usually supplied by their companies and covers both them and their families. However, there are always others who refuse people who are unemployed or who believe they do not require insurance since they have never been ill. When patients arrive, they are liable for the whole expense of their care, which for a private hospital like mine can be expensive.
+You'd think that addressing invoicing and insurance concerns would be part of my administrative responsibilities. However, where I work, invoicing and payments are handled by another department, which is not even in the same building. However, when something goes wrong with a bill or payment, angered phone calls are directed to us the administrative team. Patients are unaware that billing is handled elsewhere; all they know is that they're frustrated and need answers. But instead of assisting, I'm caught in the middle, with no access to their records and no ability to resolve their problems. I can't transfer them or contact the billing office directly, so I'm left absorbing their rage without a solution.
+Another debate is over the pricing themselves. Private healthcare is extremely expensive, and when I tell patients about the expense, they generally respond with silence, followed by disbelief. Even those who can afford it are astounded. Almost every patient asks me the same question, "Can you give me a discount?" But the answer is always "no." Pricing is set by another department, and I have no ability to change it. I've seen individuals pause, hesitate, and then walk away from essential operations, unsure whether their health condition is serious enough to justify the expense. It's distressing to see people jeopardise their health because they can't afford treatment.
+However, it isn't always about money. In some cases, invoices and policies collide with genuine human pain. And when that does, the results are unforgettable.
+Dealing with missed appointments is one of my least favourite aspects of my work. The hospital has a severe policy: if a patient cancels or reschedules less than 24 hours before their appointment, they will be charged a £100 no-show fee. The rule exists for a reason: each missed appointment wastes valuable time that could have been spent caring for someone else.
+
+We make sure to inform patients about the policy. It is mentioned on their booking call, written in their confirmation email, and provided again via text message. Despite this, individuals still forget, and when they are charged, they frequently become enraged.
+Nobody in admin like making these calls. When radiologists return the forms detailing the patients who missed their appointments, it becomes a game of avoidance. The entire team argues on who has to make the dreaded phone calls. These interactions are rarely pleasant. People feel free to vent their frustrations and insults over the phone.
+
+During my first few weeks on the job, I made more of these calls than anyone else. I was yelled at, cursed at, and moved to tears more than once. But there was one call that stuck with me and it's the reason I'll never deal with missed appointments again.
+I was going through a stack of missed appointments when I came across one from the previous day. Without thinking about it, I called the patient's number and gently enquired if she wanted to reschedule her appointment.
+
+Immediately, I was overcome with wrath.
+
+The woman on the other end was enraged, her voice quivering with fury as she demanded to know why I was even phoning her. Before I could finish speaking, her voice trembled and she burst into tears.
+Her story became clear through her sobs: her husband had died. She had spent the previous three days attempting to contact the hospital to cancel her appointment, but no one answered her calls, and nothing was recorded in our system. Now here I was, calling her as if nothing had happened, asking her to reschedule and, worse, insinuating that she could face charges for failing to show up.
+
+Then she asked me the question that left me frozen in place:
+
+"Am I going to be charged for this?"
+I checked the system. It showed her as a no-show, which meant she would be charged according to rules. I attempted to clarify the rule, stating that the system marked her as having missed her appointment without warning. But she thought that sounded like a cold, uncaring justification.
+Her sorrow became to rage, and she unloaded her anger on me. She screamed about how she had phoned for days, how no one had assisted her, and how we had failed her while she was already in pain. I sat there, my face burning, my heart thumping, and my skin itching from the quick emergence of stress spots that occur when I am overwhelmed. I felt trapped; I couldn't solve it. I had no authority to waive her cost, no access to the call logs, and no way to assist her. I could only listen as she poured out her anguish and rage over the phone.
+
+I felt unable to breathe. My hands were trembling, and my chest felt tight with fear. Then I hung up.
+I felt a sense of shame and sickness wash over me as soon as I ended the phone call. I didn't hang up because she was unpleasant, but because I couldn't take it longer. I was absolutely powerless, caught between a grieving woman and a policy that had no regard for empathy.
+
+That day broke me. I walked away from my desk, unable to bring myself to return to the stack of missed appointments. From then on, I refused to take such calls. If a missed appointment form arrived on my desk, I promptly forwarded it to the billing department, instructing the patient to contact them directly. I didn't care about the method or the rules; I simply couldn't go through it again.
+But the truth is that none of this should have occurred. If the hospital had a robust invoice tracking system one that tracked calls in real time and identified cancellations the woman's calls would have been documented. Her cancellation would have been recorded, and she would not have received that call from me.
+
+     </p>
+
+
+<script src="invoices.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
