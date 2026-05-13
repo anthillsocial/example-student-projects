@@ -1,0 +1,120 @@
+<!--The data.html page displays all the data that we have collected for this project. I have tried my best to display data relating sales, 
+trends, genres of indie comics vs mainstream comics and how the data supports the steady rise of indie comics. Lack of experience with coding,
+especially with chart.js and Highcharts proved to be challenging, as can be seen in this page how I am not able to program the Highcharts map 
+to load. Another challenge was the presentation of data itself - I have managed to keep it simple as I was not able to customise the looks of it
+as much, just sticking to the basic customisation CSS provides. (Editor Note - Ishmaam) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Data | Indie Comics Project</title>
+
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="style.css">         <!-- General Website Styles - For some reason the page cannot access style.css so this page has to rely on chart-style.css which I kept just for charts -->
+  <link rel="stylesheet" href="chart-style.css">    <!-- Chart-Specific Styles - This was initially planned for chart customisation -->
+
+  <!-- Highcharts Script -->
+  <script src="https://code.highcharts.com/highcharts.js"></script> <!--The source of the map plugin, its opensource and free to use. Much more convenient than leaflet.js -->
+  <script src="https://code.highcharts.com/maps/highmaps.js"></script> <!--This grabs all the maps from the plugin -->
+  <script src="https://code.highcharts.com/maps/modules/exporting.js"></script> 
+  <script src="https://code.highcharts.com/mapdata/custom/world-continents.js"></script> <!--Specifically grabs continent maps -->
+  
+  <!-- Editor Note (Ishmaam) - Highcharts just does not seem to work. I made sure to see if the data was being loaded, containers were working fine, script was running, but nothing fixed this issue. -->
+
+  <!-- chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ 
+  <!-- Editor Note (Baar) - the following "body" is added purely for adding the backgrounds and thus enabling consistent designs across all pages -->
+    <style>
+
+  body  { 
+    background-image: url("https://cdn.glitch.global/8457bd66-4c79-44ae-9f75-0708b49527d1/Data%20Background%20Image.png?v=1746452001980"), url(https://cdn.glitch.global/8457bd66-4c79-44ae-9f75-0708b49527d1/Data%20Background%20GIF.gif?v=1746455142560); 
+    background-repeat: no-repeat, repeat;
+    padding: 15px;
+    background-color: purple;
+    height: 300px;
+    width: 990px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+     }
+      
+  .content-block { /* Intro text */
+    background: #fff;
+    padding: 20px;
+    margin: 100px;
+    width: 686px;
+    height: 100px;
+    font-family:Comic Sans MS;
+    transform: translateX(5%) translateY(65%);
+      } 
+    
+  </style>
+  
+</head>
+
+<!-- Main Data Presentation-->
+<body>
+
+  <div class="container">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+          <div class="content-block">
+        <h1>Indie Comics and Mainstream Data</h1>
+</div>
+
+    <!-- Dual Bar Chart -->
+    <div class="chart-box">
+      <canvas id="dualBarChart"></canvas>
+    </div>
+    <div class="chart-description">
+      <p>Here we show the sales comparison between Indie Comics and Mainstream Comics for the years 2019-2024. The data highlights the growing popularity of Indie Comics, especially in recent years.</p>
+    </div>
+
+    <!-- Pie Chart -->
+    <div class="chart-box">
+      <canvas id="pieChart"></canvas>
+    </div>
+    <div class="chart-description">
+      <p>This pie chart represents the distribution of different comic genres, showing the dominance of Superhero and Manga comics in the market.</p>
+    </div>
+
+    <!-- Line Chart -->
+    <div class="chart-box">
+      <canvas id="lineChart"></canvas>
+    </div>
+    <div class="chart-description">
+      <p>The line chart illustrates the steady growth of Indie Comics over the last decade, with a significant increase in popularity from 2020 onward.</p>
+    </div>
+
+    <!-- Radar Chart -->
+    <div class="chart-box">
+      <canvas id="radarChart"></canvas>
+    </div>
+    <div class="chart-description">
+      <p>This radar chart compares the popularity of various genres within Indie Comics, showing strong interest in Sci-fi and Fantasy genres.</p>
+    </div>
+
+  </div>
+
+  <!-- External JavaScript -->
+  <script src="chart.js"></script> <!--This fetches all the scripts from charts.js and executes them on this page. A lot better to be seperate to keep project organised. -->
+
+</body>
+</html>

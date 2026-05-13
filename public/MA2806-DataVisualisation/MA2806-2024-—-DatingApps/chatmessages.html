@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DMs</title>
+  <link rel="stylesheet" href="chatmessages.css">
+</head>
+<body>
+
+<div class="messaging-container">
+  <!-- DM List -->
+  <div class="dm-list">
+    <h2>Isotypes/Graphs</h2>
+    <ul>
+      <li onclick="openChat(0)">Gender</li>
+      <li onclick="openChat(1)">Age</li>
+      <li onclick="openChat(2)">Distance</li>
+      <li onclick="openChat(3)">Interests</li>
+      <li onclick="openChat(4)">Looking for</li>
+      <li onclick="openChat(5)">Race/Ethinicty</li>
+      <li onclick="openChat(6)">Raw Data</li>
+      <!-- back button -->
+    
+        <div class="action" onclick="toggleModal('LeftModal')">
+          <a href="index.html">
+            <img src="https://cdn.glitch.global/6eb50e2b-bb25-454d-a955-43596b45c9a2/swipe%20left.PNG?v=1745770325072g" alt="Swipe Left Icon" class="icon-button">
+        </a>
+            </div>
+          
+
+    </ul>
+  </div>
+
+  <!-- Chat Window -->
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header" id="chatHeader">Select a chat</div>
+    <div class="chat-messages" id="chatMessages">
+      
+    </div>
+  </div>
+</div>
+  
+
+<script>
+  const chats = [
+    ["This is an Isotype graph on the Gender & Age demographics of users of both Tinder and Bumble.", "<br><img src='https://cdn.glitch.global/1a832a35-b225-4d15-9d19-d999639eebcd/Gender.png?v=1746388141491' style='width: 500px;'/>", ],
+    ["These are doughnut charts that represent the Age demographic of users on Tinder and Bumble", "<br><img src='https://cdn.glitch.global/1a832a35-b225-4d15-9d19-d999639eebcd/bumble%20age%20graph.png?v=1746391287669'style='width: 500px;' />", "<br><img src='https://cdn.glitch.global/1a832a35-b225-4d15-9d19-d999639eebcd/tinder%20age%20graph.png?v=1746391296571'style='width: 500px;' />"],
+    ["This is a bar chart that represents the distance of the users", "<br><img src='https://cdn.glitch.global/1a832a35-b225-4d15-9d19-d999639eebcd/Distance%20from%20London%20chart.png?v=1746391340721'style='width: 500px;' />"],
+    ["This is a Radar chart that relays the similair interests of all the people that we swiped right on.", "<br><img src='https://cdn.glitch.global/1a832a35-b225-4d15-9d19-d999639eebcd/Interests.png?v=1746388144795' style='width: 500px;'/>"],
+    ["This is a pie chart that shows the relative interests:", "<br><img src='https://cdn.glitch.global/1a832a35-b225-4d15-9d19-d999639eebcd/Tinder%20looking%20for%20chart.png?v=1746392462047'style='width: 500px;' />" , "<br><img src='https://cdn.glitch.global/1a832a35-b225-4d15-9d19-d999639eebcd/Bumble%20looking%20for%20chart.png?v=1746393295822' style='width: 500px;'/>"],
+    ["This is a line graph that shows the Race/Ethinicty demographic:", "<br><img src='https://cdn.glitch.global/1a832a35-b225-4d15-9d19-d999639eebcd/Bumble%20ethnicity%3Arace%20graph.png?v=1746394844101' style='width: 500px;'/>","<br><img src='https://cdn.glitch.global/1a832a35-b225-4d15-9d19-d999639eebcd/Tinder%20ethncity%3Arace%20graph.png?v=1746394857847' style='width: 500px;'/>" ],
+    ["Here is the Raw Data Spreadsheet we created:", "<iframe src='https://docs.google.com/spreadsheets/d/e/2PACX-1vSKdPXzffHjyC9MbNBFMMitJkaebgw1d2hLx2sirEfPsGidRhFvbi-11H3ycaHuNyfQjBGs2ZtQJnig/pubhtml?widget=true&amp;headers=false'  width='900' height='600' style='border:0;'></iframe>"],
+  ];
+
+  function openChat(index) {
+    const chatWindow = document.getElementById("chatWindow");
+    const chatMessages = document.getElementById("chatMessages");
+    const chatHeader = document.getElementById("chatHeader");
+
+    chatHeader.textContent = ` ${["Gender", "Age", "Distance", "Interests", "Looking for", "Race/Ethinicty", "Raw Data"][index]}`;
+    chatMessages.innerHTML = "";
+
+    chats[index].forEach(line => {
+      const bubble = document.createElement("div");
+      bubble.className = line.startsWith("You:") ? "bubble you" : "bubble other";
+      bubble.innerHTML = line;
+
+      chatMessages.appendChild(bubble);
+    });
+
+    chatWindow.classList.add("show");
+  }
+</script>
+  
+  
+
+</body>
+</html>

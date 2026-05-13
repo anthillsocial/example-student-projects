@@ -1,0 +1,24 @@
+/* this has all the placement for and colour specific for STOPWATCH */
+body {
+    background-color: transparent;
+  margin: 0; 
+  padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* timer placement- making sure it looks good*/
+/* tthe placement of the visual to work, not move, etc */
+.stopwatch-container {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+

@@ -1,0 +1,294 @@
+/* Reset default margin and padding */
+body, html {
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+}
+
+
+/* Styles for the Three.js canvas */
+canvas {
+  width: 100px; /* Adjust the width of the canvas as needed */
+  height: 60px; /* Adjust the height of the canvas as needed */
+  z-index: 2; /* Render the canvas above other content */
+}
+
+
+.logo {
+  position: absolute;
+  top: 10px; 
+  left: 10px; 
+  z-index: 100; 
+}
+
+
+.logo img {
+  width: 180px; /* Adjust the size of the logo as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+
+/* Info boxes container */
+.info-boxes-container {
+  position: absolute;
+  top: 0px;
+  left: 80px;
+  width: 170%;
+  height: 100%;
+  pointer-events: none; /* Ensure the container doesn't interfere with mouse events on the canvas */
+  z-index: 4; /* Render info boxes above other content */
+}
+
+
+/* Individual info box styles */
+.info-box {
+  width: 80%;
+  margin-bottom: 20px; /* Add space between the info boxes */
+  padding: 100px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+/* ----------- 2D MAP -----------*/
+
+.map-image {
+  background-image: url(./Assets/TEXTURES/GOLDMAP_2.png);
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  top: 55%; /* Adjust the vertical position */
+  left: 50%; /* Adjust the horizontal position */
+  transform: translate(-50%, -50%); /* Center the image */
+  width: 80%;
+  height: 80vh;
+}
+
+/* ----------- POP UPS -----------*/
+
+/* INFO POP UP BOXES */
+.profile {
+  position: absolute;
+ 
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin: 0 1em;
+  background-color: #a81717; /* Set color to red */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  box-shadow: 0 0 0 4px #a81717, 0 0 0 5px #000000;
+  transition: transform 0.3s ease; /* Add transition for smooth effect */
+  z-index: 7; /* Render red dots above other content */
+}
+
+
+.profile:hover {
+  box-shadow: 0 0 0 4px #fff, 0 0 0 6px #d10fd8;
+  z-index: 10;
+}
+
+
+/* Styles for pop up content */
+.content {
+  position: absolute;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: 0.5s;
+  z-index: 11;
+}
+
+
+.content .header {
+  display: flex;
+  align-items: center;
+}
+
+
+.content .header img {
+  grid-column: 1/2;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+.content .header .infos {
+  margin-left: 1em;
+}
+
+
+.content .header .infos .name {
+  font-size: 1.20em;
+  color: #333;
+  letter-spacing: 1px;
+  font-weight: 600; /* Adjust font weight */
+}
+
+
+.content .header .infos .title {
+  font-size: 0.9em;
+  color: #909696;
+  font-weight: 500;
+}
+
+
+.content .body {
+  padding: 1em;
+}
+
+
+.content .body p {
+  font-size: 0.95em;
+  color: #272727;
+}
+
+
+
+
+.profile:hover .content {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(10%) translateY(-5px);
+}
+
+
+/* ====================OPTION BAR===================*/
+
+
+/* QUESTION MARK */
+.question-mark:hover .content {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-925px) translateY(510px); /* Adjust the pop up translation */
+}
+
+
+/* BAR CHART */
+.bar-chart:hover .content {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-1030px) translateY(450px);
+}
+
+
+/* CLAPPER BOARD */
+.clapper-board:hover .content {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(115px) translateY(130px);
+}
+
+
+/* BEACH ICON */
+.beach-mark:hover img {
+  transform: translateX(30%) translateY(1%);
+}
+
+.beach-mark:hover .profile-image {
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.beach-mark:hover .content {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-10px) translateY(510px);
+}
+
+
+/* LOTUS ICON */
+.lotus-mark:hover img {
+  transform: translateX(25%) translateY(1%);
+}
+
+.lotus-mark:hover .profile-image {
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.lotus-mark:hover .content {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-170px) translateY(510px);
+}
+
+
+/* HOBBIT ICON */
+/* Adjust the position of the image */
+.Hobbit:hover img {
+  transform: translateX(25%) translateY(1%);
+}
+
+.Hobbit:hover .profile-image {
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.Hobbit:hover .content {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-320px) translateY(510px);
+}
+
+
+/* FRIENDS ICON */
+/* Adjust the position of the image */
+.Friends:hover img {
+  transform: translateX(50%) translateY(1%);
+}
+
+.Friends:hover .profile-image {
+  transform: translateX(-90%) translateY(-50%);
+}
+
+.Friends:hover .content {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-575px) translateY(560px);
+}
+
+.profile.Friends .content .name {
+  color: #ffff; /* Set font color */
+  font-size: 20px;
+}
+
+
+/* POTTER ICON */
+/* Adjust the position of the image */
+.Potter:hover img {
+  transform: translateX(50%) translateY(1%);
+}
+
+.Potter:hover .profile-image {
+  transform: translateX(-90%) translateY(-50%);
+}
+
+.Potter:hover .content {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-725px) translateY(460px);
+}
+
+.profile.Potter .content .name {
+  color: #ffff; /* Set font color */
+  font-size: 20px;
+}
+
+
+/* READ MORE */
+.read-more:hover .content {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-950px) translateY(-200px);
+}
+
+.profile.read-more .content .name {
+  color: #ffff;
+  font-size: 15px;
+}

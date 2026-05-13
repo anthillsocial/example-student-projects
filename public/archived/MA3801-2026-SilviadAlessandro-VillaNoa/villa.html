@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Villa Noa | The Villa</title>
+  <style>
+    :root {
+      --primary-font: 'Sterling Times', 'Times New Roman', serif;
+      --secondary-font: 'Futura', 'Arial', sans-serif;
+      --bg-color: #F4F1ED;
+      --panel: #eee7df;
+      --text-dark: #243136;
+      --text-light: #FFFFFF;
+      --muted: #7A8B89;
+      --line: rgba(36, 49, 54, 0.12);
+      --overlay: rgba(20, 26, 28, 0.34);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--secondary-font);
+      background: var(--bg-color);
+      color: var(--text-dark);
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 20;
+    }
+
+    .logo {
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.35rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.16rem;
+      font-size: 0.75rem;
+      opacity: 0.92;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.65;
+    }
+
+    .nav-cta {
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 0.8rem 1.2rem;
+      border-radius: 999px;
+    }
+
+   .hero {
+  min-height: 82vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 2rem;
+  overflow: hidden; 
+}
+
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--overlay);
+  z-index: 1;
+}
+
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  color: var(--text-light);
+}
+
+    .eyebrow {
+      display: block;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22rem;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .hero .eyebrow {
+      color: rgba(255,255,255,0.82);
+    }
+
+    .hero h1 {
+      margin: 0 0 1rem;
+      font-family: var(--primary-font);
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 400;
+      line-height: 0.95;
+      letter-spacing: 0.16rem;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 2rem;
+      line-height: 1.85;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .hero-meta {
+      display: inline-flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-size: 0.74rem;
+      letter-spacing: 0.16rem;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .section {
+      padding: 7rem 5%;
+    }
+
+    .intro-grid {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .intro-copy h2,
+    .tabs-panel h3,
+    .systems-copy h2,
+    .closing h2 {
+      margin: 0 0 1.4rem;
+      font-family: var(--primary-font);
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 400;
+      line-height: 1.08;
+    }
+
+    .intro-copy p,
+    .tabs-panel p,
+    .systems-copy p,
+    .closing p {
+      margin: 0 0 1.15rem;
+      line-height: 1.9;
+      font-size: 1rem;
+      color: #4F5A5D;
+    }
+
+    .intro-aside {
+      border-top: 1px solid var(--line);
+      padding-top: 1.25rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem 1.6rem;
+    }
+
+    .intro-aside span {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.16rem;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .intro-aside strong {
+      font-family: var(--primary-font);
+      font-weight: 400;
+      font-size: 1.05rem;
+      line-height: 1.2;
+    }
+
+    .tabs-wrap {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    .tabs-nav {
+      display: flex;
+      gap: 2rem;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 2rem;
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid transparent;
+      padding: 0 0 1rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.16rem;
+      font-size: 0.72rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .tab-btn.active {
+      color: var(--text-dark);
+      border-bottom-color: var(--text-dark);
+    }
+
+    .tabs-panel {
+      display: none;
+      max-width: 820px;
+    }
+
+    .tabs-panel.active {
+      display: block;
+    }
+
+    .gallery-section {
+      padding-top: 1rem;
+    }
+
+    .gallery-layout {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .gallery-main {
+      background: #ddd7cf;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .gallery-main img {
+      height: 620px;
+    }
+
+    .gallery-thumbs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.8rem;
+    }
+
+    .thumb {
+      border: 0;
+      padding: 0;
+      background: transparent;
+      cursor: pointer;
+      opacity: 0.82;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .thumb:hover,
+    .thumb.active {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
+    .thumb img {
+      aspect-ratio: 1 / 1;
+      border-radius: 2px;
+    }
+
+    .gallery-copy {
+      max-width: 430px;
+    }
+
+    .gallery-copy h2 {
+      margin: 0 0 1rem;
+      font-family: var(--primary-font);
+      font-size: clamp(2rem, 3vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.08;
+    }
+
+    .gallery-copy p {
+      margin: 0 0 1.15rem;
+      line-height: 1.9;
+      color: #4F5A5D;
+    }
+
+    .gallery-note {
+      margin-top: 2rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .gallery-note span {
+      display: block;
+      margin-bottom: 0.45rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16rem;
+      font-size: 0.68rem;
+      color: var(--muted);
+    }
+
+    .amenities-grid {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .amenity-card {
+      background: var(--panel);
+      border-radius: 2px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      min-height: 320px;
+    }
+
+    .amenity-card img {
+      height: 100%;
+    }
+
+    .amenity-copy {
+      padding: 2rem 2rem 2.2rem;
+    }
+
+    .amenity-copy span {
+      display: inline-block;
+      margin-bottom: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18rem;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .amenity-copy h3 {
+      margin: 0 0 0.85rem;
+      font-family: var(--primary-font);
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 1.12;
+    }
+
+    .amenity-copy p {
+      margin: 0;
+      line-height: 1.85;
+      color: #4F5A5D;
+    }
+
+    .systems-grid {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .systems-copy {
+      max-width: 520px;
+    }
+
+    .systems-image {
+      background: #ddd7cf;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .systems-image img {
+      height: 540px;
+    }
+
+    .closing {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .closing strong {
+      font-weight: 400;
+      font-family: var(--primary-font);
+      font-size: 1.2rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16rem;
+      font-size: 0.75rem;
+      border-bottom: 1px solid rgba(36, 49, 54, 0.4);
+      padding-bottom: 0.35rem;
+    }
+
+    @media (max-width: 1100px) {
+      .intro-grid,
+      .gallery-layout,
+      .systems-grid,
+      .amenities-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .amenity-card {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-copy,
+      .systems-copy {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        padding: 1.5rem 1.25rem;
+      }
+
+      .gallery-main img {
+        height: 360px;
+      }
+
+      .systems-image img {
+        height: 360px;
+      }
+
+      .gallery-thumbs {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links a:not(.nav-cta) {
+        display: none;
+      }
+
+      .section {
+        padding: 5.5rem 1.5rem;
+      }
+
+      .intro-aside {
+        grid-template-columns: 1fr;
+      }
+
+      .amenity-copy h3,
+      .tabs-panel h3,
+      .gallery-copy h2,
+      .systems-copy h2,
+      .closing h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">Villa Noa</a>
+    <div class="nav-links">
+      <a href="villa.html">The Villa</a>
+      <a href="index.html#suites">Suites</a>
+      <a href="index.html#rituals">Experiences</a>
+    <a href="reserve.html" class="nav-cta">Reserve</a>
+    </div>
+  </nav>
+
+ <header class="hero">
+
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="sky.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <span class="eyebrow">The Villa</span>
+    <h1>The system behind stillness</h1>
+    <p>
+      Villa Noa presents calm as natural, but every quiet surface depends on access, labour, maintenance and control.
+    </p>
+    <div class="hero-meta">
+      <span>Private access</span>
+      <span>Maintained daily</span>
+      <span>Calm as infrastructure</span>
+    </div>
+  </div>
+
+</header>
+
+
+
+  <section class="section">
+    <div class="tabs-wrap">
+      <div class="tabs-nav">
+        <button class="tab-btn active" data-tab="tab-status">Leisure</button>
+<button class="tab-btn" data-tab="tab-wellness">Wellness</button>
+<button class="tab-btn" data-tab="tab-nature">Nature</button>
+      </div>
+
+      <div id="tab-status" class="tabs-panel active">
+  <h3>Doing nothing becomes a form of status.</h3>
+  <p>
+    The villa sells time as freedom from necessity. Rest, silence and unstructured days become signs that the guest is distant enough from ordinary pressure to experience idleness as refinement.
+  </p>
+</div>
+
+<div id="tab-wellness" class="tabs-panel">
+  <h3>Recovery is returned as a luxury product.</h3>
+  <p>
+    The exhaustion produced by accelerated life is not resolved here. It is repackaged into rituals, treatments and atmospheres that make relief purchasable.
+  </p>
+</div>
+
+<div id="tab-nature" class="tabs-panel">
+  <h3>Nature becomes convincing once it is edited.</h3>
+  <p>
+    Sea, stone and light appear untouched, but their role is carefully framed. The landscape becomes a luxury interface: natural enough to feel pure, controlled enough to be consumed.
+  </p>
+</div>
+    </div>
+  </section>
+
+  
+
+  <section class="section section-amenities">
+    <div class="amenities-grid">
+      <article class="amenity-card">
+        <img src="privatebeach.png" alt="Private beach at Villa Noa">
+        <div class="amenity-copy">
+          <span>Private beach</span>
+<h3>Access makes the shoreline luxurious.</h3>
+<p>
+  The coast becomes valuable once it is no longer shared. Privacy is produced through restriction, then experienced as peace.
+</p>
+        </div>
+      </article>
+
+      <article class="amenity-card">
+        <img src="tennisscourt.png" alt="Tennis court at Villa Noa">
+        <div class="amenity-copy">
+         <span>Tennis court</span>
+<h3>Leisure with no practical purpose.</h3>
+<p>
+  Time spent here does not need to justify itself. Its uselessness is part of its status.
+</p>
+        </div>
+      </article>
+
+      <article class="amenity-card">
+        <img src="restaurant.png" alt="Restaurant and bar at Villa Noa">
+        <div class="amenity-copy">
+          <span>Dining & bar</span>
+<h3>Consumption made tasteful.</h3>
+<p>
+  Appetite is softened into atmosphere. Service, pacing and design transform indulgence into refinement.
+</p>
+        </div>
+      </article>
+
+      <article class="amenity-card">
+        <img src="wellnessclub.png" alt="Wellness club at Villa Noa">
+        <div class="amenity-copy">
+         <span>Wellness club</span>
+<h3>Rest, professionally administered.</h3>
+<p>
+  Balance is scheduled, staffed and delivered. The guest experiences recovery as personal, while the system remains invisible.
+</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+ 
+  <script>
+    const mainVillaImage = document.getElementById('mainVillaImage');
+    const thumbs = document.querySelectorAll('.thumb');
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tabs-panel');
+
+    if (mainVillaImage && thumbs.length) {
+      thumbs.forEach((thumb) => {
+        thumb.addEventListener('click', () => {
+          const thumbImg = thumb.querySelector('img');
+          const newSrc = thumb.getAttribute('data-image');
+
+          if (newSrc) {
+            mainVillaImage.src = newSrc;
+          }
+
+          if (thumbImg) {
+            mainVillaImage.alt = thumbImg.alt;
+          }
+
+          thumbs.forEach((t) => t.classList.remove('active'));
+          thumb.classList.add('active');
+        });
+      });
+    }
+
+    if (tabButtons.length && tabPanels.length) {
+      tabButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const target = button.getAttribute('data-tab');
+
+          tabButtons.forEach((btn) => btn.classList.remove('active'));
+          tabPanels.forEach((panel) => panel.classList.remove('active'));
+
+          button.classList.add('active');
+
+          const targetPanel = document.getElementById(target);
+          if (targetPanel) {
+            targetPanel.classList.add('active');
+          }
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>

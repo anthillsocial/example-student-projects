@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dating Apps</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+   
+    <button onclick="toggleModal('logoModal')">
+      <img src="https://cdn.glitch.global/6eb50e2b-bb25-454d-a955-43596b45c9a2/match.PNG?v=1745770302849" alt="logo Icon" class="icon-button">
+    </button>
+
+    <!-- opens messages page -->
+    <a href="chatmessages.html">
+      <button>
+        <img src="https://cdn.glitch.global/6eb50e2b-bb25-454d-a955-43596b45c9a2/messages_statistics.PNG?v=1745770308589" alt="Messages Icon" class="icon-button">
+      </button>
+    </a>
+
+    <!-- opens about page -->
+    <a href="about.html">
+      <button>
+      <img src="https://cdn.glitch.global/6eb50e2b-bb25-454d-a955-43596b45c9a2/profile.PNG?v=1745770316239" alt="Profile Icon" class="icon-button">
+    </button>
+    </a>
+  </nav>
+
+  <!-- Background Container -->
+  <a href="fullprofile.html" class="pic-link">
+    <div class="background-container">
+      <div class="pic-text">
+        <div class="pic-name-and-age">
+          <h2>Dating Apps</h2>
+        </div>
+        <div class="pic-bio">Tinder vs Bumble</div>
+      </div>
+    </div>
+  </a>
+
+  <!-- Actions -->
+  <div class="actions">
+    
+    <div class="action" onclick="toggleModal('leftModal')">
+      <img src="https://cdn.glitch.global/6eb50e2b-bb25-454d-a955-43596b45c9a2/swipe%20left.PNG?v=1745770325072" alt="Swipe Left Icon" class="icon-button">
+    </div>
+
+  
+    <div class="action" onclick="toggleModal('matchModal')">
+      <img src="https://cdn.glitch.global/6eb50e2b-bb25-454d-a955-43596b45c9a2/match.PNG?v=1745770302849" alt="Match Icon" class="icon-button">
+    </div>
+
+    <div class="action" onclick="toggleModal('rightModal')">
+      <img src="https://cdn.glitch.global/505f4735-12fb-44d2-b357-8904acbd9702/swipe%20right.PNG?v=1745880702434" alt="Swipe Right Icon" class="icon-button">
+    </div>
+  </div>
+
+  <div class="modal" id="leftModal">
+    <p>Hmmm...🤔</p>
+    <br>
+      <img src="https://cdn.glitch.global/1a832a35-b225-4d15-9d19-d999639eebcd/verification%20test.jpg?v=1746439127453" 
+       alt="Swipe Left Image" 
+       style="max-width: 90%; height: auto; border-radius: 10px;">
+    <button class="close-btn" onclick="toggleModal('leftModal')">Close</button>
+  </div>
+
+  <div class="modal" id="matchModal">
+    <p>It's a Match! ❤️</p>
+    <br>
+      <img src="  https://cdn.glitch.global/1a832a35-b225-4d15-9d19-d999639eebcd/see%20who%20likes%20you.jpg?v=1746440297029" 
+       alt="See who Likes you Image" 
+       style="max-width: 90%; height: auto; border-radius: 10px;">
+    <button class="close-btn" onclick="toggleModal('matchModal')">Close</button>
+  </div>
+
+  <div class="modal" id="rightModal">
+    <p>Uh Oh😰</p>
+    <br>
+      <img src="  https://cdn.glitch.global/1a832a35-b225-4d15-9d19-d999639eebcd/verification%20test%202.jpg?v=1746439845035" 
+       alt="Swipe Right Image" 
+       style="max-width: 90%; height: auto; border-radius: 10px;">
+    <button class="close-btn" onclick="toggleModal('rightModal')">Close</button>
+  </div>
+
+  
+  <!-- Javascript -->
+  <script src="script.js"></script>
+</body>
+</html>

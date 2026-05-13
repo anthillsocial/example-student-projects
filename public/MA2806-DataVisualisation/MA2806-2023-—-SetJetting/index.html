@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans" />
+    <title>Set Jetting</title>
+    <link rel="stylesheet" href="public/style.css">
+  </head>
+    <style>
+
+
+      body {
+        margin: 0;
+        overflow-x: hidden;
+      }
+   
+          /* --Actual map-- */
+          .map-image {
+          background-image: url(./Assets/TEXTURES/GOLDMAP_2.png);
+          width: 66%;
+          height: 54%;
+        }
+     
+   
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.131/build/three.module.js",
+          "jsm/": "https://cdn.jsdelivr.net/npm/three@0.131/examples/jsm/"
+        }
+      }
+    </script>
+   
+ 
+  <body>
+    <div class="container">
+      <canvas id="Interactive 3D Globe"></canvas>
+    </div>
+
+
+  <div class="info boxes">
+
+
+      <div class="info-box" >
+        <h2> Data Set </h2>
+        <p> The data above is mostly collected from travel and tourism datsets. <br> The Covid period was a challenge to find data from as the travel and tourism idustry took a huge impact from worldwide lockdowns. <br> If you want to find out more about these data sets, travel and tourism, and / or jet setting, click on the book to find out more. </p>
+      </div>
+
+
+<!----------------------------        LOGO         -------------------------->
+
+
+      <div class="logo" stlye="position: absolute; top: 100px; left: 100px; z-index: 100; ">
+        <img src="IMAGES/logosetjetgo.png" alt="logo" style=" width: 180px; height: auto; ">
+    </div>
+
+
+<!----------------------------        2 D interactive map          -------------------------->
+
+
+
+
+  <div class="map-image"></div>
+
+
+     
+   <!----------------------------        2D MAP POP UPS          -------------------------->  
+    
+
+
+      <!--- 2. NEW ZEALAND (LORD OF THE RINGS) --->
+      <div class="container">
+        <div class="profile" style="top: 627px; left: 1060px;">
+          <div class="content" style="width: 200px; height: 460px; bottom: -30px; pointer-events: none;">
+            <div class="header"></div>
+            <img src="IMAGES/LordOfTheRingsImg.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+            <div class="infos">
+              <h3 class="name"> Lord of the Rings: Matamata, New Zealand</h3>
+              <p class="title">Release date: 12/2001.
+                <br> Annual visits: <br> Pre-release: 8,218,000 <br> Post-release: 9,054,000 <br> 10% Set Jet increase each year since release of production.</p>
+            </div>
+          </div>
+      </div>
+
+
+      <!----------- 3. HAWAII (WHITE LOTUS)------------>
+      <div class="container">
+        <div class="profile" style="top: 487px; left: 299px;">
+          <div class="content" style="width: 200px; height: 410px; bottom: -30px; pointer-events: none;">
+            <div class="header"></div>
+            <img src="IMAGES/WhiteLotus.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+            <div class="infos">
+              <h3 class="name">The White Lotus: Kihei, Hawaii, USA</h3>
+              <p class="title">Release date: 07/2021
+             <br> Location: Four Seasons Koh Samui at Wailea</p>
+            </div>
+          </div>
+      </div>
+ 
+      <!------------- 4. THAILAND (THE BEACH) ----------->
+     
+      <div class="container">
+        <div class="profile" style="top: 502px; left: 900px;">
+          <div class="content" style="width: 200px; height: 475px; bottom: -100px; pointer-events: none;">
+            <div class="header"></div>
+            <img src="IMAGES/TheBeach.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+            <div class="infos">
+              <h3 class="name">The Beach: Ko Phi Phi Le, Thailand </h3>
+              <p class="title">Release date: 02/2000
+             <br> Location: Maya Bay <br>Annual visits: <br> Pre-release: 7,248,172 <br> Post-release: 9,580,000 <br> 22% increase in youth market in 2000.  </p>
+            </div>
+          </div>
+      </div>
+   
+<!----------- 5. MALTA (GAME OF THRONES)------------>
+<div class="container">
+  <div class="profile" style="top: 415px; left: 717px;">
+    <div class="content" style="width: 200px; height: 410px; bottom: -107px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/GameOfThrones.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Game of Thrones, Maneol Island, Malta</h3>
+        <p class="title">Release date: 04/2011
+       <br> Location: Fort Maneol <br> HDTV, produced by HBO</p>
+      </div>
+    </div>
+</div>
+
+
+ <!----------------------------- 6. EDINBURGH (ONE DAY) ------------------------------>
+     
+ <div class="container">
+  <div class="profile" style="top: 349px; left: 645px; width: 3px; height: 3px;">
+    <div class="content" style="width: 200px; height: 365px; bottom: -130px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/OneDay.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">One Day: Edinburgh, Scotland </h3>
+        <p class="title">Release date: 02/2024
+       </p>
+      </div>
+    </div>
+</div>
+
+
+ <!----------------------------- 7. YORKSHIRE (BRIDGERTON) ---------------------------->
+     
+ <div class="container">
+  <div class="profile" style="top: 350px; left: 660px; width: 2px; height: 2px;">
+    <div class="content" style="width: 200px; height: 365px; bottom: -130px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/Bridgerton.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Bridgeton: Yorkshire, England </h3>
+        <p class="title">Release date: 12/2020
+       </p>
+      </div>
+    </div>
+</div>
+
+
+ <!------------- 8. HIGHCLERE (DOWNTON ABBEY) ----------->
+     
+ <div class="container">
+  <div class="profile" style="top: 362px; left: 665px; width: 2px; height: 2px;">
+    <div class="content" style="width: 200px; height: 365px; bottom: -130px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/DowntonAbbey.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Downton Abbey: Highclere, England </h3>
+        <p class="title">Release date: 08/2010
+       </p>
+      </div>
+    </div>
+</div>
+
+
+ <!------------- 9. WATFORD (HARRY POTTER) ----------->
+     
+ <div class="container">
+  <div class="profile" style="top: 361px; left: 652px; width: 2px; height: 2px;">
+    <div class="content" style="width: 200px; height: 475px; bottom: -220px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/HarryPotter.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Harry Potter: Watford, England </h3>
+        <p class="title">Release date: 11/2001 <br> Location: Harry Potter Studios <br>Annual visits: <br> Pre-release: 47,500,000 <br> Post-release: 93,500,000 <br> 32% Set Jet increase each year since release of production.
+       </p>
+      </div>
+    </div>
+</div>
+
+
+ <!----------- 10. NEW YORK (FRIENDS)------------>
+ <div class="container">
+  <div class="profile" style="top: 390px; left: 503px; width: 4px; height: 4px;">
+    <div class="content" style="width: 200px; height: 380px; bottom: -130px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/Friends.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Friends: NY, USA</h3>
+        <p class="title">Release date: 04/1995 <br> Location: Little Owl Restaurant
+           </p>
+      </div>
+    </div>
+</div>
+
+
+<!----------- 11. PARIS (EMILY IN PARIS)------------>
+<div class="container">
+  <div class="profile" style="top: 382px; left: 667px; width: 3px; height: 3px;">
+    <div class="content" style="width: 200px; height: 380px; bottom: -130px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/EmilyInParis.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Emily in Paris: Paris, France</h3>
+        <p class="title">Release date: 10/2020
+           </p>
+      </div>
+    </div>
+</div>
+
+
+<!----------- 12. SEATTLE (SLEEPLESS IN SEATTLE)------------>
+<div class="container">
+  <div class="profile" style="top: 365px; left: 367px; width: 3px; height: 3px;">
+    <div class="content" style="width: 200px; height: 390px; bottom: -130px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/SleeplessSeattle.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Sleepless in Seattle: Seattle, USA</h3>
+        <p class="title">Release date: 09/1993 <br> Location: Pike Place Market
+           </p>
+      </div>
+    </div>
+</div>
+
+
+ <!------------- 13. LONDON (THE CROWN) ----------->
+     
+ <div class="container">
+  <div class="profile" style="top: 365px; left: 640px; width: 2px; height: 2px;">
+    <div class="content" style="width: 200px; height: 400x; bottom: -220px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/Crown.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">The Crown: London, England </h3>
+        <p class="title">Release date: 11/2016  
+       </p>
+      </div>
+    </div>
+</div>
+
+
+
+
+<!----------- 14. OREGON (THE SHINNING)------------>
+<div class="container">
+  <div class="profile" style="top: 377px; left: 377px; width: 3px; height: 3px;">
+    <div class="content" style="width: 200px; height: 380px; bottom: -130px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/Shining.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">The Shinning: Northern Oregon, USA</h3>
+        <p class="title">Release date: 11/1980 <br> Location: Timberline Lodge
+           </p>
+      </div>
+    </div>
+</div>
+
+
+ <!------------- 15. GLEN COE (SKYFALL) ----------->
+     
+ <div class="container">
+  <div class="profile" style="top: 338px; left: 657px; width: 3px; height: 3px;">
+    <div class="content" style="width: 200px; height: 365px; bottom: -150px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/Skyfall.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Skyfall: Glen Coe, Scotland </h3>
+        <p class="title">Release date: 10/2012
+       </p>
+      </div>
+    </div>
+</div>
+
+
+<!----------- 16. TUNISIA (STAR WARS - A NEW HOPE)------------>
+<div class="container">
+  <div class="profile" style="top: 417px; left: 684px;">
+    <div class="content" style="width: 200px; height: 410px; bottom: -107px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/StarWars.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Star Wars - A New Hope: Matmata, Tunisia</h3>
+        <p class="title">Release date: 12/1997
+       <br> Location: Hotel Sidi Driss, Tunisian Desert <br> </p>
+      </div>
+    </div>
+</div>
+
+
+<!------------- 17. CAMBODIA (TOMB RAIDER) ----------->
+     
+<div class="container">
+  <div class="profile" style="top: 478px; left: 911px;">
+    <div class="content" style="width: 200px; height: 520px; bottom: -150px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/TombRaider.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Lara Croft: Tomb Raider - Cambodia </h3>
+        <p class="title">Release date: 07/2001
+       <br> Location: Angkor Wat, a Hindu Temple in Siem Reap, Cambodia <br>Annual visits: <br> Pre-release: 466,365 <br> Post-release: 604,919 <br> 29.7% increase in tourism since its release.  </p>
+      </div>
+    </div>
+</div>
+
+
+<!----------- 18. CALIFORNIA (REBEL WITHOUT A CAUSE)------------>
+<div class="container">
+  <div class="profile" style="top: 392px; left: 387px; width: 3px; height: 3px;">
+    <div class="content" style="width: 200px; height: 405px; bottom: -130px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/RebelCause.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Rebel Without a Cause: LA, California</h3>
+        <p class="title">Release date: 01/1956 <br> Location: Griffith Observatory, Southern California
+           </p>
+      </div>
+    </div>
+</div>
+
+
+
+
+<!----------- 20. OHIO (SHAWSHANK REDEMPTION)------------>
+<div class="container">
+  <div class="profile" style="top: 380px; left: 474px; width: 4px; height: 4px;">
+    <div class="content" style="width: 200px; height: 405px; bottom: -150px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/Shawshank.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Shawshank Redemption: Ohio, USA</h3>
+        <p class="title">Release date: 02/1995 <br> Location: Ohio State Reformatory
+           </p>
+      </div>
+    </div>
+</div>
+
+
+<!----------- 21. JORDAN (INDIANA JONES AND THE LAST CRUSADE)------------>
+<div class="container">
+  <div class="profile" style="top: 433px; left: 747px;">
+    <div class="content" style="width: 200px; height: 410px; bottom: -120px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/IndianaJones.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Indiana Jones and the Last Crusade: Jordan</h3>
+        <p class="title">Release date: 06/1989 <br> Location: The Ancient City of Petra  </p>
+      </div>
+    </div>
+</div>
+
+
+<!----------- 22. AUSTRIA (THE SOUND OF MUSIC)------------>
+<div class="container">
+  <div class="profile" style="top: 386px; left: 692px; width: 5px; height: 5px;">
+    <div class="content" style="width: 200px; height: 365px; bottom: -130px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/SoundOfMusic.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">The Sound of Music: Salzburg, Austria</h3>
+        <p class="title">Release date: 03/1965
+           </p>
+      </div>
+    </div>
+</div>
+
+
+<!----------- 23. CALIFORNIA (LA LA LAND)------------>
+<div class="container">
+  <div class="profile" style="top: 402px; left: 375px; width: 4px; height: 4px;">
+    <div class="content" style="width: 200px; height: 420px; bottom: -130px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/LaLaLand.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">La La Land: LA, California</h3>
+        <p class="title">Release date: 01/2017 <br> Location: Lighthouse Cafe, Hermosa Beach, California, USA.
+           </p>
+      </div>
+    </div>
+</div>
+
+
+
+
+<!----------- 24. PARIS (AMELIE)------------>
+<div class="container">
+  <div class="profile" style="top: 371px; left: 675px; width: 3px; height: 3px;">
+    <div class="content" style="width: 200px; height: 350px; bottom: -130px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/Amelie.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Amelie: Paris, France</h3>
+        <p class="title">Release date: 08/2001
+           </p>
+      </div>
+    </div>
+</div>
+
+
+
+
+ <!----------- 25. NEW YORK (WHEN HARRY MET SALLY)------------>
+ <div class="container">
+  <div class="profile" style="top: 376px; left: 500px; width: 3px; height: 3px;">
+    <div class="content" style="width: 200px; height: 380px; bottom: -130px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/WhenHarryMetSally.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">When Harry Met Sally: NY, USA</h3>
+        <p class="title">Release date: 12/1989 <br> Location: Katz' Del, New York
+           </p>
+      </div>
+    </div>
+</div>
+
+
+<!------------- 26. LONDON (NOTTING HILL) ----------->
+     
+<div class="container">
+  <div class="profile" style="top: 379px; left: 643px; width: 3px; height: 3px;">
+    <div class="content" style="width: 200px; height: 400px; bottom: -150px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/NottingHill].jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Notting Hill: London, England </h3>
+        <p class="title">Release date: 05/1999 <br> Location: The Notting Hill Bookshop, London, UK.
+       </p>
+      </div>
+    </div>
+</div>
+
+
+<!----------- 27. NEW YORK (GHOST BUSTERS)------------>
+<div class="container">
+  <div class="profile" style="top: 382px; left: 515px; width: 3px; height: 3px;">
+    <div class="content" style="width: 200px; height: 380px; bottom: -130px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/Ghostbusters.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Ghost Busters: NY, USA</h3>
+        <p class="title">Release date: 12/1984 <br> Location: NY Public Library, Fifth Avenue
+           </p>
+      </div>
+    </div>
+</div>
+
+
+<!----------- 28. BELGIUM (IN BRUGES)------------>
+<div class="container">
+  <div class="profile" style="top: 368px; left: 690px; width: 4px; height: 4px;">
+    <div class="content" style="width: 200px; height: 365px; bottom: -130px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/Bruges.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">In Bruges: Bruges, Belgium</h3>
+        <p class="title">Release date: 04/2008
+           </p>
+      </div>
+    </div>
+</div>
+
+
+<!----------- 29. CALIFORNIA (THE HOLIDAY)------------>
+<div class="container">
+  <div class="profile" style="top: 406px; left: 390px; width: 4px; height: 4px;">
+    <div class="content" style="width: 200px; height: 440px; bottom: -160px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/Holiday.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">The Holiday: LA, California</h3>
+        <p class="title">Release date: 12/2006 <br> Location: Filming was split between Southern California and the UK's countryside in Surrey.
+           </p>
+      </div>
+    </div>
+</div>
+
+
+<!----------- 30. GREECE (MAMMA MIA)------------>
+<div class="container">
+  <div class="profile" style="top: 391px; left: 728px;">
+    <div class="content" style="width: 200px; height: 405px; bottom: -130px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/MammaMia.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Mamma Mia: Greece</h3>
+        <p class="title">Release date: 06/2008 <br> Location: Skopelos, Greece (the movie is set on the fictional island of Kalokairi).  </p>
+      </div>
+    </div>
+</div>
+
+
+ <!------------- 31. IRELAND (BANSHEES OF INISHERIN) ----------->
+     
+ <div class="container">
+  <div class="profile" style="top: 352px; left: 631px; width: 4px; height: 4px;">
+    <div class="content" style="width: 200px; height: 385px; bottom: -220px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/Banshees.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Banshees of Inisherin: Republic of Ireland </h3>
+        <p class="title">Release date: 09/2022 <br> Location: Achill Island
+       </p>
+      </div>
+    </div>
+</div>
+
+
+<!------------- 32. LONDON (SHERLOCK HOLMESL) ----------->
+     
+<div class="container">
+  <div class="profile" style="top: 374px; left: 655px; width: 3px; height: 3px;">
+    <div class="content" style="width: 200px; height: 400px; bottom: -150px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/Sherlock.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Sherlock Holmes: London, England </h3>
+        <p class="title">Release date: 05/1999 <br> Location: The Notting Hill Bookshop, London, UK.
+       </p>
+      </div>
+    </div>
+</div>
+
+
+
+
+ <!---------------- 34. SAVANNAH USA (FOREST GUMP) ---------------->
+ <div class="container">
+  <div class="profile" style="top: 420px; left: 477px;">
+    <div class="content" style="width: 200px; height: 430px; bottom: -130px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/ForestGump.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Forest Gump: Savannah, Georgia, USA</h3>
+        <p class="title">Release date: 06/1994.
+       <br> Annual visits: <br> Pre-release: 5,010,000 <br> Post-release: 5,360,700  </p>
+      </div>
+    </div>
+</div>
+
+
+<!----------- 35. RWANDA (GORILLAS IN THE MIST)------------>
+<div class="container">
+  <div class="profile" style="top: 520px; left: 726px;">
+    <div class="content" style="width: 200px; height: 458px; bottom: -107px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/Gorillas.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Gorillas in the Mist: Rwanda</h3>
+        <p class="title">Release date: 01/1989 <br>Annual visits: <br> Pre-release: 35,000 <br> Post-release: 42,000 <br> 25% increase in tourism after release.  </p>
+      </div>
+    </div>
+</div>
+
+
+<!---------------------- 36. TURKEY (TROY)--------------------->
+<div class="container">
+  <div class="profile" style="top: 410px; left: 743px; width: 5px; height: 5px;">
+    <div class="content" style="width: 200px; height: 450px; bottom: -340px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/TROY.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Troy: Turkey</h3>
+        <p class="title">Release date: 05/2004 <br> Location: Canakkale, Turkey <br>Annual visits: <br> Pre-release: 13,956,000 <br> Post-release: 17,548,000 <br> 25% increase in tourism after release.
+           </p>
+      </div>
+    </div>
+</div>
+
+
+<!----------- 37. CROATIA (GAME OF THRONES)------------>
+<div class="container">
+  <div class="profile" style="top: 390px; left: 710px; width: 5px; height: 5px;">
+    <div class="content" style="width: 200px; height: 590px; bottom: -340px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/GOT.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Game of Thrones: Croatia</h3>
+        <p class="title">Release date: 04/2011 <br> Location: Dubrovnik, Croatia <br>Annual visits: <br> Pre-release: 75,000 <br> Post-release: 800,000 <br> After the second season of Game of Thrones being filmed in Dubrovnik, Croatia it saw a rise in tourism. The HBO fantasy drama brought in around $203 million dollars into Croatia between 2013 and 2018.
+           </p>
+      </div>
+    </div>
+</div>
+
+
+ <!----------------------------- 38. IRELAND (STAR WARS THE LAST JEDI) ------------------------------>
+     
+ <div class="container">
+  <div class="profile" style="top: 375px; left: 630px; width: 3px; height: 3px;">
+    <div class="content" style="width: 200px; height: 550px; bottom: -290px; pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/LastJedi.jpg" alt="Profile Image" style="width: 200px; height: 270px;"/>
+      <div class="infos">
+        <h3 class="name">Star Wars The Last Jedi: Skellig, Ireland </h3>
+        <p class="title">Release date: 12/2017 <br> Location: Skellig Michael, Island in the Republic of Ireland. <br>Annual visits: <br> Pre-release: 14,548 <br> Post-release: 16,792 <br> The island faced 5,692 visits in excess of the 11,000 cap approved by Unesco as 'sustainable'.  
+       </p>
+      </div>
+    </div>
+</div>
+
+
+ <!----------------------------- QUESTION MARK POP UP IN MENU BAR ------------------------------>
+ <div class="container">
+  <div class="profile question-mark" style="top: 20px; left: 1300px; width: 30px; height: 30px; background-color: black; background-image: url('IMAGES/QUESTIONMARK.png');  background-size: cover;  background-size: 20px 20px; background-repeat: no-repeat; width: 30px;  height: 30px;  border-radius: 50%; ">
+    <div class="content" style="width: 600px; height: 675px; bottom: -225px; background: rgb(2, 2, 20); border: rgb(2, 2, 20); pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/Film_Set.webp" alt="Profile Image" style="width: 600px; height: 330px;"/>
+      <div class="infos">
+        <h3 class="name"style="color:#ffff;">What is the purpose of this site? <br> <br> With the UK box office alone generating a revenue of £986 million a year, the scale of the global film industry is huge. The Film industry has a massive impact on local economies, the environment and tourism across the globe. This website highlights its global impact through the popular trend of Set Jetting - the act of traveling to destinations that are featured on High End TV or feature films. This trend has boosted tourism in many places, which has both positive and negative effects to an area. The map displays these iconic locations and the films that bring them to life, for example the cult franchise Lord of the rings and rising TV shows such as the White Lotus. As well as the map look though the case studies highlighting the positives and negatives of this trend which considered who it targets and the wider impact it can have on the environment and culture. <br> Hover over the red dots on the map below to find out more!  </h3>
+        <p class="title">  </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <!----------------------------- BAR CHART POP UP IN MENU BAR ------------------------------>
+ <div class="container">
+  <div class="profile bar-chart" style="top: 20px; left: 1200px; width: 30px; height: 30px; background-color: black; background-image: url('IMAGES/BarChartPopUpIcon.png'); background-size: cover; background-size: 45px 40px; background-size: 45px 40px; background-repeat: no-repeat; width: 30px;  height: 30px;  border-radius: 50%;">
+    <div class="content" style="width: 1000px; height: 530px; bottom: -225px; background: rgb(0, 0, 0); border: rgb(0, 0, 0); pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/CANVABarGraph.png" alt="Profile Image" style="width: 1000px; height: 700px;"/>
+      <div class="infos">
+        <h3 class="name"style="color:#ffff;"> </h3>
+        <p class="title">  </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!----------------------------- CLAPPER BOARD ICON ------------------------------>
+<div class="container">
+  <div class="profile clapper-board" style="top: 20px; left: 280px; width: 30px; height: 30px; background-color: black; background-image: url('IMAGES/ClapperBoardICON.jpg'); background-size: cover; background-size: 20px 20px; background-repeat: no-repeat; border-radius: 50%; ">
+    <div class="content" style="width: 600px; height: 70px; bottom: 0px; background: rgb(0, 0, 0); border: rgb(0, 0, 0); pointer-events: none;">
+      <div class="header"></div>
+      <div class="infos">
+        <h3 class="name" style="color:#ffff;"> If you want to take a deep dive into a few popular productions, just click on one of the options above! </h3>
+        <p class="title">  </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <!----------------------------- BEACH ICON OPTION BAR ------------------------------>
+ <div class="container">
+  <div class="profile beach-mark" style="top: 20px; left: 400px; width: 30px; height: 30px; background-color: black; background-image: url('IMAGES/BeachPic.jpg'); background-size: cover; background-size: 29px 29px;background-repeat: no-repeat; border-radius: 50%;">
+    <div class="content" style="width: 600px; height: 700px; bottom: -253px; background: rgb(2, 2, 20); border: rgb(2, 2, 20); pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/TheBeachDropDownPic.webp" alt="Profile Image" style="width: 380px; height: 230px; "/>
+      <div class="infos">
+        <h3 class="name"style="color:#ffff;"> The Beach: 20th Century Fox 2000, Thailand.  <br>
+          Although there are many positive economic impacts to set jetting more likely than not there is a negative environmental impact to counter act it. The Beach directed by Danny Boyle starting Leonardo DiCaprio filmed in 2000 is an example of set getting gone wrong.
+          The film centres around a young traveller who wants to get off the beaten track and finds himself living on a secrete Island with a small community. This island is referred to as “the Beach” but its Maya Bay, on Ko Phi Phi Lee a national Park in Thailand.  The beach was always a popular tourist spot but mostly for Thai holiday makers, however, the Beach put it on the international Map. Only accessible by boat visitors went from 1000 a day to an average of 5000 a day. The boats with their propellers and ankers would come to shore destroying the corral and marina life below. This Over population of the island led to the Thai governments closing it in October 2018 to give the island time to recover from the excessive tourism. Local authorities filed a civil lawsuit in late 1999 against Thai government agencies, 20th Century Fox and a Thai film coordinator, seeking 100m baht in compensation for environmental damage. The island reopens after the pandemic in 2022 and since then has put restriction on tourists and boats visiting the island and now close it for a period of the year to allow the Maya Bay to try and recover.  </h3>
+        <p class="title">  </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <!----------------------------- LOTUS OPTION BAR ------------------------------>
+ <div class="container">
+  <div class="profile lotus-mark" style="top: 20px; left: 550px; width: 30px; height: 30px; background-color: black; background-image: url('IMAGES/lotuspic.webp'); background-size: cover; background-size: 36px 30px;background-repeat: no-repeat; border-radius: 50%;">
+    <div class="content" style="width: 600px; height: 560px; bottom: -200px; background: rgb(2, 2, 20); border: rgb(2, 2, 20); pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/WhiteLotusDropDown.jpg" alt="Profile Image" style="width: 380px; height: 230px; "/>
+      <div class="infos">
+        <h3 class="name"style="color:#ffff;"> White Lotus: HBO, TV Series 2021, Hawaii. <br>  
+
+
+          The White Lotus became very popular when it was released post COVID as it provided the idyllic dream holiday and escape everyone had been craving after the global lockdown. The film was based on and shot in real Four Seasons Resort Maui at Wailea. Made under unique circumstance as the cast and crew lived and worked at the resort as it was closed during covid so had full range of the location to shoot the film and worked in their own bubble.  
+         
+          After the HBO series was released this boosted tourism in the area which led to a 386 percent increase in availability checks at the property. As the resort is a Five star, very expenses, exclusive destination with rooms fetching up to $26,000 a night this location isn’t affordable to all and shows how set jetting has hobby or experience isn’t inclusive, thus segregated people by economic status and class.  </h3>
+        <p class="title">  </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <!----------------------------- HOBBIT OPTION BAR ------------------------------>
+ <div class="container">
+  <div class="profile Hobbit" style="top: 20px; left: 700px; width: 30px; height: 30px;  background-color: black;
+  background-image: url('IMAGES/HobbitCircle.png'); background-size: cover;  background-size: 30px 30px; background-repeat: no-repeat; border-radius: 50%;">
+    <div class="content" style="width: 600px; height: 540px; bottom: -200px; background: rgb(2, 2, 20); border: rgb(2, 2, 20); pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/HobbitonDropDown.jpg" alt="Profile Image" style="width: 380px; height: 230px; "/>
+      <div class="infos">
+        <h3 class="name"style="color:#ffff;"> The Hobbit & Lord of the Rings: Hobbiton Film Setm Matamata, New Zealand. <br>
+          The Hobbit and Lord of the Rings franchise features a high production value with it being a billion-dollar franchise and still counting, and therefore this is shown in the choice of filming location. As a result, it has benefitted New Zealand, with them receiving $1.5 billion in economic benefits from the franchise (Clark, 2010).
+          However, there is also concerns from those living in New Zealand, with worries that the country attracts too many tourists. According to a report in 2019 by Tourism New Zealand, issues such as traffic congestion, overcrowding at tourist destinations, lack of infrastructure, and environmental degradation are making tensions between residents and tourists worse. (The Tourism New Zealand Report, 2019). </h3>
+        <p class="title">  </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!----------------------------- FRIENDS OPTION BAR ------------------------------>
+<div class="container">
+  <div class="profile Friends" style="top: 20px; left: 850px; width: 30px; height: 30px; background-color: black;
+  background-image: url('IMAGES/FRIENDSicon2.png'); background-size: cover; background-size: 30px 30px; background-repeat: no-repeat; border-radius: 50%;">
+    <div class="content" style="width: 800px; height: 700px; bottom: -200px; background: rgb(0, 0, 0); border: rgb(0, 0, 0); pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/FriendsDropDown.png" alt="Profile Image" style="width: 380px; height: 230px; "/>
+      <div class="infos">
+        <h3 class="name"style="color:#ffff;"> Friends: Warner Brothers, Hollywood/New York City, 1924 – 2004. <br>
+
+
+          Traditionally a lot of film and TV shows are predominantly shot in studios. They are purpose-built sets that are created for the show and then destroyed after production. However, when films and TV generate a cult following, the idea of the show can live on and generate a lot of revenue for the Production company and tourism in the county, even after the show ends. This is the case for the hit tv series Friends, an iconic 90’s shows running for 10 years it build up a huge fan base and continues to do so. Although the show ended 20 years ago peoples still make it apart of their experience when they visit New York, where the film was set. “The friends Experience” in Manhattan New York allows visitors to see the set, walk though character Monica’s apartment and get a coffee at the iconic Central Perks coffee shop featured in the show which in the real world is called “The Little Owl”. The experience is created by Warner Brothers who have a lot of knowledge in converting their programmes and shows into experiences as they have done the same with film franchise Harry Potter.  
+         
+          Although this would be classed as “Set Jetting” it begs the question, is the real purpose of tourism being lost? People now flock to countries to see sets of their favourite shows which, often are fabricated and fake doubles based somewhere else in the world. When people base their idea of a destination on a show this can often depict, and idealised staged destination and tourists lack the experience of a cultural and authentic experience when visiting that country/destination.  </h3>
+        <p class="title">  </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!----------------------------- HARRY POTTER OPTION BAR ------------------------------>
+<div class="container">
+  <div class="profile Potter" style="top: 20px; left: 1000px; width: 30px; height: 30px; background-color: black;
+  background-image: url('IMAGES/PotterICON.jpg'); background-size: cover; background-size: 30px 30px;background-repeat: no-repeat; border-radius: 50%;">
+    <div class="content" style="width: 800px; height: 500px; bottom: -200px; background: rgb(0, 0, 0); border: rgb(0, 0, 0); pointer-events: none;">
+      <div class="header"></div>
+      <img src="IMAGES/hogwarts.jpg" alt="Profile Image" style="width: 380px; height: 230px; "/>
+      <div class="infos">
+        <h3 class="name"style="color:#ffff;"> Harry Potter: UK 2001. <br>
+          Harry Potter has been an evident source of economic growth for the UK’s tourism, it has been assumed by a professor at the London School of Economics said that Harry Potter was ‘worth £4billion to the UK economy’ (Cox, 2017).
+
+
+          Harry Potter has been filmed over various sites within the United Kingdom, such as the Bodleian Library in Oxford, Durham Cathedral, King’s Cross and Goathland station in North Yorkshire. Therefore, it is hard to estimate the data increase of tourism with before and after statistics. However, through looking at the number of visitors attending Harry Potter Studios in Watford before and post Covid-19 pandemic, it was evident they saw a huge increase due to people being tied to their homes watching the franchise through their streaming subscriptions.    </h3>
+        <p class="title">  </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!----------------------------- READ MORE BOTTOM OPTION BAR ------------------------------>
+<div class="container">
+  <div class="profile read-more" style="top: 1120px; left: 1300px; width: 30px; height: 30px; background-color: black; background-image: url('IMAGES/OpenBook.jpg'); background-size: cover; background-size: 45px 45px;
+  background-repeat: no-repeat; border-radius: 50%;">
+    <div class="content" style="width: 600px; height: 700px; bottom: -225px; background: rgb(0, 0, 0); border: rgb(0, 0, 0); pointer-events: none;">
+      <div class="header"></div>
+      <div class="infos">
+        <h3 class="name"style="color:#ffff;"> If you were interested in anything on this page, you can futher your understanding by reading from our sources:<br>
+          <br>
+
+
+          Clark, A. (2010). New Zealand changes labour laws to save filming of the Hobbit movies. [online] the Guardian. Available at: https://www.theguardian.com/business/2010/oct/31/warner-bros-new-zealand-hobbit-film. <br>
+
+
+          Cox, J. (2017). Harry Potter is the UK’s most successful businessman – and JK Rowling knows it. The Independent. [online] 26 Jun. Available at: https://www.independent.co.uk/voices/harry-potter-reveal-j-k-rowling-british-economy-most-successful-businessman-a7808841.html. <br>
+         
+          Figure.NZ (n.d.). Tourism expenditure in New Zealand. [online] Figure.NZ. Available at: https://figure.nz/chart/OfFdbKzIdnKXFLx2. <br>
+         
+          Lucey, A. (2019). Skellig Michael visitor numbers exceed ‘sustainable’ cap by almost 6,000. [online] The Irish Times. Available at: https://www.irishtimes.com/culture/heritage/skellig-michael-visitor-numbers-exceed-sustainable-cap-by-almost-6-000-1.3756706. <br>
+         
+          Mazimhaka, J. (2007). Diversifying Rwanda’s tourism industry: a role for domestic tourism. Development Southern Africa, 24(3), pp.491–504. doi:https://doi.org/10.1080/03768350701445590. <br>
+         
+          Ministry of Tourism (2018). KINGDOM OF CAMBODIA NATION RELIGION KING. [online] Available at: https://www.nagacorp.com/eng/ir/tourism/tourism_statistics_201802.pdf [Accessed 22 Apr. 2024]. <br>
+         
+          Nussbaum, K. (n.d.). 25 years of ‘Midnight’. [online] Savannah Morning News. Available at: https://eu.savannahnow.com/story/news/2019/01/13/25-years-of-midnight-the-book-made-indelible-impact-on-city-of-savannah/6294085007/ [Accessed 20 Apr. 2024]. <br>
+         
+          Royal Geographical Society (n.d.). International tourist arrivals to. [online] Available at: https://www.rgs.org/media/ulodkhih/paradiselostlesson1thailandtouriststatistics.pdf [Accessed 22 Apr. 2024]. <br>
+         
+          Statista (2018). Foreign tourist arrivals in Turkey 2000-2018 | Statista. [online] Statista. Available at: https://www.statista.com/statistics/707699/foreign-tourist-arrivals-in-turkey/. <br>
+         
+          The Tourism New Zealand Report (2019). Optimising Tourism New Zealand’s future role and contribution to New Zealand. [online] Available at: https://www.mbie.govt.nz/dmsdocument/6974-the-tourism-new-zealand-report. <br>
+         
+          Unforgettable Croatia (2022). Countries with the biggest income from film tourism. [online] Unforgettable Croatia. Available at: https://unforgettablecroatia.com/blog/destinations-biggest-income-film-tourism. <br>
+         
+          Velasco-Ferreiro, E., Parra-Meroño, M.C., Osácar-Marzal, E. and Beltrán-Bueno, M.Á. (2021). Analysis of the Impact of Film Tourism on Tourist Destinations. Academy of Strategic Management Journal, [online] 20(2S). Available at: https://www.abacademies.org/articles/analysis-of-the-impact-of-film-tourism-on-tourist-destinations-11323.html. </h3>
+        <p class="title">  </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <script type="module" src="SetJetting.js"></script>
+
+
+  </body>
+</html>

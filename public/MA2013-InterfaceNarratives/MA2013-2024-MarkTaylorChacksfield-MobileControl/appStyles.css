@@ -1,0 +1,536 @@
+#camAppBorder1 {
+    width: 280px;
+    height: 30px;
+    background-color: rgb(37, 37, 39);
+    z-index: 1000;
+    position: absolute;
+    transform: translate(0, 0);
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    color: white;
+}
+#camAppBorder2 {
+    width: 280px;
+    height: 70px;
+    background-color: rgb(37, 37, 39);
+    z-index: 50;
+    position: absolute;
+    transform: translate(0, 417px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#camButton {
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    border-radius: 500px;
+    border: solid 2px rgb(142, 142, 142);
+    z-index: 51;
+
+    transition: 0.2s;
+}
+    #camButton:hover{
+        background-color: rgb(68, 68, 68);
+    }
+    #camButton:active{
+        background-color: white;
+        transform: scale(0.95);
+    }
+
+
+/* SOCIAL MEDIA */
+#likey-logo{
+    background-image:linear-gradient(to bottom, rgb(64, 3, 80), rgba(255,0,0,0)) ; 
+    height: 70px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    color: white; 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: italic;
+    font-size: 30px;
+}
+
+#post-pos{
+    background-color: rgb(44, 21, 66);
+    height: 202px;
+    width: 202px;
+    transform: translate(40px, 30px);
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    border-radius: 40px;
+}
+#ran-img{
+    height: 190px;
+    width: 190px;
+    border: solid white 2px;
+    border-radius: 40px;
+    object-fit: cover;
+}
+
+#LCD-container{
+    background-image:linear-gradient(to top, rgb(64, 3, 80), rgba(255,0,0,0)) ;
+    height: 191px;
+    transform: translate(0, 25px);
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* border: solid black 2px; */
+}
+
+.circle-button-socials{
+    background-color: white;
+    border-radius: 50px;
+    height: 65px;
+    width: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+    user-select: none;
+}
+    .circle-button-socials:hover{
+        transform: scale(1.1);
+    }
+
+#button-like{
+    transform: translate(11px, 0);
+}
+    #button-like:hover{
+        transform: scale(1.1);
+        /* transform: translate(15px, 0); */
+        transform: rotate(-45deg);
+        background-color: rgb(51, 174, 51);
+        color: white;
+    }
+    #button-like:active{
+        transform: scale(0.9);
+        background-color: rgb(34, 114, 34);
+    }
+#button-comment{
+    /* comments? */
+    transform: translate(0, 0);
+}
+    #button-comment:hover{
+        transform: scale(1.1);
+        background-color: rgb(216, 216, 216);
+        color: white;
+    }
+    #button-comment:active{
+        transform: scale(0.9);
+        background-color: rgb(175, 175, 175);
+    }
+#button-dislike{
+    transform: translate(-11px, 0);
+}
+    #button-dislike:hover{
+        transform: scale(1.1);
+        transform: rotate(45deg);
+        /* transform: translate(-13.2px, 0); */
+        background-color: rgb(186, 10, 10);
+        color: white;
+    }
+    #button-dislike:active{
+        transform: scale(0.9);
+        background-color: rgb(147, 10, 10);
+    }
+
+/* MINIGAME */
+#game{
+    width: 279px;
+    height: 487px;
+    background-color: white;
+    transform: translateY(-10000px);
+    position: absolute;
+}
+#character{
+    width: 30px;
+    height: 50px;
+    background-color: red;
+    position: relative;
+    top: 210px;
+    left: 20px
+}
+.animate{
+    animation: jump 500ms;
+}
+@keyframes jump {
+    0%{top: 210px;}
+    30%{top: 160px;}
+    70%{top: 160px;}
+    100%{top: 210px;}
+}
+#block{
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    position: relative;
+    top: 190px;
+    left: 259px;
+    animation: block 1s infinite linear;
+}
+@keyframes block {
+    0%{left:259px;}
+    100%{left:-5px;}
+}
+#game-title{
+    font-family: sans-serif;
+    translate: 15% 300%;
+}
+#game-retry-button{
+    background-color: #555555;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    translate: 180% 1150% ;
+    opacity: 0;
+}
+
+/* calculator */
+#calc-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* z-index: 0; */
+    transform: translate(0, -10000px);
+}
+.calculator{
+    background-color: #ecf0f3;
+    /* padding: 15px; */
+    /* border-radius: 30px; */
+    width: 279px;
+    height: 489px;
+    box-shadow: inset 5px 5px 12px #ffffff, 5px 5px 12px rgba(0,0,0,0.16); 
+    display: grid;
+    grid-template-columns: repeat(4, 68px);
+}
+#output-screen{
+    grid-column: span 4;
+    height: 57px;
+    width: 180px;
+    background-color: #ecf0f3;
+    box-shadow: inset -5px -5px 12px #ffffff, inset 5px, 5px, 12px rgba(0,0,0,0.16);
+
+    border: none;
+    border-radius: 30px;
+    color: rgba(70, 70, 70);
+    font-size: 50px;
+    text-align: end;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+.calc-button{
+    height: 48px;
+    width: 48px;
+    background-color: #ecf0f3;
+    box-shadow: 5px 5px 12px rgba(0,0,0,0.16);
+
+    border: none;
+    border-radius: 35%;
+    margin: 3px;
+}
+
+.equal{
+    width: 115px;
+    border-radius: 40px;
+    background-color: #dc982b;
+    /* box-shadow: -5px -5px 12px #ffffff, 5px 5px 12px rgba(0,0,0,1.6); */
+}
+
+
+/* SCROLLY APP */
+#scrolly-top{
+    background: #0e0f22;
+    height: 451px;
+    translate: 0 -5000%;
+    color: white;
+}
+#infinite-list{
+    background: #1c1e44;
+    /* margin-top: 10%; */
+
+    /* limit height and show scrollbar */
+    max-width: 239px;
+    max-height: 418px;
+    overflow: auto;
+    translate: 0 -2%;
+
+}
+.inf-list-li{
+    /* background-image: url('social-app-1-images/cat1.png');
+    background-size: 100%; */
+    /* padding: 100px; */
+    max-width: 230px;
+    margin-top: 10px;
+    list-style-type: none;
+    border: 2px solid #eee;
+    
+    /* animation:  ; */
+}
+@keyframes likeAnimScrolly {
+    0%{background-color: transparent;}
+    50%{background-color: rgb(20, 195, 20);}
+    100%{background-color: transparent;}
+}
+.inf-list-li:hover{
+    transform: scale3d(1.05, 1.05, 1.05);
+    transition: 0.3s;
+}
+.inf-list-li:active{
+    color: rgb(20, 195, 20);
+}
+
+/*  POLITICS NEWS APP  */
+#pol-news-container{
+    background-color: #0e0f22; /* change colour to app one*/
+    height: 457px;
+    min-width: 279px;
+    padding-top: 30px;
+    /* margin-left: 279px; */
+
+    /* z-index: 10000; */
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+
+}
+
+#pol-news-h{
+    color: white;
+}
+
+.pn-article{
+    margin-top: 10px;
+    width: 250px;
+    min-height: 150px;
+    background-color: rgb(70, 98, 122);
+    border-radius: 30px;
+    transition: 0.3s
+
+}
+    .pn-article:hover{
+        transform: scale3d(1.05, 1.05, 1.05);
+        cursor: pointer;
+    }
+#article-1{
+    background-image: url("news-images/electionsecurity_0.png");
+    background-size: 100%;
+}
+#article-2{
+    background-image: url("news-images/android-messaging-problems-fixes-featured.jpeg");
+    background-size: 100%;
+}
+#article-3{
+    background-image: url("news-images/istockphoto-1224500457-612x612.jpg");
+    background-size: 100%;
+}
+#article-4{
+    background-image: url("news-images/GettyImages-1219606171_resixzed-1.jpg");
+    background-size: 100%;
+}
+#article-5{
+    background-image: url("news-images/invisible-children.jpg");
+    background-size: 100%;
+}
+#article-6{
+    background-image: url("news-images/amanusesamob.jpg");
+    background-size: 100%;
+}
+#article-7{
+    background-image: url("news-images/reddiamond_c.jpg");
+    background-size: 100%;
+}
+
+/* MUSIC APP */
+#music-container{
+    height: 446px;
+    width: 239px;
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    /* display: flex; */
+    overflow: auto;
+}
+#song-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.song{
+    margin: 10px;
+    border: solid crimson 2px;
+    border-radius: 11px;
+    min-width: 100px;
+    max-height: 100px;
+    min-height: 100px;
+    background-color: pink;
+    transition: 0.3s;
+}
+    .song:hover{
+        transform: scale3d(1.05, 1.05, 1.05);
+        cursor: pointer;
+    }
+
+#song1{
+    background-image: url("songs/Bruno Mars album cover.jpg");
+    background-size: 100%;
+}
+#song2{
+    background-image: url("songs/inferno-cover.jpg");
+    background-size: 100%;
+}
+#song3{
+    background-image: url("songs/j5-i-want-you-back-cover.jpeg");
+    background-size: 100%;
+}
+#song4{
+    background-image: url("songs/alpha-place-cover.jpeg");
+    background-size: 100%;
+}
+
+#music-footer{
+    height: 70px;
+    width: auto;
+    background-color: hotpink;
+
+    color: white;
+    padding: 5%;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+}
+
+/* DECONSTRUCTING THE PHONE */
+
+#decon-container{
+    height: 467px;
+    width: 259px;
+    padding: 10px;
+    background-size: 20px 20px;
+    background-image:
+        linear-gradient(to right, #6d97b3 1px, transparent 1px),
+        linear-gradient(to bottom, #6d97b3 1px, #076db3 1px);
+    text-align: center;
+    color: white;
+    overflow: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    text-shadow: #085284 3px 3px 6px;
+}
+
+/* PHONE APP */
+#call-container{
+    background-image: linear-gradient(rgb(38, 38, 38), rgb(22, 22, 22));
+    height: 469px;
+    width: auto;
+    padding: 10px;
+}
+#up-section{
+    text-align: center;
+    font-family: sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+#call-photo{
+    height: 200px;
+    width: 200px;
+    background-color: #dc982b;
+    background-image: url("phone-sounds/jonathan.jpeg");
+    background-size: 100%;
+    border-radius: 100%;
+    transform: translateX(30px);
+}
+#call-section{
+    height: 163px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#end-call-button{
+    background-color: red;
+    background-image: url("misc-images/phone-icon.png");
+    background-size: 100%;
+    rotate: 130deg;
+    border-radius: 100%;
+    height: 80px;
+    width: 80px;
+    transition: 1s;
+
+}
+    #end-call-button:hover{
+        transform: scale3d(1.05, 1.05, 1.05);
+        cursor: pointer;
+    }
+
+#accept-call-button{
+    background-color: rgb(43, 215, 24);
+    background-image: url("misc-images/phone-icon.png");
+    background-size: 100%;
+    border-radius: 100%;
+    height: 80px;
+    width: 80px;
+    transition: 1s;
+}
+    #accept-call-button:hover{
+        transform: scale3d(1.05, 1.05, 1.05);
+        cursor: pointer;
+    }
+
+#internet-container{
+    height: 469px;
+    width: auto;
+    padding: 10px;
+    background-color: whitesmoke;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#net-elements{
+    transform: translateY(-70px);
+}
+
+/* RACE APP */
+#race-container{
+    background-color: #000;
+    height: 469px;
+    width: auto;
+    padding: 10px;
+    overflow: auto;
+    text-align: center;
+}
+
+/* GENDER APP */
+#gender-container{
+    background-color: #ffffff;
+    height: 469px;
+    width: auto;
+    padding: 10px;
+    overflow: auto;
+    text-align: center;
+}
+
+/* SOCIAL CLASS APP */
+#s-class-container{
+    background-color: #899087;
+    height: 469px;
+    width: auto;
+    padding: 10px;
+    overflow: auto;
+    text-align: center;
+}

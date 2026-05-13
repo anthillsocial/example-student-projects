@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Summary | Indie Comics Project</title>
+  
+  <!-- External libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.0/d3.min.js"></script>
+  
+  <style>
+    /* Basic reset and box model */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+    background-image: url("https://cdn.glitch.global/8457bd66-4c79-44ae-9f75-0708b49527d1/Summary%20Background.png?v=1746482819154"), url(https://cdn.glitch.global/8457bd66-4c79-44ae-9f75-0708b49527d1/Summary%20GIF.gif?v=1746482828295); 
+    background-repeat: no-repeat, repeat;
+    padding: 15px;
+    background-color: orange;
+    height: 300px;
+    width: 990px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    font-family: "Comic Sans MS";
+    transform: translateX(28%) translateY(65%); /* Editor's Note (Baar) - This enables the movement of the container. */
+  }  
+    
+    /* Layout structure */
+    
+    /* Content styling */
+    h1, h2, h3 {
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+    
+    p {
+      margin-bottom: 1.5rem;
+    }
+    
+    .vis-container {
+      width: 100%;
+      height: 400px;
+      margin: 2rem 0;
+      align: center;
+    }
+    
+    .data-source {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: #7f8c8d;
+      margin-top: 0.5rem;
+      align: center;
+    }
+    
+    .highlight {
+      background-color: #f1c40f;
+      padding: 0.2rem;
+      align: center;
+    }
+    
+    
+    .timeline {
+      position: relative;
+      margin: 2rem 0;
+      padding: 20px 0;
+    }
+    
+    .timeline-item {
+      padding: 10px;
+      border-left: 2px solid #3498db;
+      position: relative;
+      margin-left: 20px;
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background-color: #3498db;
+      border-radius: 50%;
+      left: -7px;
+      top: 10px;
+    }
+    
+
+    .content-container {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+    border: 3px solid #ff9900;
+    width: 80%;
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  }
+    
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .main {
+        grid-template-areas:
+          "header header"
+          "content content"
+          "sidebar1 sidebar2"
+          "footer footer";
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .main {
+        grid-template-areas:
+          "header"
+          "content"
+          "sidebar1"
+          "sidebar2"
+          "footer";
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="main">
+  <!-- Header section containing the title -->
+  
+  <section class="main-content">
+    <br>
+    <br>
+    <br>
+    <br>
+  <div class="content-container">
+    <h1>Exploring the Growth and Impact of Independent Comics</h1>
+    
+    <p>Welcome to our data visualization project exploring the fascinating world of indie comics. This website analyzes trends, market share, and cultural impact of independent comic publishers compared to mainstream giants. Through interactive visualizations and contextual narratives, we aim to showcase how indie comics have transformed the landscape of sequential art.</p>
+    
+    <div class="chart-container">
+      <h2>Market Share by Publisher (2024)</h2>
+      <p>While mainstream publishers like Marvel and DC continue to dominate the comics market, independent publishers have seen significant growth over the past decade. The chart below visualizes current market share distribution among major publishers.</p>
+      
+      <!-- Chart.js visualization - Publisher market share -->
+      <canvas id="marketShareChart" style="width:100%; max-width:800px; height:400px;"></canvas>
+      <p class="data-source">Data source: Comics industry quarterly reports, Q1 2024</p>
+    </div>
+    
+    <h2>The Indie Comics Revolution</h2>
+    <p>Independent comics have revolutionized the medium by introducing diverse voices, experimental storytelling techniques, and addressing themes rarely explored in mainstream publications. From autobiographical narratives to avant-garde art styles, indie comics have expanded what comics can be and who they can represent.</p>
+    
+    <p>Unlike the superhero-dominated mainstream, indie comics cover a vast range of genres including slice-of-life, horror, science fiction, fantasy, and memoir. This diversity has attracted readers who previously weren't engaged with comics as a medium.</p>
+    
+    <h2>Notable Independent Publishers</h2>
+    <p>Several indie publishers have made significant impacts on the comics landscape:</p>
+    
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Image Comics (Est. 1992)</h3>
+        <p>Founded by seven prominent Marvel artists, Image revolutionized creator ownership in comics. Popular titles include <em>Saga</em>, <em>The Walking Dead</em>, and <em>Monstress</em>.</p>
+      </div>
+      
+      <div class="timeline-item">
+        <h3>Dark Horse Comics (Est. 1986)</h3>
+        <p>Known for publishing licensed properties alongside original work, Dark Horse has been a major player with titles like <em>Hellboy</em>, <em>Sin City</em>, and <em>Umbrella Academy</em>.</p>
+      </div>
+      
+      <div class="timeline-item">
+        <h3>VIZ Media (Est. 1986)</h3>
+        <p>A leading publisher of manga in North America, VIZ has been instrumental in bringing Japanese comics to Western audiences.</p>
+      </div>
+      
+      <div class="timeline-item">
+        <h3>Drawn and Quarterly (Est. 1990)</h3>
+        <p>Focused on literary and artistic comics, D&Q has published acclaimed works by creators like Lynda Barry, Chris Ware, and Tove Jansson.</p>
+      </div>
+    </div>
+    
+    <h2>Digital Revolution and Indie Comics</h2>
+    <p>Digital platforms have significantly lowered barriers to entry for independent creators. Webcomics, crowdfunding, and digital distribution have allowed creators to reach audiences directly without traditional publishers.</p>
+    
+    <div class="chart-container">
+      <h2>Digital vs. Print Sales for Indie Comics</h2>
+      <canvas id="formatSalesChart" style="width:100%; max-width:800px; height:400px;"></canvas>
+      <p class="data-source">Data source: ComicScan Digital Reports 2020-2024</p>
+    </div>
+    
+    <h2>Impact of Indie Comics on Popular Culture</h2>
+    <p>Independent comics have increasingly influenced other media, with numerous film and television adaptations achieving mainstream success. Notable examples include <em>The Walking Dead</em>, <em>Scott Pilgrim</em>, <em>Ghost World</em>, and <em>Umbrella Academy</em>.</p>
+    
+    <p>Moreover, indie comics have played a crucial role in diversifying representation both on the page and behind the scenes, giving voice to creators from underrepresented backgrounds.</p>
+    </div>
+  </section>
+
+
+  <!-- JavaScript for data loading and visualizations -->
+  <script>
+    // MARKET SHARE CHART
+    // This section creates a bar chart showing market share by publisher
+    // Data is currently hardcoded but would be loaded from external source in final version
+    document.addEventListener('DOMContentLoaded', function() {
+      // Sample data for market share visualization
+      // NOTE: In the final implementation, this would be loaded from an external JSON file
+      const marketShareData = {
+        labels: ["Marvel", "DC", "Image", "Dark Horse", "VIZ", "Boom Studios", "IDW", "Other Indies"],
+        values: [32, 28, 12, 8, 7, 4, 3, 6],
+        colors: [
+          "#ED1D24", // Marvel - red
+          "#0476F2", // DC - blue
+          "#BAD0EA", // Image - light blue
+          "#000000", // Dark Horse - black
+          "#FF5900", // VIZ - orange
+          "#01A0E2", // Boom - light blue
+          "#F9D64F", // IDW - yellow
+          "#A1A1A1"  // Other - gray
+        ]
+  
+      };
+      
+      // Create market share chart using Chart.js
+      const marketShareCtx = document.getElementById('marketShareChart').getContext('2d');
+      const marketShareChart = new Chart(marketShareCtx, {
+        type: 'bar',
+        data: {
+          labels: marketShareData.labels,
+          datasets: [{
+            backgroundColor: marketShareData.colors,
+            data: marketShareData.values,
+            borderWidth: 1,
+            borderColor: '#fff'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          legend: {display: false},
+          title: {
+            display: true,
+            text: 'Comics Publisher Market Share (%)',
+            fontSize: 18
+          },
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+                callback: function(value) {return value + '%'}
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'Market Share (%)'
+              }
+            }]
+          },
+          tooltips: {
+            callbacks: {
+              label: function(tooltipItem, data) {
+                return data.labels[tooltipItem.index] + ': ' + tooltipItem.value + '%';
+              }
+            }
+          }
+        }
+      });
+      
+      // FORMAT SALES CHART
+      // This chart compares digital vs print sales for independent comics
+      const formatSalesCtx = document.getElementById('formatSalesChart').getContext('2d');
+      const formatSalesChart = new Chart(formatSalesCtx, {
+        type: 'line',
+        data: {
+          labels: ['2020', '2021', '2022', '2023', '2024'],
+          datasets: [
+            {
+              label: 'Digital Sales',
+              data: [32, 45, 58, 69, 84],
+              borderColor: '#3498db',
+              backgroundColor: 'rgba(52, 152, 219, 0.1)',
+              borderWidth: 3,
+              fill: true
+            },
+            {
+              label: 'Print Sales',
+              data: [68, 55, 42, 31, 16],
+              borderColor: '#e74c3c',
+              backgroundColor: 'rgba(231, 76, 60, 0.1)',
+              borderWidth: 3,
+              fill: true
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          title: {
+            display: true,
+            text: 'Digital vs Print Sales Percentage for Independent Comics',
+            fontSize: 16
+          },
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+                callback: function(value) {return value + '%'}
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'Percentage of Sales'
+              }
+            }]
+          }
+        }
+      });
+      
+      // D3.js GENRE TRENDS VISUALIZATION
+      // This would create an interactive line chart showing genre trends over time
+      // For now, this is a placeholder that would be replaced with actual D3 code
+      // The implementation would load data from an external JSON file
+      
+      function createGenreTrendsChart() {
+        // Sample data for genre trends - in real implementation, this would be loaded from a JSON file
+        const genreData = [
+          {year: 2015, superhero: 62, scifi: 12, fantasy: 8, horror: 5, slice: 3, memoir: 2, other: 8},
+          {year: 2016, superhero: 60, scifi: 13, fantasy: 9, horror: 6, slice: 4, memoir: 2, other: 6},
+          {year: 2017, superhero: 58, scifi: 14, fantasy: 10, horror: 6, slice: 5, memoir: 3, other: 4},
+          {year: 2018, superhero: 55, scifi: 15, fantasy: 11, horror: 7, slice: 5, memoir: 3, other: 4},
+          {year: 2019, superhero: 52, scifi: 16, fantasy: 12, horror: 8, slice: 6, memoir: 3, other: 3},
+          {year: 2020, superhero: 49, scifi: 17, fantasy: 13, horror: 9, slice: 6, memoir: 4, other: 2},
+          {year: 2021, superhero: 46, scifi: 18, fantasy: 14, horror: 9, slice: 7, memoir: 4, other: 2},
+          {year: 2022, superhero: 44, scifi: 19, fantasy: 15, horror: 9, slice: 7, memoir: 4, other: 2},
+          {year: 2023, superhero: 42, scifi: 20, fantasy: 16, horror: 10, slice: 7, memoir: 3, other: 2},
+          {year: 2024, superhero: 40, scifi: 21, fantasy: 17, horror: 10, slice: 8, memoir: 3, other: 1}
+        ];
+        
+        // This is a placeholder - in the final implementation, we would create a D3 visualization here
+        // For now, displaying a message that would be replaced with the actual visualization
+        const container = document.getElementById('genreTrends');
+        container.innerHTML = '<div style="text-align:center; padding:50px; background-color:#f8f9fa; border-radius:5px;">' +
+          '<p>Genre trends visualization would be implemented here using D3.js and external data.</p>' +
+          '<p>The data would show the declining dominance of superhero comics and the rise of diverse genres.</p>' +
+          '</div>';
+      }
+      
+      // Call the function to create the genre trends chart
+      createGenreTrendsChart();
+      
+      // Add interactivity to buttons
+      document.getElementById('toggleDataView').addEventListener('click', function() {
+        alert('This button would toggle between different data views. Implementation pending.');
+      });
+      
+      document.getElementById('compareYears').addEventListener('click', function() {
+        alert('This button would open a year comparison tool. Implementation pending.');
+      });
+    });
+
+  </script>
+</body>
+</html>

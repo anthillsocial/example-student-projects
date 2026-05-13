@@ -1,0 +1,49 @@
+/*Chart Box Styling - allows me to add stylistic cards on the background of the chart. Not as much customisation due to lack of experience*/
+.chart-box {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /*Shadow allows the chart box to have a 3d effect*/
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+}
+
+/* Chart Description Styling - Styling for the text boxes that are under the charts, can be used as a way of captions and explaining the data */
+.chart-description {
+  margin-top: 15px;
+  padding: 15px;
+  border: 2px solid #d1d5db; 
+  border-radius: 5px;
+  background-color: #B2BEB5; 
+  font-size: 16px;
+  color: #000000;
+  max-width: 800px;
+  margin: 0 auto 20px auto; /* Center align with space below */
+}
+
+/* Basic Style Adjustments - Used by data.html page */
+body {
+  font-family: "Comic Sans MS";
+  background-color: #FFFF00;
+  color: #333;
+  padding: 0;
+  margin: 0;
+  transform: translateX(25%) translateY(-75%);
+}
+
+/* Title Styling */
+h1 {
+  font-size: 36px;
+  color: #1f2937;
+  margin-bottom: 20px;
+}
+
+/* Chart Canvas Styling */
+canvas {
+  width: 100%;
+  height: 400px;
+  max-width: 800px;
+  margin: 0 auto;
+}

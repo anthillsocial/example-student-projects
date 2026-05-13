@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Slideshow</title>
+
+
+<style>
+  body {
+    margin: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  img {
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 40px);
+    border: 20px solid #000;
+    object-fit: contain;   /* keeps aspect ratio */
+    display: block;
+  }
+</style>
+
+</head>
+<body>
+
+<img id="slideshow" src="" alt="slideshow image">
+
+<script>
+  let images = [
+    "Artwork2.png",
+    "Artwork3.png",
+    "Artwork4.png",
+    "Artwork5.png",
+    "Artwork5.png",
+    "DissArt1Finished.png",
+    "DissBackgroundFinishedfinal.png",
+    "Written1.jpg",
+    "Written1.png",
+    "Written2.jpg" 
+  ];
+
+
+  // Fisher–Yates shuffle
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  images = shuffle(images);
+
+  const imgEl = document.getElementById("slideshow");
+  let index = 0;
+
+  imgEl.src = images[index];
+
+  // ---- interval logic ----
+  let intervalId;
+
+  function startInterval() {
+    intervalId = setInterval(() => {
+      index = (index + 1) % images.length;
+      imgEl.src = images[index];
+    }, 20000);
+  }
+
+  startInterval();
+
+  // ---- click logic ----
+  document.body.addEventListener("click", () => {
+    // pick a different image
+    let newIndex = index;
+    while (newIndex === index) {
+      newIndex = Math.floor(Math.random() * images.length);
+    }
+
+    index = newIndex;
+    imgEl.src = images[index];
+
+    // reset interval
+    clearInterval(intervalId);
+    startInterval();
+  });
+</script>
+
+</body>
+</html>
+

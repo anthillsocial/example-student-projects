@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Appointments - Patient Path</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    #popupOverlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+    #popupOverlay.show {
+      display: flex;
+    }
+    #popupContent {
+      background: #fff;
+      padding: 25px 35px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    #popupContent button {
+      margin-top: 15px;
+      background-color: #3ba4ff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    #alertBanner {
+      position: fixed;
+      top: 0;
+      left: 100%;
+      width: 100%;
+      background: red;
+      color: white;
+      font-weight: bold;
+      padding: 10px;
+      text-align: center;
+      white-space: nowrap;
+      animation: scrollBanner 15s linear infinite;
+      z-index: 998;
+    }
+    @keyframes scrollBanner {
+      0% { left: 100%; }
+      100% { left: -100%; }
+    }
+
+    #complaintBox {
+      position: fixed;
+      bottom: 15%;
+      right: 5%;
+      background-color: #ff5252;
+      color: white;
+      font-size: 14px;
+      padding: 15px 20px;
+      border-radius: 8px;
+      z-index: 1002;
+      max-width: 300px;
+      animation: fadeInOut 6s ease-in-out forwards;
+    }
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translateY(20px); }
+      10% { opacity: 1; transform: translateY(0); }
+      90% { opacity: 1; }
+      100% { opacity: 0; transform: translateY(-10px); }
+    }
+
+    #phoneCallConversation {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #222;
+      color: #fff;
+      font-family: monospace;
+      padding: 15px 25px;
+      font-size: 15px;
+      white-space: pre-wrap;
+      z-index: 1001;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<div id="flexContainer">
+  <div id="mainLeft">
+    <header id="header"></header>
+    <nav id="sidebarMenu">
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="appointments.html">Appointments</a></li>
+        <li><a href="schedules.html">Schedules</a></li>
+        <li><a href="invoices.html">Invoices</a></li>
+        <li><a href="reports.html">Reports</a></li>
+        <li><a href="analytics.html">Analytics</a></li>
+        <li><a href="emailmessages.html">Email/Messages</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div id="mainRight">
+    <h2>Appointments</h2>
+<!-- Appointment Lists -->
+    <section>
+      <h3>Appointment Lists</h3>
+      <div class="appointment-container">
+        <div class="appointment-section">
+          <h4>MRI Appointments</h4>
+          <ul id="mriList">
+            <li>John Doe - 10:00 AM</li>
+            <li>Jane Smith - 11:00 AM</li>
+          </ul>
+        </div>
+        <div class="appointment-section">
+          <h4>Ultrasound Appointments</h4>
+          <ul id="ultrasoundList">
+            <li>Michael Brown - 9:30 AM</li>
+          </ul>
+        </div>
+        <div class="appointment-section">
+          <h4>X-ray Appointments</h4>
+          <ul id="xrayList">
+            <li>Emily Davis - 1:00 PM</li>
+          </ul>
+        </div>
+        <div class="appointment-section">
+          <h4>CT Scan Appointments</h4>
+          <ul id="ctList">
+            <li>William Johnson - 2:00 PM</li>
+          </ul>
+        </div>
+        <div class="appointment-section">
+          <h4>Mammogram Appointments</h4>
+          <ul id="mammogramList">
+            <li>Olivia Wilson - 3:00 PM</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h3>Create New Booking</h3>
+      <form id="newBookingForm">
+        <label>Patient Name:<br><input type="text" id="patientName" required /></label><br>
+        <label>EMPI Number (8 digits):<br><input type="text" id="empiNumber" maxlength="8" required /></label><br>
+        <label>Date of Birth:<br><input type="date" id="dob" required /></label><br>
+        <label>Address:<br><textarea id="address" rows="2" required></textarea></label><br>
+        <label>Email:<br><input type="email" id="email" required /></label><br>
+        <label>Phone:<br><input type="tel" id="phone" required /></label><br>
+        <label>Referral Form:<br><input type="file" id="referralForm" required /></label><br>
+        <label>ID Attachment:<br><input type="file" id="idAttachment" /></label><br>
+        <label>Appointment Type:<br>
+          <select id="appointmentType" required>
+            <option value="MRI">MRI</option>
+            <option value="Ultrasound">Ultrasound</option>
+            <option value="X-ray">X-ray</option>
+            <option value="CT">CT</option>
+            <option value="Mammogram">Mammogram</option>
+          </select>
+        </label><br>
+        <label>Appointment Time:<br><input type="time" id="appointmentTime" required /></label><br><br>
+        <button type="button" id="addBookingBtn">Add Booking</button>
+      </form>
+    </section>
+    <!-- Floating images outside the main layout -->
+  <img src="https://cdn.glitch.global/aa16dca8-8894-4a99-b08a-40895eba3ff2/Screenshot%202025-04-09%20at%206.14.11%E2%80%AFpm.jpg?v=1744503710208" class="floating-image" id="float1" />
+  <img src="https://cdn.glitch.global/aa16dca8-8894-4a99-b08a-40895eba3ff2/Screenshot%202025-04-09%20at%206.23.55%E2%80%AFpm.jpg?v=1744503717282" class="floating-image" id="float2" />
+    <img src="https://cdn.glitch.global/aa16dca8-8894-4a99-b08a-40895eba3ff2/Screenshot%202025-04-09%20at%207.07.03%E2%80%AFpm.jpg?v=1744503713915" class="floating-image" id="float3" />
+
+  </div>
+</div>
+  
+  
+
+<!-- Overlays and Banners -->
+<div id="popupOverlay" class="hidden">
+  <div id="popupContent">
+    <span id="popupMessage">System message...</span><br/>
+    <button onclick="closePopup()">Dismiss</button>
+  </div>
+</div>
+<div id="alertBanner"><p id="alertText">⚠️ Booking system update in progress...</p></div>
+<div id="complaintBox" class="hidden"><p id="complaintBoxText"></p></div>
+<div id="phoneCallConversation" class="hidden"><p id="phoneText"></p></div>
+  
+  <div class="scrollablefloatingRightText">
+    <p>
+      Booking appointments at the hospital is one of the most frustrating aspects of my job. It's out of date, confusing, and, to be honest, a total disaster.
+
+It all starts with the referral letters, which are handwritten on paper because, for some reason, we still rely on doctors' handwriting in an age where everything else is computerised. And if you've ever seen a doctor's handwriting, you'll appreciate the difficulties. Most of the time, I don't know what is written. Did they write Knee? Is that intended to be a part of the back? Who knows.
+So I grab the letter and walk over to the radiologists, hoping they can make sense of it. They squint, tilt the page, and make guesses. If they can't figure it out, we have to call the doctor, who is either too busy to respond or is equally perplexed by their own writing. And suddenly, what should have been a simple five-second task becomes a never ending back-and-forth.
+
+And that's only the referral.
+
+Even if you finally understand what scan is required, you must still schedule the appointment in the system. This requires the EMPI (Enterprise Master Patient Index) number. No EMPI? There is no appointment. If you enter the incorrect EMPI, good luck fixing it.
+This leads me to one of the worst errors I've ever done.
+
+I was given two referral forms; none had the EMPI filled down. It's annoying, but not unusual. So I looked up both patients' last names and typed their EMPI numbers on the paperwork before scheduling their visits. I didn't realise I'd swapped them.
+
+I wrote Patient A's EMPI on Patient B's form, and vice versa.
+
+The following morning, everything fell apart.
+When the radiologists reviewed the list, they discovered that the wrong patients were scheduled at the wrong times. One patient, who was due to be seen that day, was now scheduled for next week. And who was scheduled to be seen next week? Well, they were told that their appointment was today.
+
+Confusion. Panic. A formal complaint was filed.
+
+I felt terrible. I had only recently started working there, and I had utterly botched up two patients’ visits. But what is the worst part? It wasn't only my mistake. It was a system failure.
+
+The combination of paper and digital records, where information is frequently transferred manually, creates an unavoidable opportunity for errors. One minor error can disrupt a patient's schedule, cause delays, and add extra stress for everyone.
+I was lucky. Because I was new, I was not disciplined; instead, my clinical lead was held accountable for not double-checking the documentation. But this did not make me feel any better.
+
+This should not have happened. It shouldn't be possible for such minor errors to cause so many issues.
+
+All of this would not have occurred if everything was completely digital. No guessing the doctor's handwriting. No chasing down radiologists. There are no switched EMPI numbers. Simply correct, clear information that would prevent errors before they occur.
+
+Instead, we're caught in a system that sets us up for failure. When things go wrong, both the workers and the patients suffer.
+
+    </p>
+  
+  
+<script src="appointments.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

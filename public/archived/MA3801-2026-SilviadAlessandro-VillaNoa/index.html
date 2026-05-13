@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Villa Noa | A sanctuary of stillness</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    :root {
+      --primary-font: 'Sterling Times', 'Times New Roman', serif;
+      --secondary-font: 'Futura', 'Arial', sans-serif;
+      --bg-color: #F4F1ED;
+      --sand: #DDD4C8;
+      --text-dark: #243136;
+      --text-light: #FFFFFF;
+      --accent: #CBB9A3;
+      --overlay: rgba(20, 26, 28, 0.26);
+      --border-light: rgba(255, 255, 255, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--secondary-font);
+      background-color: var(--bg-color);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* NAV */
+    nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 20;
+    }
+
+    .logo {
+      font-size: 1rem;
+      letter-spacing: 0.35rem;
+      color: var(--text-light);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.25rem;
+    }
+
+    .nav-links a {
+      color: var(--text-light);
+      font-size: 0.76rem;
+      letter-spacing: 0.18rem;
+      text-transform: uppercase;
+      opacity: 0.92;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.65;
+    }
+
+    .nav-cta {
+      border: 1px solid var(--border-light);
+      padding: 0.8rem 1.2rem;
+      border-radius: 999px;
+      backdrop-filter: blur(3px);
+    }
+
+    /* HERO */
+    .hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 2rem;
+  overflow: hidden;
+}
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 26, 28, 0.35);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+  margin-top: 3rem;
+}
+
+
+    .hero-kicker {
+      color: rgba(255,255,255,0.88);
+      text-transform: uppercase;
+      letter-spacing: 0.22rem;
+      font-size: 0.72rem;
+      margin-bottom: 1.25rem;
+      animation: fadeInUp 1.8s ease forwards;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-family: var(--primary-font);
+      color: var(--text-light);
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
+      font-weight: 400;
+      letter-spacing: 0.5rem;
+      line-height: 0.95;
+      animation: fadeInUp 2.4s ease forwards;
+    }
+
+    .hero p {
+      margin: 1.5rem auto 0;
+      max-width: 640px;
+      color: rgba(255,255,255,0.92);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      letter-spacing: 0.14rem;
+      text-transform: uppercase;
+      animation: fadeInUp 3s ease forwards;
+    }
+
+    .hero-actions {
+      margin-top: 2.2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeInUp 3.6s ease forwards;
+    }
+
+    .btn-light,
+    .btn-ghost {
+      padding: 0.95rem 1.4rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.16rem;
+      font-size: 0.72rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-light {
+      background: var(--text-light);
+      color: var(--text-dark);
+    }
+
+    .btn-light:hover {
+      opacity: 0.88;
+    }
+
+    .btn-ghost {
+      border: 1px solid rgba(255,255,255,0.45);
+      color: var(--text-light);
+      backdrop-filter: blur(2px);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .scroll-note {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.75);
+      font-size: 0.68rem;
+      letter-spacing: 0.18rem;
+      text-transform: uppercase;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 1rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      color: #7B817D;
+    }
+
+    /* VILLA */
+    .section-villa {
+      background-color: var(--bg-color);
+      padding: 8rem 5% 9rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .villa-intro {
+      max-width: 760px;
+      margin: 0 auto 4rem auto;
+    }
+
+    .villa-intro h2 {
+      font-family: var(--primary-font);
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: 0.04em;
+      margin-bottom: 1.75rem;
+      color: var(--text-dark);
+    }
+
+    .villa-intro p {
+      font-family: var(--secondary-font);
+      font-size: 1.02rem;
+      line-height: 1.95;
+      margin: 0 auto 1.35rem;
+      color: #4F5A5D;
+      max-width: 680px;
+    }
+
+    .villa-gallery {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .villa-card {
+      position: relative;
+      min-height: 520px;
+      overflow: hidden;
+      background: #d8d3cc;
+      border-radius: 2px;
+    }
+
+    .villa-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 1.8s ease;
+    }
+
+    .villa-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem;
+      text-align: left;
+      color: var(--text-light);
+      background: linear-gradient(
+        to top,
+        rgba(16, 23, 26, 0.78) 0%,
+        rgba(16, 23, 26, 0.42) 38%,
+        rgba(16, 23, 26, 0.12) 68%,
+        rgba(16, 23, 26, 0.02) 100%
+      );
+      opacity: 0;
+      transition: opacity 0.55s ease;
+    }
+
+    .villa-overlay h3 {
+      margin: 0 0 0.7rem;
+      font-family: var(--primary-font);
+      font-size: 1.7rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .villa-overlay p {
+      margin: 0;
+      max-width: 90%;
+      font-family: var(--secondary-font);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.9);
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.85s ease, transform 0.85s ease;
+      transition-delay: 0.08s;
+    }
+
+    .villa-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .villa-card:hover .villa-overlay,
+    .villa-card:hover .villa-overlay h3,
+    .villa-card:hover .villa-overlay p {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* SUITES */
+    .section-suites {
+       padding: 6rem 5% 7rem;
+      background: var(--bg-color);
+    }
+
+    .suites-layout {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+     grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .suites-intro {
+      max-width: 420px;
+      padding-top: 0.5rem;
+    }
+
+    .suites-intro h2 {
+      margin: 0 0 1.25rem;
+      font-family: var(--primary-font);
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 400;
+      line-height: 1.12;
+      color: var(--text-dark);
+    }
+
+    .suites-intro p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.85;
+      color: #4F5A5D;
+    }
+
+    .suites-content {
+      width: 100%;
+    }
+
+    .suites-slider-wrapper {
+      position: relative;
+      max-width: 760px;
+      margin-left: auto;
+    }
+
+    .suites-viewport {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .suites-slider {
+      display: flex;
+      transition: transform 0.6s ease;
+    }
+
+    .suite-slide {
+      min-width: 100%;
+      flex-shrink: 0;
+    }
+
+    .suite-slide img {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+      border-radius: 2px;
+      margin-bottom: 1.2rem;
+    }
+
+    .suite-info {
+      max-width: 520px;
+    }
+
+    .suite-label {
+      display: inline-block;
+      margin-bottom: 0.9rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.2rem;
+      text-transform: uppercase;
+      color: #7B817D;
+    }
+
+    .suite-info h3 {
+      margin: 0 0 0.85rem;
+      font-family: var(--primary-font);
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--text-dark);
+    }
+
+    .suite-info p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #435156;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 200px;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(36, 49, 54, 0.18);
+      border-radius: 50%;
+      background: rgba(244, 241, 237, 0.92);
+      color: var(--text-dark);
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 5;
+      transition: all 0.3s ease;
+    }
+
+    .slider-btn:hover {
+      background: var(--text-dark);
+      color: var(--text-light);
+    }
+
+    .prev {
+      left: -60px;
+    }
+
+    .next {
+      right: -60px;
+    }
+
+    .suite-counter {
+      margin-top: 1.25rem;
+      margin-left: auto;
+      max-width: 760px;
+      font-size: 0.8rem;
+      letter-spacing: 0.18rem;
+      text-transform: uppercase;
+      color: #7B817D;
+    }
+
+    .counter-divider {
+      margin: 0 0.35rem;
+    }
+
+    /* EXPERIENCES */
+    .section-experiences {
+      background-color: var(--bg-color);
+      padding: 2rem 5% 9rem;
+    }
+.experiences-heading .experience-link {
+  display: inline-block;
+  margin-top: 2rem;
+}
+    .experiences-heading {
+      max-width: 760px;
+      margin: 0 auto 3.5rem;
+      text-align: center;
+    }
+
+    .experiences-heading h2 {
+      margin: 0 0 1.25rem;
+      font-family: var(--primary-font);
+      font-size: clamp(2.4rem, 4vw, 4rem);
+      font-weight: 400;
+      line-height: 1.08;
+      color: var(--text-dark);
+    }
+
+    .experiences-heading p {
+      max-width: 620px;
+      margin: 0 auto;
+      font-family: var(--secondary-font);
+      font-size: 1rem;
+      line-height: 1.9;
+      color: #4F5A5D;
+    }
+
+    .experiences-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .experience-card-large {
+      grid-row: span 2;
+    }
+
+    .experience-card img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+      border-radius: 2px;
+      margin-bottom: 1.2rem;
+    }
+
+    .experience-card-large img {
+      height: 860px;
+    }
+
+    .experience-copy {
+      padding-right: 0.75rem;
+    }
+
+    .experience-label {
+      display: inline-block;
+      margin-bottom: 0.95rem;
+      font-family: var(--secondary-font);
+      font-size: 0.72rem;
+      letter-spacing: 0.22rem;
+      text-transform: uppercase;
+      color: #7A8B89;
+    }
+
+    .experience-copy h3 {
+      margin: 0 0 1rem;
+      font-family: var(--primary-font);
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--text-dark);
+    }
+
+    .experience-copy p {
+      margin: 0 0 2rem;
+      font-family: var(--secondary-font);
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #4F5A5D;
+    }
+
+    .experience-link {
+      position: relative;
+      display: inline-block;
+      font-family: var(--secondary-font);
+      font-size: 0.8rem;
+      letter-spacing: 0.12rem;
+      text-transform: uppercase;
+      color: var(--text-dark);
+      padding-bottom: 0.45rem;
+    }
+
+    .experience-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background-color: rgba(36, 49, 54, 0.55);
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .suites-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .suites-intro {
+        max-width: 680px;
+      }
+
+      .suites-slider-wrapper,
+      .suite-counter {
+        margin-left: 0;
+        max-width: 100%;
+      }
+
+      .prev {
+        left: 1rem;
+      }
+
+      .next {
+        right: 1rem;
+      }
+
+      .experiences-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-card-large {
+        grid-row: auto;
+      }
+
+      .experience-card-large img {
+        height: 520px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        padding: 1.5rem 1.25rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .nav-links a {
+        font-size: 0.65rem;
+        letter-spacing: 0.1rem;
+      }
+
+      .villa-gallery {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .villa-card {
+        min-height: 420px;
+      }
+
+      .villa-overlay {
+        opacity: 1;
+      }
+
+      .villa-overlay h3,
+      .villa-overlay p {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .hero p {
+        letter-spacing: 0.08rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section-villa,
+      .section-suites,
+      .section-experiences {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      .suite-slide img {
+        height: 320px;
+      }
+
+      .slider-btn {
+        top: 140px;
+        width: 40px;
+        height: 40px;
+      }
+
+      .suite-info h3,
+      .experience-copy h3 {
+        font-size: 1.6rem;
+      }
+
+      .experience-card img,
+      .experience-card-large img {
+        height: 420px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links a:not(.nav-cta) {
+        display: none;
+      }
+
+      .hero h1 {
+        letter-spacing: 0.22rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Villa Noa</div>
+    <div class="nav-links">
+      <a href="#villa">The Villa</a>
+      <a href="#suites">Suites</a>
+      <a href="#rituals">Experiences</a>
+     <a href="reserve.html" class="nav-cta">Reserve</a>
+    </div>
+  </nav>
+
+ <header class="hero">
+
+ 
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="sea.mp4" type="video/mp4">
+  </video>
+
+
+  <div class="hero-overlay"></div>
+
+  
+  <div class="hero-content">
+    <div class="hero-kicker">Private hospitality for the accelerated self</div>
+    <h1>VILLA NOA</h1>
+    <p>
+      A place to escape the speed of modern life, without leaving the system that produces it.
+    </p>
+  </div>
+
+  <div class="scroll-note">Slowly, if you can</div>
+
+</header>
+<section id="villa" class="section-villa">
+  <div class="villa-intro">
+    <span class="eyebrow">The Villa</span>
+
+    <h2>A sanctuary for people exhausted by the world they benefit from.</h2>
+
+    <p>
+      Villa Noa offers slowness as a luxury interface: soft light, quiet surfaces,
+      no visible urgency.
+    </p>
+
+    <p>
+      It is not outside acceleration. It is acceleration’s reward.
+    </p>
+
+    <a href="villa.html" class="suite-link">Discover more</a>
+  </div>
+
+  <div class="villa-gallery">
+    <a href="villa.html" class="villa-card">
+      <img src="villa1.png" alt="Exterior view of Villa Noa" />
+      <div class="villa-overlay">
+       <h3>Conspicuous leisure</h3>
+<p>
+  Doing nothing becomes meaningful when others can recognize it as privilege.
+</p>
+      </div>
+    </a>
+
+    <a href="villa.html" class="villa-card">
+      <img src="colums.png" alt="Columned entrance at Villa Noa" />
+      <div class="villa-overlay">
+        <h3>Effortless arrival</h3>
+        <p>
+           What feels seamless is carefully arranged in advance.
+        </p>
+      </div>
+    </a>
+
+    <a href="villa.html" class="villa-card">
+      <img src="mosaic.png" alt="Mosaic terrace detail at Villa Noa" />
+      <div class="villa-overlay">
+        <h3>Curated Pleasure</h3>
+        <p>
+            Every indulgence arrives already justified as balance.
+        </p>
+      </div>
+    </a>
+  </div>
+</section>
+<section id="suites" class="section-suites">
+  <div class="suites-layout">
+    <div class="suites-intro">
+      <h2>The Suites</h2>
+      <p>
+        Three private rooms for three respectable forms of withdrawal:
+        distance, effortlessness, and disappearance.
+      </p>
+    </div>
+
+    <div class="suites-grid">
+      <a href="horizonsuit.html" class="suite-card">
+        <img src="seasuitehome.png" alt="Sea-facing suite at Villa Noa" />
+        <div class="suite-copy">
+          <span class="suite-label">DISTANCE AS TASTE</span>
+          <h3>The Horizon Suite</h3>
+          <p>
+            A room for those who prefer the world as a view rather than an obligation.
+          </p>
+          <span class="suite-link">Discover more</span>
+        </div>
+      </a>
+
+      <a href="terracesuite.html" class="suite-card">
+        <img src="terrazza1.png" alt="Terrace suite at Villa Noa" />
+        <div class="suite-copy">
+          <span class="suite-label">EFFORTLESSNESS MANTAINED</span>
+          <h3>The Terrace Suite</h3>
+          <p>
+            A stage for effortless living, arranged carefully enough to look natural.
+          </p>
+          <span class="suite-link">Discover more</span>
+        </div>
+      </a>
+
+      <a href="cliffsuite.html" class="suite-card">
+        <img src="cliffsuitehome.png" alt="Cliff suite at Villa Noa" />
+        <div class="suite-copy">
+          <span class="suite-label">PRIVACY AS STATUS</span>
+          <h3>The Cliff Suite</h3>
+          <p>
+            Privacy intensified until absence begins to feel like achievement.
+          </p>
+          <span class="suite-link">Discover more</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+<section id="rituals" class="section-experiences">
+  <div class="experiences-heading">
+    <span class="eyebrow">Experiences</span>
+    <h2>Wellness, after it has been made profitable.</h2>
+    <p>
+      Presence, healing and authenticity are offered here as curated experiences:
+      meaningful enough to feel moral, expensive enough to remain exclusive.
+    </p>
+    <a href="experiences.html" class="experience-link">Discover more</a>
+  </div>
+
+  <div class="experiences-grid">
+    <article class="experience-card experience-card-large">
+    <a href="experiences.html">
+  <img src="yachthome.jpeg" alt="Private yacht experience at Villa Noa" />
+</a>
+      <div class="experience-copy">
+        <span class="experience-label">Private sea journey</span>
+        <h3>Escape, with crew.</h3>
+        <p>
+          Leave everything behind, except the infrastructure required to make leaving feel effortless.
+        </p>
+  
+      </div>
+    </article>
+
+    <article class="experience-card">
+     <a href="experiences.html">
+  <img src="massage1.jpeg" alt="Massage ritual at Villa Noa" />
+</a>
+      <div class="experience-copy">
+        <span class="experience-label">Body ritual</span>
+        <h3>Self-care, performed by someone else.</h3>
+        <p>
+          Your tension becomes another person’s work, then returns to you as peace.
+        </p>
+        
+      </div>
+    </article>
+
+    <article class="experience-card">
+    <a href="experiences.html">
+  <img src="yoga1.jpeg" alt="Guided stillness experience at Villa Noa" />
+</a>
+      <div class="experience-copy">
+        <span class="experience-label">Guided stillness</span>
+        <h3>Non-attachment, reserved for sunset.</h3>
+        <p>
+          A spiritual practice converted into atmosphere, scheduled for your convenience.
+        </p>
+      
+      </div>
+    </article>
+  </div>
+</section>
+</body>
+</html>

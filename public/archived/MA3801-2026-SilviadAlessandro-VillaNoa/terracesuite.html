@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Villa Noa | The Terrace Suite</title>
+  <style>
+ :root {
+  --primary-font: 'Sterling Times', 'Times New Roman', serif;
+  --secondary-font: 'Futura', 'Arial', sans-serif;
+  --bg-color: #F4F1ED;
+  --panel: #eee7df;
+  --text-dark: #243136;
+  --text-light: #FFFFFF;
+  --muted: #7A8B89;
+  --line: rgba(36, 49, 54, 0.14);
+  --hero-flat: #a7a5a2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--secondary-font);
+  background: var(--bg-color);
+  color: var(--text-dark);
+}
+
+img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
+}
+
+.logo {
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.35rem;
+  font-size: 0.95rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.16rem;
+  font-size: 0.75rem;
+  opacity: 0.92;
+}
+
+.nav-links a:hover {
+  opacity: 0.65;
+}
+
+.nav-cta {
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 0.8rem 1.2rem;
+  border-radius: 999px;
+}
+
+/* HERO */
+.hero {
+  min-height: 86vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 2rem;
+  background: var(--hero-flat);
+}
+
+.hero-content {
+  max-width: 900px;
+  color: var(--text-light);
+}
+
+.hero .eyebrow {
+  color: rgba(255,255,255,0.84);
+}
+
+.hero h1 {
+  margin: 0 0 1rem;
+  font-family: var(--primary-font);
+  font-size: clamp(3rem, 7vw, 5.8rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 0.14rem;
+  color: var(--text-light);
+}
+
+.hero p {
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  line-height: 1.85;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.92);
+}
+
+.hero-meta {
+  display: inline-flex;
+  justify-content: center;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+  font-size: 0.72rem;
+  letter-spacing: 0.16rem;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+}
+
+
+.section {
+  padding: 7rem 5%;
+}
+
+
+.overview-layout {
+  max-width: 1250px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.95fr 0.75fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.suite-gallery {
+  max-width: 620px;
+}
+
+.gallery-main {
+  overflow: hidden;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+  background: #ddd7cf;
+}
+
+.gallery-main img {
+  height: 420px;
+}
+
+.gallery-thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.thumb {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.82;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.thumb img {
+  aspect-ratio: 1 / 1;
+  border-radius: 2px;
+}
+
+.thumb:hover,
+.thumb.active {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.suite-details {
+  max-width: 430px;
+}
+
+.suite-details h2,
+.tab-panel h3,
+.closing h2 {
+  margin: 0 0 1.2rem;
+  font-family: var(--primary-font);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.08;
+}
+
+.suite-details p,
+.tab-panel p,
+.closing p {
+  margin: 0 0 1.15rem;
+  line-height: 1.9;
+  color: #4F5A5D;
+}
+
+.suite-specs {
+  margin: 2rem 0 2.2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 1.4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.spec span {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.16rem;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.spec strong {
+  font-weight: 400;
+  font-family: var(--primary-font);
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+.reserve-link {
+  display: inline-block;
+  padding: 0.95rem 1.35rem;
+  border-radius: 999px;
+  background: var(--text-dark);
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.16rem;
+  font-size: 0.72rem;
+}
+
+
+.tabs-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tabs-nav {
+  display: flex;
+  gap: 2rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 2rem;
+  overflow-x: auto;
+}
+
+.tab-btn {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  padding: 0 0 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.16rem;
+  font-size: 0.72rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.tab-btn.active {
+  color: var(--text-dark);
+  border-bottom-color: var(--text-dark);
+}
+
+.tab-panel {
+  display: none;
+  max-width: 820px;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+
+.features-grid {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+}
+
+.feature-card {
+  background: var(--panel);
+  padding: 2rem;
+  min-height: 240px;
+  border-radius: 2px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+}
+
+.feature-card span {
+  display: inline-block;
+  margin-bottom: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18rem;
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.feature-card h4 {
+  margin: 0 0 0.9rem;
+  font-family: var(--primary-font);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.feature-card p {
+  margin: 0;
+  line-height: 1.8;
+  color: #4F5A5D;
+}
+
+
+.closing {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16rem;
+  font-size: 0.75rem;
+  border-bottom: 1px solid rgba(36, 49, 54, 0.4);
+  padding-bottom: 0.35rem;
+}
+
+
+@media (max-width: 1100px) {
+  .overview-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .suite-gallery,
+  .suite-details {
+    max-width: 100%;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  nav {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .gallery-main img {
+    height: 320px;
+  }
+
+  .gallery-thumbs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-links a:not(.nav-cta) {
+    display: none;
+  }
+
+  .section {
+    padding: 5.5rem 1.5rem;
+  }
+
+  .suite-specs {
+    grid-template-columns: 1fr;
+  }
+
+  .tab-panel h3,
+  .suite-details h2,
+  .closing h2 {
+    font-size: 1.8rem;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">Villa Noa</a>
+    <div class="nav-links">
+      <a href="villa.html">The Villa</a>
+      <a href="index.html#suites">Suites</a>
+      <a href="index.html#rituals">Experiences</a>
+     <a href="reserve.html" class="nav-cta">Reserve</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-content">
+      <span class="eyebrow">Private terrace</span>
+      <h1>The Terrace Suite</h1>
+    <p>
+A suite organized around ease, where space, light, and movement
+create the impression that nothing requires effort.
+</p>
+    <div class="hero-meta">
+  <span>Private terrace</span>
+  <span>Softened threshold</span>
+  <span>Effortlessness maintained</span>
+</div>
+    </div>
+  </header>
+<section class="section" id="overview">
+  <div class="overview-layout">
+    <div class="suite-gallery">
+      <div class="gallery-main">
+        <img id="mainImage" src="terrazza1.png" alt="Terrace Suite exterior view">
+      </div>
+
+      <div class="gallery-thumbs">
+        <button type="button" class="thumb active" data-image="terrazza1.png" aria-label="View terrace image">
+          <img src="terrazza1.png" alt="Terrace Suite exterior view">
+        </button>
+
+        <button type="button" class="thumb" data-image="bedterracesuite.png" aria-label="View bedroom image">
+          <img src="bedterracesuite.png" alt="Bedroom in the Terrace Suite">
+        </button>
+
+        <button type="button" class="thumb" data-image="detailsterracesuite.png" aria-label="View detail image">
+          <img src="detailsterracesuite.png" alt="Detail of the Terrace Suite">
+        </button>
+
+        <button type="button" class="thumb" data-image="bathroomterracesuite.png" aria-label="View bathroom image">
+          <img src="bathroomterracesuite.png" alt="Bathroom in the Terrace Suite">
+        </button>
+      </div>
+    </div>
+
+      <div class="suite-details">
+        <span class="eyebrow">Suite overview</span>
+        <h2>Effort removed, not absent.</h2>
+
+<p>
+The Terrace Suite is designed to feel open, fluid, and unforced.
+Movement between inside and outside appears natural, as if
+comfort were simply given rather than arranged.
+</p>
+
+<p>
+What feels effortless depends on coordination: architecture,
+service, and maintenance align so that friction disappears.
+Ease becomes believable precisely because the work behind it is hidden.
+</p>
+        <div class="suite-specs">
+          <div class="spec">
+            <span>Occupancy</span>
+            <strong>2 guests</strong>
+          </div>
+          <div class="spec">
+            <span>Setting</span>
+            <strong>Private terrace frontage</strong>
+          </div>
+          <div class="spec">
+            <span>Luxury promise</span>
+           <strong>Effortlessness maintained</strong>
+
+          </div>
+          <div class="spec">
+            <span>Atmosphere</span>
+            <strong>Styled openness</strong>
+          </div>
+        </div>
+
+        <a href="reserve.html" class="reserve-link">Reserve the suite</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+  <div class="tabs-wrap">
+    <div class="tabs-nav">
+      <button class="tab-btn active" data-tab="tab-stage">Flow</button>
+      <button class="tab-btn" data-tab="tab-display">Upkeep</button>
+      <button class="tab-btn" data-tab="tab-threshold">Atmosphere</button>
+    </div>
+
+    <div id="tab-stage" class="tab-panel active">
+      <h3>Ease appears continuous.</h3>
+      <p>
+        The terrace extends the interior outward, producing a sense
+        of uninterrupted living. Boundaries soften so that movement
+        feels intuitive rather than managed.
+      </p>
+    </div>
+
+    <div id="tab-display" class="tab-panel">
+      <h3>Effortlessness requires upkeep.</h3>
+      <p>
+        Surfaces remain clean, temperatures stable, and transitions smooth.
+        What appears natural depends on ongoing adjustment, carried out
+        quietly enough to remain unnoticed.
+      </p>
+    </div>
+
+    <div id="tab-threshold" class="tab-panel">
+      <h3>Calm is carefully sustained.</h3>
+      <p>
+        Light, material, and proportion create a controlled atmosphere.
+        Stillness feels immediate, even though it relies on constant
+        intervention to remain intact.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+  <script>
+    const mainImage = document.getElementById('mainImage');
+    const thumbs = document.querySelectorAll('.thumb');
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    if (mainImage && thumbs.length) {
+      thumbs.forEach((thumb) => {
+        thumb.addEventListener('click', () => {
+          const thumbImg = thumb.querySelector('img');
+          const newSrc = thumb.getAttribute('data-image');
+
+          if (newSrc) {
+            mainImage.src = newSrc;
+          }
+
+          if (thumbImg) {
+            mainImage.alt = thumbImg.alt;
+          }
+
+          thumbs.forEach((t) => t.classList.remove('active'));
+          thumb.classList.add('active');
+        });
+      });
+    }
+
+    if (tabButtons.length && tabPanels.length) {
+      tabButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const target = button.getAttribute('data-tab');
+
+          tabButtons.forEach((btn) => btn.classList.remove('active'));
+          tabPanels.forEach((panel) => panel.classList.remove('active'));
+
+          button.classList.add('active');
+
+          const targetPanel = document.getElementById(target);
+          if (targetPanel) {
+            targetPanel.classList.add('active');
+          }
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>

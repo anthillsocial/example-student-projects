@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Villa Noa | The Cliff Suite</title>
+  <style>
+    :root {
+      --primary-font: 'Sterling Times', 'Times New Roman', serif;
+      --secondary-font: 'Futura', 'Arial', sans-serif;
+      --bg-color: #F4F1ED;
+      --panel: #ebe4db;
+      --text-dark: #243136;
+      --text-light: #FFFFFF;
+      --muted: #7A8B89;
+      --line: rgba(36, 49, 54, 0.14);
+      --overlay: rgba(18, 24, 28, 0.36);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--secondary-font);
+      background: var(--bg-color);
+      color: var(--text-dark);
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 20;
+    }
+
+    .logo {
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.35rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.16rem;
+      font-size: 0.75rem;
+      opacity: 0.92;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.65;
+    }
+
+    .nav-cta {
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 0.8rem 1.2rem;
+      border-radius: 999px;
+    }
+
+    .hero {
+      min-height: 86vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 2rem;
+      background:
+        linear-gradient(var(--overlay), var(--overlay)),
+        url("suite-cliff.jpg") center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      color: var(--text-light);
+    }
+
+    .eyebrow {
+      display: block;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22rem;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .hero .eyebrow {
+      color: rgba(255,255,255,0.84);
+    }
+
+    .hero h1 {
+      margin: 0 0 1rem;
+      font-family: var(--primary-font);
+      font-size: clamp(3rem, 7vw, 5.8rem);
+      font-weight: 400;
+      line-height: 0.95;
+      letter-spacing: 0.14rem;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 2rem;
+      line-height: 1.85;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .hero-meta {
+      display: inline-flex;
+      justify-content: center;
+      gap: 1.4rem;
+      flex-wrap: wrap;
+      font-size: 0.72rem;
+      letter-spacing: 0.16rem;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .section {
+      padding: 7rem 5%;
+    }
+
+    .overview-layout {
+      max-width: 1250px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.95fr 0.75fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    .suite-gallery {
+      max-width: 620px;
+    }
+
+    .gallery-main {
+      overflow: hidden;
+      border-radius: 2px;
+      margin-bottom: 1rem;
+      background: #ddd7cf;
+    }
+
+    .gallery-main img {
+      height: 420px;
+    }
+
+    .gallery-thumbs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+
+    .thumb {
+      border: 0;
+      padding: 0;
+      background: transparent;
+      cursor: pointer;
+      opacity: 0.82;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .thumb img {
+      aspect-ratio: 1 / 1;
+      border-radius: 2px;
+    }
+
+    .thumb:hover,
+    .thumb.active {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
+    .suite-details {
+      max-width: 430px;
+    }
+
+    .suite-details h2,
+    .tab-panel h3,
+    .closing h2 {
+      margin: 0 0 1.2rem;
+      font-family: var(--primary-font);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.08;
+    }
+
+    .suite-details p,
+    .tab-panel p,
+    .closing p {
+      margin: 0 0 1.15rem;
+      line-height: 1.9;
+      color: #4F5A5D;
+    }
+
+    .suite-specs {
+      margin: 2rem 0 2.2rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem 1.4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .spec span {
+      display: block;
+      margin-bottom: 0.45rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.16rem;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .spec strong {
+      font-weight: 400;
+      font-family: var(--primary-font);
+      font-size: 1.1rem;
+      line-height: 1.2;
+    }
+
+    .reserve-link {
+      display: inline-block;
+      padding: 0.95rem 1.35rem;
+      border-radius: 999px;
+      background: var(--text-dark);
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.16rem;
+      font-size: 0.72rem;
+    }
+
+    .tabs-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .tabs-nav {
+      display: flex;
+      gap: 2rem;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 2rem;
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid transparent;
+      padding: 0 0 1rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.16rem;
+      font-size: 0.72rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .tab-btn.active {
+      color: var(--text-dark);
+      border-bottom-color: var(--text-dark);
+    }
+
+    .tab-panel {
+      display: none;
+      max-width: 820px;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .features-grid {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+
+    .feature-card {
+      background: var(--panel);
+      padding: 2rem;
+      min-height: 240px;
+      border-radius: 2px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+    }
+
+    .feature-card span {
+      display: inline-block;
+      margin-bottom: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18rem;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .feature-card h4 {
+      margin: 0 0 0.9rem;
+      font-family: var(--primary-font);
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 1.15;
+    }
+
+    .feature-card p {
+      margin: 0;
+      line-height: 1.8;
+      color: #4F5A5D;
+    }
+
+    .closing {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16rem;
+      font-size: 0.75rem;
+      border-bottom: 1px solid rgba(36, 49, 54, 0.4);
+      padding-bottom: 0.35rem;
+    }
+
+    @media (max-width: 1100px) {
+      .overview-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .suite-gallery,
+      .suite-details {
+        max-width: 100%;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        padding: 1.5rem 1.25rem;
+      }
+
+      .gallery-main img {
+        height: 320px;
+      }
+
+      .gallery-thumbs {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links a:not(.nav-cta) {
+        display: none;
+      }
+
+      .section {
+        padding: 5.5rem 1.5rem;
+      }
+
+      .suite-specs {
+        grid-template-columns: 1fr;
+      }
+
+      .tab-panel h3,
+      .suite-details h2,
+      .closing h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">Villa Noa</a>
+    <div class="nav-links">
+      <a href="villa.html">The Villa</a>
+      <a href="index.html#suites">Suites</a>
+      <a href="index.html#rituals">Experiences</a>
+      <a href="reserve.html" class="nav-cta">Reserve</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-content">
+    <span class="eyebrow">Privacy as status</span>
+<h1>The Cliff Suite</h1>
+<p>
+  A suite for the new luxury condition: not simply to be served, but to be unseen.
+</p>
+<div class="hero-meta">
+  <span>Private position</span>
+  <span>Restricted access</span>
+  <span>Discretion as display</span>
+</div>
+    </div>
+  </header>
+
+  <section class="section" id="overview">
+    <div class="overview-layout">
+      <div class="suite-gallery">
+        <div class="gallery-main">
+          <img id="mainImage" src="cliffsuitehome.png" alt="Cliff Suite exterior view">
+        </div>
+
+        <div class="gallery-thumbs">
+          <button type="button" class="thumb active" data-image="cliffsuitehome.png" aria-label="View cliff suite image">
+            <img src="cliffsuitehome.png" alt="Cliff Suite exterior view">
+          </button>
+          <button type="button" class="thumb" data-image="cliffinteriors.png" aria-label="View terrace image">
+            <img src="cliffinteriors.png" alt="Terrace view of the Cliff Suite">
+          </button>
+          <button type="button" class="thumb" data-image="cliffbed.png" aria-label="View interior image">
+            <img src="cliffbed.png" alt="Interior of the Cliff Suite">
+          </button>
+          <button type="button" class="thumb" data-image="cliffbathroom.png" aria-label="View bathroom image">
+            <img src="cliffbathroom.png" alt="Bathroom in the Cliff Suite">
+          </button>
+        </div>
+      </div>
+
+      <div class="suite-details">
+        <span class="eyebrow">Suite overview</span>
+<h2>Privacy becomes visible when access disappears.</h2>
+<p>
+  The Cliff Suite treats seclusion as a form of prestige. Its value is not only in comfort,
+  but in the ability to withdraw from shared space, public visibility, and ordinary proximity.
+</p>
+<p>
+  Here, privacy functions like a status object: quiet, expensive, and understood most clearly
+  by those who know what it means to be unreachable.
+</p>
+
+        <div class="suite-specs">
+         <div class="spec">
+  <span>Occupancy</span>
+  <strong>2 guests</strong>
+</div>
+<div class="spec">
+  <span>Position</span>
+  <strong>Cliffside removal</strong>
+</div>
+<div class="spec">
+  <span>Luxury promise</span>
+  <strong>Privacy as status</strong>
+</div>
+<div class="spec">
+  <span>Atmosphere</span>
+  <strong>Unreachable calm</strong>
+</div>
+        </div>
+
+        <a href="reserve.html" class="reserve-link">Reserve the suite</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="tabs-wrap">
+    <button class="tab-btn active" data-tab="tab-access">Discretion</button>
+<button class="tab-btn" data-tab="tab-boundary">Visibility</button>
+<button class="tab-btn" data-tab="tab-purity">Access</button>
+
+      <div id="tab-access" class="tab-panel active">
+  <h3>The highest status is no longer being seen.</h3>
+  <p>
+    Traditional luxury once displayed itself through marble, service, and recognizable names.
+    The Cliff Suite reflects a newer logic: prestige expressed through disappearance,
+    private routes, and the ability to avoid shared spaces altogether.
+  </p>
+</div>
+
+<div id="tab-boundary" class="tab-panel">
+  <h3>Discretion becomes a performance of power.</h3>
+  <p>
+    Privacy appears modest, almost quiet. But here it still communicates rank.
+    To be unseen is not to become ordinary; it is to occupy a position where ordinary
+    visibility no longer applies.
+  </p>
+</div>
+
+<div id="tab-purity" class="tab-panel">
+  <h3>Access is the real amenity.</h3>
+  <p>
+    The suite does not simply offer silence. It offers controlled approach, filtered contact,
+    and a form of calm produced by limiting who can enter, who can know, and who remains outside.
+  </p>
+</div>
+  </section>
+
+  
+
+      
+      
+      
+
+
+  <script>
+    const mainImage = document.getElementById('mainImage');
+    const thumbs = document.querySelectorAll('.thumb');
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    if (mainImage && thumbs.length) {
+      thumbs.forEach((thumb) => {
+        thumb.addEventListener('click', () => {
+          const thumbImg = thumb.querySelector('img');
+          const newSrc = thumb.getAttribute('data-image');
+
+          if (newSrc) {
+            mainImage.src = newSrc;
+          }
+
+          if (thumbImg) {
+            mainImage.alt = thumbImg.alt;
+          }
+
+          thumbs.forEach((t) => t.classList.remove('active'));
+          thumb.classList.add('active');
+        });
+      });
+    }
+
+    if (tabButtons.length && tabPanels.length) {
+      tabButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const target = button.getAttribute('data-tab');
+
+          tabButtons.forEach((btn) => btn.classList.remove('active'));
+          tabPanels.forEach((panel) => panel.classList.remove('active'));
+
+          button.classList.add('active');
+
+          const targetPanel = document.getElementById(target);
+          if (targetPanel) {
+            targetPanel.classList.add('active');
+          }
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>

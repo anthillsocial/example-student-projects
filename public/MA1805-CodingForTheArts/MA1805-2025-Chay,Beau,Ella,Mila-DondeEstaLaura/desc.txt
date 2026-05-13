@@ -1,0 +1,2 @@
+Game - Move the character ad=left&right | ws=up&down.
+e=interact 

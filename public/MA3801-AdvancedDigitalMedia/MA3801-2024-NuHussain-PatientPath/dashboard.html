@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Patient Path</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+  
+  
+</div>
+
+  
+<body>
+    <!-- Floating images outside the main layout -->
+<div id="flexContainer">
+    <div id="mainLeft">
+        <header id="header"></header>
+        <nav id="sidebarMenu">
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="appointments.html">Appointments</a></li>
+                <li><a href="schedules.html">Schedules</a></li>
+                <li><a href="invoices.html">Invoices</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+               <li><a href="emailmessages.html">Email/Messages</a></li>
+            </ul>
+        </nav>
+    </div>
+  
+  
+    <div id="mainRight">
+        <h2>Dashboard</h2>
+        <p>Welcome to the Dashboard! Below are the latest statistics:</p>
+      <!-- Scrolling Alert Banner for Scan Delays -->
+<div id="alertBanner">
+    <p>⚠ MRI Scanner Delayed by 45 minutes...</p>
+</div>
+
+<!-- Patient Complaints Pop-Up -->
+<div id="complaintPopup">
+    <p id="complaintMessage">Patient Complaint: Scan taking too long!</p>
+</div>
+      
+<!-- System Lag Simulation -->
+<div id="systemLag">
+    <p>⚠ System Unresponsive, Please Wait...</p>
+</div>
+
+
+        <!-- Daily Inpatients Chart -->
+        <h3>Daily Inpatients</h3>
+        <canvas id="inpatientsChart"></canvas>
+
+        <!-- Booking Overview Chart -->
+        <h3>Booking Overview</h3>
+        <canvas id="bookingOverviewChart"></canvas>
+      
+           <img src="https://cdn.glitch.global/aa16dca8-8894-4a99-b08a-40895eba3ff2/Screenshot%202025-04-09%20at%204.44.48%E2%80%AFpm.jpg?v=1744502501401" class="floating-image" id="float1" />
+  <img src="https://cdn.glitch.global/aa16dca8-8894-4a99-b08a-40895eba3ff2/Screenshot%202025-04-12%20at%2010.01.48%E2%80%AFpm.jpg?v=1744506633230" class="floating-image" id="float2" />
+
+<div class="scrollablefloatingRightText">
+  <p>I wish our hospital system had a dashboard so I could check it quickly and easily. Instead of having me to piece together information from a complicated system that rarely provides a clear answer, I would like something that could quickly tell me what was happening with each scan.
+
+"When is it my turn?" is a question that patients frequently ask. The majority of them are polite, old, and just curious. And the majority of the time, I have no response. I occasionally do, but I can't tell them the precise time because if I do and it takes longer, they'll become nervous. They will become irritated. I don't blame them either.
+One patient in particular comes to mind. An elderly lady who had arrived for an MRI. She had closely adhered to all the instructions; I could tell she was already uncomfortable because the contrast scan required a full bladder. Despite the suffering, she remained patient. She checked in with me and sat down.
+
+She came to my desk after 15 minutes. Trying to maintain her composure, she shifted her weight and asked, "Do you know how much longer?" I looked over the system. Nothing. Not a single update. The patient in front of her had been late and had undergone an hour-long scan. Additionally, everything was falling behind because there was only one MRI machine.
+I walked to the MRI room myself since I didn't want to leave her without an answer. The scan was still going on because the door was locked. How long, though? Five minutes? Fifteen? Thirty? It was difficult to know. There's no way to truly respond to her.
+
+I returned to her and forced a comforting smile. I said, "Just a few more minutes," but I wasn't sure if it was accurate. I could see how difficult it was for her, but she nodded and tried to hang on.
+We require a dashboard for this reason. I can avoid guessing by using a real-time technology that displays us exactly what's happening. so I don't have to provide vague responses. Therefore, patients especially those who are in pain do not have to wait in pain, unsure of when their turn will arrive.
+</p>
+
+
+</div>
+<script src="script.js"></script>
+<script src="dashboard.js"></script> 
+</body>
+</html>
+

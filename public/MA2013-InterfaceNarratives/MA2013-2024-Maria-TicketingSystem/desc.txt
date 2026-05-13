@@ -1,0 +1,1 @@
+A database of every train ticket I've purchased, exploring ticketing systems as computational spaces.

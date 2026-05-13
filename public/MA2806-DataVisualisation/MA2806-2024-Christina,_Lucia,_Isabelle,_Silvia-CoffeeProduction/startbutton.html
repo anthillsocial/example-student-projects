@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Button with Video and Stopwatch</title>
+    <style>
+        /* a box around the video and stopwatch */
+        .content-container {
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 20px; 
+            height: 100vh;
+            overflow: hidden;
+        }
+
+    /* video size*/
+        video {
+            width: 480px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+    /* stopwatch border */
+        iframe {
+            width: 480px;
+            height: 400px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        /* Start button aesthetic (colour, size, background, shape)*/
+        #startButton {
+            padding: 10px 20px;
+            background-color: #5d4037;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+              /* background of the start button*/
+        #startButton:hover {
+            background-color: #3e2723;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content-container">
+        <video id="coffeeVideo" muted playsinline>
+            <source src="https://cdn.glitch.global/4998c4c1-7e7a-4cc9-9fc4-794ec0bfe582/coffee.mp4?v=1745512871907" type="video/mp4" />
+        </video>
+
+        <!-- Stopwatch iframe -->
+        <iframe id="stopwatchIframe" src="stopwatch.html"></iframe>
+    </div>
+
+    <!-- Start Button -->
+    <button id="startButton">Start</button>
+
+    <script>
+        const startButton = document.getElementById("startButton");
+        const coffeeVideo = document.getElementById("coffeeVideo");
+        const stopwatchIframe = document.getElementById("stopwatchIframe");
+
+        startButton.addEventListener("click", () => {
+            // video start with start button and plays 
+            coffeeVideo.play();
+
+            // stopwatch and start button to go at the same time, reaction from the button being pressed 
+            const iframeDoc = stopwatchIframe.contentWindow.document;
+            const iframeStartButton = iframeDoc.getElementById("startButton");
+
+            // video and stopwatch to start at the same time
+            const videoStartTime = coffeeVideo.currentTime;
+
+            if (iframeStartButton) {
+                iframeStartButton.click(); // Simulate a click on the stopwatch start button
+            }
+
+            // align both the video and image to start at the same time
+            const iframeWindow = stopwatchIframe.contentWindow;
+            iframeWindow.postMessage({ type: 'start', time: videoStartTime }, '*');
+        });
+    </script>
+
+</body>
+</html>

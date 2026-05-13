@@ -1,0 +1,1 @@
+Game - Left/right arrow keys and fire with the up arrow.   

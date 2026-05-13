@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Villa Noa | Reserve</title>
+
+<style>
+:root {
+  --primary-font: 'Sterling Times', serif;
+  --secondary-font: 'Futura', sans-serif;
+
+  --bg: #F4F1ED;
+
+
+  --panel: #eee7df;
+
+  --text: #243136;
+  --muted: #7A8B89;
+  --line: rgba(36,49,54,0.12);
+
+  --hero-flat: #8f8d8a;
+}
+
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--secondary-font);
+  background: var(--bg);
+  color: var(--text);
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
+}
+
+.logo {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.35rem;
+  font-size: 0.95rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.16rem;
+  font-size: 0.75rem;
+  opacity: 0.92;
+}
+
+
+.hero-strip {
+  height: 90px;
+  background: var(--hero-flat);
+}
+
+
+.reserve-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 1.5rem 3rem;
+}
+
+
+.reserve-box {
+  width: 100%;
+  max-width: 520px;
+
+
+  background: var(--panel);
+
+  padding: 1.8rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+}
+
+
+.reserve-box h1 {
+  font-family: var(--primary-font);
+  font-weight: 400;
+  margin: 0 0 1rem;
+  font-size: 1.8rem;
+}
+
+
+.field {
+  margin-bottom: 0.9rem;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.16rem;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid var(--line);
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+
+.option {
+  border: 1px solid var(--line);
+  padding: 0.65rem;
+  margin-bottom: 0.4rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.option.active {
+  background: rgba(255,255,255,0.55);
+}
+
+
+button {
+  width: 100%;
+  padding: 0.85rem;
+  margin-top: 0.8rem;
+  border: none;
+  background: var(--text);
+  color: white;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.14rem;
+  font-size: 0.75rem;
+}
+
+
+.result {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.9rem;
+  color: #4F5A5D;
+  min-height: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Villa Noa</a>
+
+  <div class="nav-links">
+    <a href="villa.html">The Villa</a>
+    <a href="index.html#suites">Suites</a>
+    <a href="experiences.html">Experiences</a>
+    <a href="reserve.html" class="nav-cta">Reserve</a>
+  </div>
+</nav>
+
+<div class="hero-strip"></div>
+
+<div class="reserve-wrapper">
+  <div class="reserve-box">
+
+    <h1>Request access</h1>
+
+    <div class="field">
+      <label>Suite</label>
+      <select>
+        <option>Horizon Suite</option>
+        <option>Terrace Suite</option>
+        <option>Cliff Suite</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Arrival</label>
+      <input type="date">
+    </div>
+
+    <div class="field">
+      <label>Departure</label>
+      <input type="date">
+    </div>
+
+    <div class="field">
+      <label>Guests</label>
+      <select>
+        <option>1</option>
+     <option>2</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Experiences</label>
+
+      <div class="option">Private sea journey</div>
+      <div class="option">Body ritual</div>
+      <div class="option">Guided stillness</div>
+
+    </div>
+
+    <button id="submitBtn">Submit request</button>
+
+    <div class="result" id="resultText"></div>
+
+  </div>
+</div>
+
+<script>
+const options = document.querySelectorAll('.option');
+const result = document.getElementById('resultText');
+const button = document.getElementById('submitBtn');
+
+options.forEach(opt => {
+  opt.addEventListener('click', () => {
+    opt.classList.toggle('active');
+  });
+});
+
+button.addEventListener('click', () => {
+  result.textContent =
+    "Your request has been received. Access will be arranged where possible.";
+});
+</script>
+
+</body>
+</html>

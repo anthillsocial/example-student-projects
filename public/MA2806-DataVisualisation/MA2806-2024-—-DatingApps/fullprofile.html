@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dating Profile Layout</title>
+  <link rel="stylesheet" href="fullprofile.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Left column -->
+    <div class="left-column">
+      <div class="profile-card">
+
+        <!-- Slideshow -->
+        <div class="slideshow-container">
+          <div class="slideshow fade">
+            <div class="numbertext">1 / 1</div>
+             <img src="https://cdn.glitch.global/505f4735-12fb-44d2-b357-8904acbd9702/lumi.png?v=1745880544064" alt="Profile Picture" />
+          </div>
+          <div class="slideshow fade">
+            <div class="numbertext">2 / 2</div>
+            <img src="https://cdn.glitch.global/1a832a35-b225-4d15-9d19-d999639eebcd/back%20photo.JPG?v=1746476610067" alt="Profile Picture" />
+          </div>
+          <div class="slideshow fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="https://cdn.glitch.global/505f4735-12fb-44d2-b357-8904acbd9702/dog.png?v=1746194825977" alt="Profile Picture" />
+          </div>
+          <div class="slideshow fade">
+            <div class="numbertext">4 / 4</div>
+            <img src="https://cdn.glitch.global/505f4735-12fb-44d2-b357-8904acbd9702/skii.png?v=1746194829384" alt="Profile Picture" />
+          </div>
+
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+          <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+          </div>
+        </div>
+
+        <!-- Profile Info -->
+        <div class="profile-details">
+          <h2>Lumi, 19</h2>
+          <p class="location">📍 Egham, Surrey</p>
+          <p class="bio">Ski Enthusiast, Dog lover, Looking for something long term.</p>
+        </div>
+
+        <div class="profile-tags">
+          <span class="tag">Skiing</span>
+          <span class="tag">Travelling</span>
+          <span class="tag">Reading</span>
+          <span class="tag">Trying new foods</span>
+          <span class="tag">Dog Lover</span>
+          <span class="tag">Movie enthusiast</span>
+          <span class="tag">Interested in Ages 18 - 80</span>
+          <span class="tag">All genders</span>
+          <span class="tag">Images Created using AI</span>
+        </div>
+
+        <div class="profile-actions">
+          <!-- Back Button -->
+  <div class="action" onclick="toggleModal('LeftModal')">
+    <a href="index.html">
+      <img src="https://cdn.glitch.global/6eb50e2b-bb25-454d-a955-43596b45c9a2/swipe%20left.PNG?v=1745770325072g" alt="Swipe Left Icon" class="icon-button">
+    </a>
+  </div>
+         <!-- Directs to statistics/messages page -->
+           <div class="action" onclick="toggleModal('LeftModal')">
+              <a href="chatmessages.html">
+          <button class="btn dislike"><img src="https://cdn.glitch.global/6eb50e2b-bb25-454d-a955-43596b45c9a2/messages_statistics.PNG?v=1745770308589" alt="Messages Icon" class="icon-button" /></button>
+             </a>
+          </div>
+          
+        <button class="btn like"><img src="https://cdn.glitch.global/6eb50e2b-bb25-454d-a955-43596b45c9a2/match.PNG?v=1745770302849" alt="Match Icon" class="icon-button" /></button>
+          
+        </div>
+      </div>
+    </div>
+    
+    
+
+    <!-- Right column -->
+    <div class="right-column">
+      <div class="title">
+        <h3>Statistics based off first 30 swipes </h3> 
+        
+      </div>
+
+      <div class="qa-box" onclick="toggleModal('leftModal')"><h3>Gender Demographic of matches</h3>
+      <p>
+        Tinder: <br> Females swiped: 5/30 – 17% (rnd from 16.6%) <br>Males swiped: 25/30 – 83% (rnd from 83.3%) <br><br>Bumble: <br>Females swiped: 0/10 – 0% <br>Males swiped: 30/30 – 100% 
+        </p></div>
+      
+      <div class="qa-box"><h3>Age Demographic</h3>
+        <p>Tinder: <br> Aged 18-24: 17/30 – 57% (rnd from 56.6%) <br> Aged 25-31: 12/30 – 40%  <br> Aged 32-38: 1/30 – 3% (rnd from 3.3%)  <br>Aged 38+: 0/30 – 0% <br><br> Bumble: <br>Aged 18-24: 6/30 – 20% <br> Aged 25-31: 9/30 – 30% <br>Aged 32-38: 10/30 – 33% (rnd from 33.3%) <br>Aged 38+: 5/30 – 17% (rnd from 16.6%) 
+      </p></div>
+    
+      <div class="qa-box"><h3>Distance from set location</h3>
+    <p>
+      Tinder:<br>Distance 0-5 miles: 15/30 – 50% <br>Distance 6-15 miles: 3/30 – 10% <br>Distance 16- 25 miles: 3/30 – 10%  <br>Distance 26-35 miles: 4/30 – 13% (rnd from 13.3%) <br>Distance 35+ miles: 2/30 – 7% (rnd from 6.6%) <br>N/A distance: 3/30 – 10% <br><br>Bumble:  <br>Distance 0-5 miles: 7/30 – 23% (rnd from 23.3%) <br>Distance 6-15 miles: 11/30 – 37% (rnd from 36.6%) <br>Distance 16- 25 miles: 7/30 - 23% (rnd from 23.3%) <br>Distance 26-35 miles: 0/30 – 0%  <br>Distance 35+ miles: 0/30 – 0% <br>N/A distance: 5/30 – 17% (rnd from 16.6%) 
+      </p></div>
+      <div class="qa-box"><h3>Looking for?</h3>
+      <p>
+        Tinder:<br> Short-term fun: 3/30 – 10% <br>Still figuring it out: 6/30 – 20% <br>Short-term, but long-term OK: 7/30 - 23% (rnd from 23.3%) <br>Long-term, but short-term OK: 9/30 – 30% <br>Long-term Partner: - 5/30 - 17% (rnd from 16.6%) <br><br>Bumble:  <br>Casual dates: 7/30 - 23% (rnd from 23.3%) <br>Long-term, life partner: 5/30 - 17% (rnd from 16.6%) <br>Long-term, intimacy without commitment: 1/30 - 3% (rnd from 3.3%) <br>Long-term, casual dates: 11/30 - 37% (rnd from 36.6%) <br>Long-term: 3/30 – 10% <br>Life partner: 1/30 - 3% (rnd from 3.3%) <br>N/A: 2/30 - 7% (rnd from 6.6%) 
+        </p></div>
+      
+      <div class="qa-box"><h3>Race/Ethnicity</h3>
+      <p>
+        Tinder: <br>White European: 13/30 – 43% (rnd from 43.3) <br>White British: 10/30 - 33% (rnd from 33.3%) <br>Hispanic/Latino: 1/30 - 3% (rnd from 3.3%) <br>Black British: 1/30 - 3% (rnd from 3.3%) <br>Middle Eastern: 3/30 – 10% <br>White/Asian: 1/30 - 3% (rnd from 3.3%) <br>Other White: 1/30 - 3% (rnd from 3.3%)  <br><br>Bumble: <br>White European: 19/30 – 64% (rnd from 63.6%) <br>White Scottish: 1/30 -  3% (rnd from 3.3%) <br>White American:1/30 - 3% (rnd from 3.3%) <br>White Irish: 1/30 - 3% (rnd from 3.3%) <br>Other White: 1/30 - 3% (rnd from 3.3%) <br>Middle Eastern/White European: 1/30 - 3% (rnd from 3.3%) <br>Black African: 3/30 – 10% <br>Indonesian/Scottish: 1/30 - 3% (rnd from 3.3%) <br>South Asian: 2/30 - 7% (rnd from 6.6%
+        </p></div>
+     
+       
+      
+    </div>
+  </div>
+
+ <script>
+  let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next / previous image Controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail / dot controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  const slides = document.getElementsByClassName("slideshow");
+  const dots = document.getElementsByClassName("dot");
+
+  if (n > slides.length) { slideIndex = 1; }
+  if (n < 1) { slideIndex = slides.length; }
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].classList.remove("active");
+  }
+
+  slides[slideIndex - 1].style.display = "block";
+  if (dots[slideIndex - 1]) {
+    dots[slideIndex - 1].classList.add("active");
+  }
+}
+
+  </script>
+
+</body>
+</html>

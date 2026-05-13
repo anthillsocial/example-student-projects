@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Villa Noa | Experiences</title>
+
+  <style>
+    :root {
+      --primary-font: 'Sterling Times', 'Times New Roman', serif;
+      --secondary-font: 'Futura', 'Arial', sans-serif;
+      --bg-color: #F4F1ED;
+      --panel: #eee7df;
+      --text-dark: #243136;
+      --text-light: #FFFFFF;
+      --muted: #7A8B89;
+      --line: rgba(36, 49, 54, 0.14);
+      --hero-flat: #a7a5a2;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--secondary-font);
+      background: var(--bg-color);
+      color: var(--text-dark);
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 20;
+    }
+
+    .logo {
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.35rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.16rem;
+      font-size: 0.75rem;
+      opacity: 0.92;
+    }
+
+    .nav-cta {
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 0.8rem 1.2rem;
+      border-radius: 999px;
+    }
+
+    .hero {
+  min-height: 86vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 2rem;
+  overflow: hidden;
+}
+
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 26, 28, 0.38); 
+  z-index: 1;
+}
+
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  color: var(--text-light);
+}
+
+    .eyebrow {
+      display: block;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22rem;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .hero .eyebrow {
+      color: rgba(255,255,255,0.84);
+    }
+
+    .hero h1 {
+      margin: 0 0 1rem;
+      font-family: var(--primary-font);
+      font-size: clamp(3rem, 7vw, 5.8rem);
+      font-weight: 400;
+      line-height: 0.95;
+      letter-spacing: 0.14rem;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 2rem;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .hero-meta {
+      display: inline-flex;
+      gap: 1.4rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-size: 0.72rem;
+      letter-spacing: 0.16rem;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .section {
+      padding: 7rem 5%;
+    }
+
+    .intro {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .intro h2,
+    .ritual-copy h2,
+    .interface-copy h2,
+    .closing h2 {
+      margin: 0 0 1.3rem;
+      font-family: var(--primary-font);
+      font-size: clamp(2.2rem, 4vw, 3.7rem);
+      font-weight: 400;
+      line-height: 1.08;
+    }
+
+    .intro p,
+    .ritual-copy p,
+    .interface-copy p,
+    .closing p {
+      margin: 0 auto 1.15rem;
+      max-width: 760px;
+      line-height: 1.9;
+      color: #4F5A5D;
+    }
+
+    .rituals {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: grid;
+      gap: 5rem;
+    }
+
+    .ritual {
+      display: grid;
+      grid-template-columns: 0.95fr 0.8fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .ritual:nth-child(even) {
+      grid-template-columns: 0.8fr 0.95fr;
+    }
+
+    .ritual:nth-child(even) .ritual-image {
+      order: 2;
+    }
+
+    .ritual-image {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+      background: #ddd7cf;
+    }
+
+    .ritual-image img {
+      height: 520px;
+      transition: transform 1.4s ease;
+    }
+
+    .ritual:hover .ritual-image img {
+      transform: scale(1.04);
+    }
+
+    .ritual-tag {
+      display: inline-block;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22rem;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .ritual-copy {
+      max-width: 520px;
+    }
+
+    .ritual-critique {
+      margin-top: 1.8rem;
+      padding-top: 1.3rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #4F5A5D;
+    }
+
+    .ritual-critique strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-family: var(--primary-font);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--text-dark);
+    }
+
+    .interface-section {
+      padding-top: 2rem;
+    }
+
+    .interface-layout {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.85fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .booking-panel {
+      background: var(--panel);
+      padding: 2rem;
+      border-radius: 2px;
+    }
+
+    .booking-panel h3 {
+      margin: 0 0 1.4rem;
+      font-family: var(--primary-font);
+      font-size: 2rem;
+      font-weight: 400;
+    }
+
+    .ritual-option {
+      width: 100%;
+      margin-bottom: 0.9rem;
+      padding: 1rem;
+      background: transparent;
+      border: 1px solid rgba(36,49,54,0.16);
+      text-align: left;
+      cursor: pointer;
+      color: var(--text-dark);
+      transition: background 0.25s ease;
+    }
+
+    .ritual-option:hover,
+    .ritual-option.active {
+      background: rgba(255,255,255,0.42);
+    }
+
+    .ritual-option span {
+      display: block;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16rem;
+      font-size: 0.68rem;
+      color: var(--muted);
+    }
+
+    .ritual-result {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      line-height: 1.8;
+      color: #4F5A5D;
+    }
+
+    .closing {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16rem;
+      font-size: 0.75rem;
+      border-bottom: 1px solid rgba(36,49,54,0.4);
+      padding-bottom: 0.35rem;
+    }
+
+    @media (max-width: 1000px) {
+      .ritual,
+      .ritual:nth-child(even),
+      .interface-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .ritual:nth-child(even) .ritual-image {
+        order: 0;
+      }
+
+      .ritual-copy {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        padding: 1.5rem 1.25rem;
+      }
+
+      .ritual-image img {
+        height: 380px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links a:not(.nav-cta) {
+        display: none;
+      }
+
+      .section {
+        padding: 5.5rem 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">Villa Noa</a>
+    <div class="nav-links">
+      <a href="villa.html">The Villa</a>
+      <a href="index.html#suites">Suites</a>
+      <a href="experiences.html">Experiences</a>
+     <a href="reserve.html" class="nav-cta">Reserve</a>
+    </div>
+  </nav>
+
+<header class="hero">
+
+  <video autoplay muted loop playsinline class="hero-video" poster="fallback.jpg">
+    <source src="vidyacht.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <span class="eyebrow">Experiences</span>
+    <h1>Wellness, after it has been made profitable.</h1>
+    <p>
+      Villa Noa offers restoration as a luxury sequence: sea, body, silence.
+      Each carefully arranged, priced, and delivered.
+    </p>
+    <div class="hero-meta">
+      <span>Escape</span>
+      <span>Care</span>
+      <span>Stillness</span>
+    </div>
+  </div>
+
+</header>
+
+<section class="section">
+  <div class="intro">
+    <span class="eyebrow">Overview</span>
+    <h2>Nothing is spontaneous once it is booked.</h2>
+    <p>
+      These experiences promise release from speed, pressure and noise.
+      Yet each one converts that release into a service.
+    </p>
+    <p>
+      Freedom becomes itinerary. Care becomes labour. Stillness becomes scheduled.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="rituals">
+
+    <article class="ritual">
+      <div class="ritual-image">
+        <img src="y.jpeg" alt="Private sea journey">
+      </div>
+      <div class="ritual-copy">
+        <span class="ritual-tag">Private sea journey</span>
+        <h2>Escape, with crew.</h2>
+        <p>
+          The sea appears limitless, but the experience is carefully enclosed:
+          route, timing, service and access arranged in advance.
+        </p>
+        <div class="ritual-critique">
+          Slowness is sold through movement. The horizon becomes peaceful only
+          after fuel, labour and private access have made it available.
+        </div>
+      </div>
+    </article>
+
+    <article class="ritual">
+      <div class="ritual-image">
+        <img src="massage2jpeg.jpeg" alt="Massage ritual">
+      </div>
+      <div class="ritual-copy">
+        <span class="ritual-tag">Body ritual</span>
+        <h2>Self-care, performed by someone else.</h2>
+        <p>
+          Relaxation is presented as personal balance, softened through scent,
+          touch and silence.
+        </p>
+        <div class="ritual-critique">
+          Your tension becomes another person’s work, then returns to you as peace.
+          The labour disappears so the care can feel effortless.
+        </div>
+      </div>
+    </article>
+
+    <article class="ritual">
+      <div class="ritual-image">
+        <img src="yoga2.jpeg" alt="Guided stillness session">
+      </div>
+      <div class="ritual-copy">
+        <span class="ritual-tag">Guided stillness</span>
+        <h2>Non-attachment, reserved for sunset.</h2>
+        <p>
+          Breath, silence and presence are arranged into a ritual of retreat
+          from the demands of ordinary time.
+        </p>
+        <div class="ritual-critique">
+          A practice associated with release from desire becomes another desirable
+          experience: scheduled, aestheticized and made available through luxury.
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+     
+
+
+
+
+</body>
+</html>
