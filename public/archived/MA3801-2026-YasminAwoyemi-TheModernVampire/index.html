@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Modern Vampire</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div>
+
+
+
+  <div class="carousel">
+    <div id="splash" onclick="start()">
+    <img src="project assets/graves.png" style="position: absolute; bottom:0%; width:100%;filter:brightness(0%);filter:opacity(50%);" >
+    <img src="project assets/gate3.png" style="position: absolute; bottom:-3%; width:102.5%;filter: brightness(5%);filter:opacity(80%);" >
+    <img src="project assets/title.png" style="position: absolute; top:0%; width:80%;" >
+    <img src="project assets/name.png" style="position: absolute; top:58%; right:12%; width:10%;" >
+    <img src="project assets/enter.png" style="position: absolute; top:64%; width:20%;" >
+    <div style="display:none;">
+<iframe src="claudiacrypt.html"></iframe>
+<iframe src="louiscrypt.html"></iframe>
+<iframe src="armandcrypt.html"></iframe>
+<iframe src="droltacrypt.html"></iframe>
+<iframe src="laurentcrypt.html"></iframe>
+<iframe src="olroxcrypt.html"></iframe>
+<img src="project assets/1acrypt.jpg">
+<img src="project assets/1crypt.jpg">
+<img src="project assets/2crypt.jpg">
+<img src="project assets/fog3.png">
+<img src="project assets/claudiacrypt2.png">
+<img src="project assets/louiscrypt2.png">
+<img src="project assets/armandcrypt2.png">
+<img src="project assets/droltacrypt2.png">
+<img src="project assets/laurentcrypt2.png">
+<img src="project assets/olroxcrypt2.png">
+<video autoplay muted loop>
+        <source src="project assets/graveyardbg.mp4" type="video/mp4" />
+    </video>
+    </div>
+</div>
+<div>
+    </div>
+    <audio id="bgm" src="project assets/bgmusic.mp3" loop></audio>
+    <video autoplay muted loop>
+        <source src="project assets/graveyardbg.mp4" type="video/mp4" />
+    </video>
+    <div class="anim-body">
+    <div class="fog-anim">
+  </div>
+  </div>  
+  <div class="bat-body">
+  <img class="bat" src="project assets/bat4.gif" style="width:150px;">
+    </div>
+  <div class="track" id="slider_track">
+      <div class="slide">
+        <a href="#" onclick="slider_openModal(event, 'claudiacrypt.html')"><img src="project assets/claudiacrypt2.png" style="width:350px; position:relative; top:60px"/></a>
+      </div>
+      <div class="slide">
+        <a href="#" onclick="slider_openModal(event, 'louiscrypt.html')"><img src="project assets/louiscrypt2.png" style="width:475px; position:relative; top:45px"/></a>
+      </div>
+      <div class="slide">
+        <a href="#" onclick="slider_openModal(event, 'armandcrypt.html')"><img src="project assets/armandcrypt2.png" style="width: 300px; position:relative; top: 20px"/></a>
+      </div>
+     <div class="slide">
+        <a href="#" onclick="slider_openModal(event, 'droltacrypt.html')"><img src="project assets/droltacrypt2.png" style="width: 500px; position:relative; top:45px"/></a>
+      </div>
+      <div class="slide">
+        <a href="#" onclick="slider_openModal(event, 'laurentcrypt.html')"><img src="project assets/laurentcrypt2.png" style="width: 300px; position:relative; top:50px"/></a>
+      </div>
+      <div class="slide">
+        <a href="#" onclick="slider_openModal(event, 'olroxcrypt.html')"><img src="project assets/olroxcrypt2.png" style="width: 500px; position:relative; top:45px"/></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+   <img src="project assets/leftarrow2.png" class="cleft" onclick="slider_prev()" style="width:75px;">
+   <img src="project assets/rightarrow2.png" class="cright" onclick="slider_next()" style="width:75px;">
+  </div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="slider_modal">
+  <div class="modal-content">
+    <span class="close" onclick="slider_closeModal()">&times;</span>
+    <iframe id="slider_modalFrame" src=""></iframe>
+  </div>
+</div>
+
+<script src="slider.js"></script>
+</body>
+</html>

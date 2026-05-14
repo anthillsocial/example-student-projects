@@ -1,0 +1,218 @@
+
+
+html{
+    background-color:rgb(44, 44, 44);
+    overflow: hidden;
+}
+
+
+.container{
+    width:100%;
+    height:100vh;
+    overflow-x: hidden;
+
+}
+
+.slides{
+    width:100%;
+    height: 100vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    color:aliceblue;
+}
+
+
+.slide1{
+    background-image: url("project assets/1crypt.jpg");
+    background-repeat: no-repeat;
+    background-size:     cover;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.slide2{
+    background-image: url("project assets/2crypt.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    position: relative;
+    overflow: hidden;
+ 
+}
+
+.slide3{
+    background-image: url("project assets/1acrypt.jpg");
+    background-repeat: no-repeat;
+    background-size:     cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.anim-body{
+    width: 100%;
+    height:100vh;
+    position:relative;
+}
+
+.fog-anim{
+    position:absolute;
+    width:100%;
+    height:100%;
+    z-index:2;
+    left:0;
+    top:0;
+    background: url("fog2.png") repeat-x;
+    background-size:200% auto;
+    background-position: 0 bottom;
+    animation: fogAnim 60s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fogAnim{
+    0%{background-position: -200% bottom}
+    100%{background-position: 0% bottom}
+}
+
+.img-container {
+  z-index: 2;
+  
+}
+
+.hoverDisplay {
+  display: none;
+  z-index: 2;
+}
+
+.img-container:hover .hoverDisplay {
+  display: block;
+}
+
+.img-container:hover + .img-container2{
+  z-index: 1;
+}
+
+.img-container2 {
+  z-index: 3;
+  display: block;
+}
+
+.hoverDisplay2 {
+  display: none;
+  z-index: 3;
+}
+
+.img-container2:hover .hoverDisplay2 {
+  display: block;
+}
+.glow {
+    border-radius: 100%;
+    width: 300px;
+    filter: blur(35px);
+    background: radial-gradient(circle, rgba(222, 158, 109, 0.44) 0%, rgba(235, 208, 160, 0.45) 100%);
+    height: 600px;
+    bottom: 0;
+    z-index: 0;
+    animation: flicker_animation .125s infinite;
+}
+
+
+@keyframes flicker_animation {
+    50% {
+        opacity: 0.8;
+    }
+}
+
+.flamelink{
+    width:10vw; 
+    height:40vh;
+    z-index: 1;
+}
+
+.page {
+  background-color: #f8f5de;
+  background-image: linear-gradient(to right, rgba(255,210,0,0.4), rgba(200, 160, 0, 0.1) 11%, rgba(0,0,0,0) 35%, rgba(200, 160, 0, 0.1) 65%);
+  box-shadow: inset 0 0 75px rgba(255,210,0,0.3), inset 0 0 20px rgba(255,210,0,0.4), inset 0 0 30px rgba(220,120,0,0.8);
+  color: rgba(0,0,0,0.5);
+  font-family: "AustralisProSwash-Italic";
+  width:20vw;
+  height:50vh;
+  padding: 20px 20px 30px 25px;
+  overflow-y: scroll;
+  
+}
+.page2 {
+  background-color: #f8f5de;
+  background-image: linear-gradient(to right, rgba(255,210,0,0.4), rgba(200, 160, 0, 0.1) 11%, rgba(0,0,0,0) 35%, rgba(200, 160, 0, 0.1) 65%);
+  box-shadow: inset 0 0 75px rgba(255,210,0,0.3), inset 0 0 20px rgba(255,210,0,0.4), inset 0 0 30px rgba(220,120,0,0.8);
+  color: rgba(0,0,0,0.5);
+  font-family: "AustralisProSwash-Italic";
+  width:20vw;
+  padding: 20px 20px 30px 25px;
+  
+}
+.caps {
+  color: rgba(0,0,0,0.7);
+  float:left;
+  font-size: 40px;
+  line-height: 30px;
+  padding-right: 10px;
+  position:relative;
+  top:1px;
+}
+
+h1{
+    font-size: 25px;
+    color:rgba(0,0,0,0.7);
+}
+
+body{
+  font-size: 15px;
+  font-weight: 600;
+}
+
+a:link {
+  color: #851C09;
+}
+
+
+a:visited {
+  color: #851C09;
+}
+
+a:hover {
+  color: #851C09;
+}
+
+::-webkit-scrollbar { 
+  width: 23px; 
+}
+
+::-webkit-scrollbar-track { 
+  background-color:rgb(44, 44, 44);
+
+}
+
+::-webkit-scrollbar-thumb { 
+  background-image: url("project assets/scrollbar3.png");
+  background-size: contain;
+  background-position: center;
+  
+}
+.page::-webkit-scrollbar { 
+  width: 22px; 
+}
+
+.page::-webkit-scrollbar-track { 
+  background-color: rgba(255,210,0,0.4);
+}
+
+.page::-webkit-scrollbar-thumb { 
+  background-image: url("project assets/scrollbar3.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
