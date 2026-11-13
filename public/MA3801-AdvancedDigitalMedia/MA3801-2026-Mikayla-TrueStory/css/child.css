@@ -1,0 +1,365 @@
+html {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    -webkit-transition: all .9s ease-in-out;
+    -o-transition: all .9s ease-in-out;
+    transition: all .9s ease-in-out;
+    background-image: url("../assets/bg.jpg");
+    background-color: #d9dad2;
+    
+}
+
+body {
+    background-color: transparent !important;
+    padding: 15px;
+    margin: 0;
+    position: relative;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: bold;
+}
+.sidebar {
+    background-image: url("../assets/tab-bg-blue.png");
+    list-style-type: none;
+    line-height: 200%;
+    margin-top: 40px;
+    padding-top: 0px;
+    overflow: hidden;
+    box-shadow: 3px 3px rgba(0,0,0, .1);
+    border-radius: 5px;
+    padding-left: 0;
+}
+
+.side-item {
+    display:inline-block;
+    width:100%;
+    height:100%;
+    overflow: hidden;
+
+}
+
+.side-link {
+    display:inline-block;
+    width:100%;
+    height:100%;
+    padding-left: 10px;
+}
+
+.side-link:hover {
+    background-color: rgba(255,255,255, 0.3);
+}
+
+.side-item img {
+    vertical-align: text-bottom;
+}
+
+.active {
+    background-color: rgba(255,255,255, 0.3);
+    color: #32626f;
+}
+
+.side-item .svg-inline--fa {
+    font-size: 1.2em;
+}
+
+a:active, a:hover {
+    text-decoration: none;
+    color: #32626f;
+}
+
+a {
+    color: #555;
+}
+
+#top-nav {
+    width: 100%;
+    background-color: transparent;
+    height: 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+}
+
+.topbar {
+    background-color: transparent;
+    list-style-type: none;
+    float: right;
+    margin-right: 40px;
+    line-height: 30px;
+}
+
+.logo {
+    background-color: transparent;
+    list-style-type: none;
+    float: left;
+    margin-left: 40px;
+    line-height: 30px;
+    padding-top: 5px;
+}
+
+.top-item {
+    display: inline;
+    padding: 5px;
+}
+
+.top-item .svg-inline--fa {
+    font-size: 1.5em;
+    margin-top: 3.5px;
+    color: #32626f;
+}
+
+.top-item .svg-inline--fa:hover {
+    color: #6c9099;
+}
+
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.modal-content {
+    background-image: url("../assets/tab-bg-yellow.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+}
+
+.modal-button {
+    line-height: 200%;
+    background-color:#32626f;
+    margin:10px;
+    border-radius: 5px;
+    float: right;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: absolute;
+    bottom: 0; 
+    right: 0;
+    color: #ebece0;
+    
+}
+
+.modal-button:hover {
+    background-color: #6c9099;
+    color: #ebece0;
+}
+
+#header {
+    background-image: url("../assets/full-cover.jpg");
+    background-size: cover;
+    -webkit-background-size: cover;
+    min-height: 500px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: relative;
+}
+
+#buttons {
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    margin-right: 15px;
+    margin-bottom: 0px;
+}
+
+#buttons a {
+    padding: 10px;
+    
+}
+
+.profile-top {
+    background-color: transparent;
+}
+
+
+.profile-top:hover {
+    background-color: rgba(255,255,255, 0.5); 
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Set a background color */
+body {
+  background-color: #474e5d;
+  font-family: Helvetica, sans-serif;
+}
+
+/* The actual timeline (the vertical ruler) */
+#timeline {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+#timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: #ebebe0;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+}
+
+/* Container around content */
+.container {
+  padding: 10px 0px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+/* The circles on the timeline */
+.container::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 0px;
+  background-color: #ebebe0;
+  border: none;
+  top: 40px;
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 2px 1px rgba(0,0,0, .15);
+}
+
+/* Place the container to the left */
+.left {
+  left: 0;
+text-align: right;
+}
+
+.left::after {
+  right: -11.5px;
+}
+
+/* Place the container to the right */
+.right {
+  left: 50%;
+}
+
+
+/* Fix the circle for containers on the right side */
+.right::after {
+  left: -7.5px;
+}
+
+/* The actual content */
+.content {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 7.5px;
+  background-color: transparent;
+  position: relative;
+}
+
+#timeline h2 {
+    font-size: 24px;
+}
+
+#timeline {
+    display: none;
+}
+
+#about {
+    display: none;
+}
+
+#photos {
+    display: none;
+}
+
+#buttons button {
+    color: #555;
+    border: none;
+    padding: 10px;
+    
+}
+
+#buttons button:hover {
+    text-decoration: none;
+    color: #32626f;    
+}
+
+.pages {
+    background-color: transparent;
+    list-style-type: none;
+    line-height: 300%;
+    padding-top: 0px;
+    overflow: hidden;
+    border-radius: 5px;
+    padding-left: 0;
+}
+
+.page-item {
+    display:inline-block;
+    width:100%;
+    height:100%;
+    overflow: hidden;
+
+}
+
+.page-link {
+    display:inline-block;
+    width:100%;
+    height:100%;
+    padding-left: 10px;
+}
+
+.page-link:hover {
+    background-color: rgba(255,255,255, 0.3);
+}
+
+.page-item img {
+    vertical-align: text-bottom;
+}
+
+.list-group-item {
+    background-image:url("../assets/tab-bg-yellow.jpg");
+}
+
+a.list-group-item:focus, a.list-group-item:hover, button.list-group-item:focus, button.list-group-item:hover {
+    background-image: url("../assets/tab-bg-yellow-hover.jpg");
+    cursor: pointer;
+}
+
+#eventtimeline h2 {
+    font-size: 24px;
+}
+
+/* The actual timeline (the vertical ruler) */
+#eventtimeline {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+#eventtimeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: #ebebe0;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+}
+
+
+
+
+

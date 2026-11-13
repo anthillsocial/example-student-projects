@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=500" />
+	<meta name="keywords" content="Digital Media, Story, University, Horses, Rescue" />
+	<meta name="author"	content="Mikayla Jade Billin" />
+	<title>Francisco</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/ >
+
+   
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom styles for this template -->
+    <link href="css/main.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="css/animations.css" type="text/css">
+
+</head>
+
+
+<!--BOTTOM NAV BAR (STORIES-FIXED)-->
+<nav role="sub" id="stories-fixed" class="navbar">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link" href="#one">1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#two">2</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#three">3</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#four">4</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#five">5</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#six">6</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#seven">6½</a>
+        </li>
+    </ul>
+</nav>
+
+<!--SPLASH SCREEN-->
+<body data-spy="scroll" data-target="#stories-fixed" data-offset="500">
+    <div id="splashscreen">
+        <a class="btn btn-primary" data-toggle="button" id="splashscroll">Launch</a>
+        <p id="footnote" class="text-center" style="font-style: italic; color:#939393;">For best experience, please view with Google Chrome on an 11" screen or greater. Mobile optimisation on its way.</p>
+    </div>
+<!--END OF SLASH-->
+<!--TOP NAV BAR-->
+    <div class="row" id="top-nav">
+                <img class="logo" src="assets/logo.png" />
+                
+                <ul class="topbar">
+                    <li class="top-item">
+                        <a class="top-link" href="thanks-modal" data-toggle="modal" data-target="#thanks-modal"><i class="fas fa-users fa-fw"></i></a>
+                    </li>
+                    <li class="top-item">
+                        <a class="top-link" href="mailto:mikaylajade7@gmail.com?Subject=Francisco"><i class="fas fa-comment fa-fw"></i></a>
+                    </li>
+                    <li class="top-item">
+                        <a class="top-link" href="https://www.facebook.com/sharer/sharer.php?u=www.google.co.uk" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=www.google.co.uk', 'newwindow', 'width=300,height=250'); 
+              return false;"><i class="fas fa-share-alt fa-fw" data-fa-transform="shrink-6 up-.1 left-.5" data-fa-mask="fas fa-circle"></i></a>
+                    </li>
+                    <li class="top-item">
+                        <a class="top-link" href="about-modal" data-toggle="modal" data-target="#about-modal"><i class="fas fa-question-circle fa-fw"></i></a>
+                    </li>
+                </ul>
+            
+            </div>
+<!--MAIN CONTENT-->    
+        <div class="container-fluid" id="top">
+            <div class="row">
+                <!--LEFT SIDEBAR-->
+                <div class="col-xs-12 col-sm-2">
+                    <ul class="sidebar">
+                        <li class="side-item">
+                          <a class="side-link" href="profile.html" target="_blank" style="padding-bottom: 5px; padding-top: 5px; margin-top: 5px;"><img src="assets/profile.png"> Francisco</a>
+                        </li>
+                        <li class="side-item">
+                          <a class="side-link active" href="#"><i class="fas fa-book"></i> News Feed</a>
+                        </li>
+                        <li class="side-item">
+                          <a class="side-link" href="#messages-modal" data-toggle="modal" data-target="#messages-modal"><i class="fas fa-pen-square"></i> Messages</a>
+                        </li>
+                        <li class="side-item">
+                          <a class="side-link" href="#market-modal" data-toggle="modal" data-target="#market-modal"><i class="fas fa-hands-helping"></i> Marketplace</a>
+                        </li>
+                        <li class="side-item">
+                            <h3 class="side-tab" style="padding-left:10px;">Explore</h3>
+                        </li>
+                        <li class="side-item">
+                          <a class="side-link" href="event.html" target="_blank"><i class="fas fa-first-aid"></i> Event</a>
+                        </li>
+                        <li class="side-item">
+                          <a class="side-link" href="saved.html" target="_blank"><i class="fas fa-heartbeat"></i> Saved</a>
+                        </li>
+                        <li class="side-item">
+                          <a class="side-link" href="pages.html" target="_blank"><i class="fas fa-exclamation-triangle"></i> Pages</a>
+                        </li>
+                        <li class="side-item">
+                          <a class="side-link" href="groups.html" target="_blank"><i class="fas fa-hand-holding-heart"></i> Groups</a>
+                        </li>
+                        <li class="side-item">
+                          <a class="side-link" href="#map-modal" data-toggle="modal" data-target="#map-modal"><i class="fas fa-compass"></i> Discover</a>
+                        </li>
+                        <li class="side-item">
+                            <h3 class="side-tab" style="padding-left:10px;">Shortcuts</h3>
+                        </li>
+                        <li class="side-item">
+                          <a class="side-link" href="#shortcut-modal" data-toggle="modal" data-target="#shortcut-modal">When it comes to success; there are no shortcuts.</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!--STORY-->
+                <div class="col-xs-12 col-sm-5 text-left" style="margin-top:40px;">
+                    <div id="post">
+                        <div class="input"><h1>Read my story before exploring...</h1><a href="https://www.facebook.com/sharer/sharer.php?u=www.google.co.uk" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=www.google.co.uk', 'newwindow', 'width=600,height=650'); 
+                        return false;" id="share-btn">Share</a></div>
+                        <div class="posted">
+                            <div id="fourth"><p>Explore and share the story of 'The Hallelujah Horses' below.</p></div>
+                            <p id="third">907 horses were rescued and transported across the country.</p>
+                            <p id="second">Spearheaded by an online community of thousands, the largest equine rescue mission in the history of the United States was implemented with urgency.</p>
+                            <p id="first">In the winter of 2016, nearly one thousand horses stood malnourished and freezing in an overcrowded wild horse sanctuary in South Dakota.</p>
+                        </div>
+                    </div>
+                    
+                    <div id="seven">
+                        <div class="animatedParent">
+                            <div class="animated fadeInDownShort delay-3500 box text-center"><a href="#top" id="typebtn">Explore My Story</a></div>
+                        </div>
+                        <div class="text-border">
+                        <p class="text">Emilia’s soft eyes warmed the hearts of a family where she found her loving home. Padre finally came around to learning, and is continuing his education with the same energetic fire he used to have. T, at age twenty-four, is in search of a new home after eleven years of blissful ignorance. My mother guides me with ever changing direction as her memory is carried in the wind.
+                        <br/> 
+                        A woman in France says I was born with my impressive memory, and I will retain both the good and the bad in unprecedented detail for most of my life. I continue to live in a blur of new places and strangers that I carry with me as I desperately long for somewhere to call home.
+                        My name is Francisco, and this is my story.</p>
+                        </div>
+                    </div>
+
+                    <div id="six">
+                        <div class="animatedParent">
+                            <div class="animated fadeInDownShort delay-3500 box text-center"><a href="#seven" id="new-btn">1 New Story</a></div>
+                        </div>
+                        <div class="text-border">
+                        <p class="text">The snow had piled deeper when we finally pulled to a stop and charged outside, desperate for fresh air. Despite the biting cold, we all broke into a panicked sweat as we stood outside and watched our transportation vanish past the trees. Left with little choice, we settled into our new environment to endure the winter, but I refused to think of it as home. Food was continuously in abundance, however I ate hastily, dubious that the supply wouldn’t run low. 
+                        <br/> 
+                        As the days became longer and the weather warmer, we all relaxed. Each afternoon we were given lessons and I eagerly accepted the chance to act my age. While occasionally I got a wild hair, Padre frequently misbehaved in harmless adolescence. His youthful spirit was one of his best qualities and throughout our ordeal his eyes remained fiery; yet, the day Padre was taken away, I saw all sign of light diminish and I knew things were changing one again.
+                        <br/> 
+                        One by one we were separated until I was the last to go. Unable to sleep, I felt more alone than ever before as I paced the perimeter of my new accommodation. Next to me, I could hear stirring as he moved behind the wall. He was called T and he was much older and bigger than I. When I arrived he had ignored me and turned away so I was faced with the back view of his ginger head. Although intimidated, in a desperate plea for reassurance and companionship, I escaped to sleep beside him that night. 
+                        <br/> 
+                        I learned many things in the summer nights that followed. While I advanced quickly during my daily lessons, it was T who taught me the most. He had been through as much as I had, and he understood the fear and distrust that complemented my past. 
+                        <br/> 
+                        As the autumn leaves began to fall, I started to believe that my story would end like T’s. I was taken out each day to further my education and returned each night to my newfound brother, who waited patiently by the door. I finally felt at home, until the day I was once again left alone to never return.</p>
+                    </div>
+                    </div>
+                
+                    <div id="five">
+                        <div class="animatedParent">
+                            <div class="animated fadeInDownShort delay-3500 box text-center"><a href="#six" id="new-btn">1 New Story</a></div>
+                        </div>
+                        <div class="text-border">
+                        <p class="text">As the first snow fell, new strangers pulled up to the gates. They had friendly eyes, but by this time I had learned not to trust unexpected visitors. After gathering myself and six others, the strangers took us outside the gates, and for the first time since arriving, I did not want to leave. As we drove away, my chest leaped with fear and heartache, and I could tell the others’ did too. 
+                        <br/> 
+                        All of us were near the same age and none were much bigger than I. A bump on the road sent the boy next to me into my shoulder, causing me to brush into the girl on my left. The boy was scrawny and fair, with bug eyes and spiked hair that glowed nearly white. His name was Padre, and he appeared to be as inquisitive as I with added energy. Emilia was much quieter. The only girl amongst the seven of us, she had soft eyes that reminded me of my mother as she peered at me nervously from behind her overgrown fringe. I didn’t know their back stories, but we all understood each other; we were scared, hungry and alone. 
+                        <br/> 
+                        We rode in silence for seven hours, traveling a straight line that cut through continuous fields covered in icy snow. As I looked out onto a billboard that towered over the flat land, a harsh wind whipped through the window and sent a shiver down my spine.</p>
+                    </div>
+                    </div>
+            
+                    <div id="four">
+                        <div class="animatedParent">
+                            <div class="animated fadeInDownShort delay-3500 box text-center"><a href="#five" id="new-btn">1 New Story</a></div>
+                        </div>
+                        <div class="text-border">
+                        <p class="text">We went through many seasons carrying on this routine, but around us things began to change. The field continued to grow more crowded; there must have been hundreds of us in the area at this point, and others became more more daring to join me at the gate. We were all hungry, because while the number of us increased, the amount of available food did not. My mind continued to mature at an unprecedented rate, however my body lacked the nutrients to keep up. I stood much smaller than standard and my ribs began to peek through. Others were not as lucky as I was; the young and the elderly became so feeble they disappeared.
+                        <br/> 
+                        My mother weakened as well and spent most of her day off her feet. For the first time, her doe-eyes were unreadable as they stared blankly out into the world. I did not like seeing her so poorly and spent most of my time waiting by the gate, but the woman in the iron beast never came. I assumed she was just as weak and hungry as were were and she wasn’t capable of visiting.
+                        <br/> 
+                        Colder weather set in unusually early and as the winter wind howled outside, my mother fell increasingly ill. No longer able to stand, she laid below me barely breathing. A familiar sound caught my attention as I watched her, and I rushed outside to meet the iron beast spluttering up to my home. 
+                        <br/> 
+                        Others crowded around her to demand food, while I uncharacteristically hung back. She did not appear skinny like the rest of us, but her eyes were pained. She approached as she had so many times before, however this time when she reached me, she averted my gaze as if she couldn’t stand to look at me. I wondered what I had done wrong. 
+                        <br/> 
+                        Frozen in a state of confusion, sadness and shock, I watched in horror as she lifted my mother’s body and it fell limp. Dazed, I followed my mother as she was taken away in the iron beast. It only sunk in when I got to the gate and wasn’t allowed through. Left alone, my cries of suffering and sadness were lost in the wind.</p>
+                    </div>
+                    </div>
+
+                    <div id="three">
+                        <div class="animatedParent">
+                            <div class="animated fadeInDownShort delay-3500 box text-center"><a href="#four" id="new-btn">1 New Story</a></div>
+                        </div>
+                        <div class="text-border">
+                        <p class="text">Like a fallen leaf left to the mercy of an autumn storm, we were swept into a foreign landscape with just one gust. 
+                        <br/> 
+                        In our new home the grass still crunched and the wind still blew, but the air that filled my lungs was saturated with unfamiliarity. My mother shuddered away from the world in the shelter of our four walls - I could tell she was afraid, although I was unsure what of. I however, could not resist the urge to explore my new surroundings. 
+                        <br/> 
+                        Around our home was a field that differed greatly from the meadow I was used to. Just as big as the meadow, the field lacked the open space and freedom from confinement. An ominous row of silver thorns bordered the land, entrapping us and the many others who called this place home. My mother and I were not the only ones to be recently placed here, as each day the field became more crowded as tentative explorers joined the rest of us. Here is where I met the first of my friends, although she was an unlikely childhood companion.
+                        <br/> 
+                        My mother no longer needed to get food for us, as it was provided daily. Each morning an iron beast that growled like an old dog would sputter through the gates with our daily rations. We waited patiently at a distance, for everyone respected the space of the hand that fed us. One particular morning however, I allowed my curiosity to get the better of me; and as the vehicle grumbled to a halt, I approached. 
+                        <br/> 
+                        A figure, not dissimilar to the stranger that evicted my mother and I, emerged from inside and greeted me with an outstretched hand. Startled that someone so friendly could reside within such a beast, I watched her cautiously. Discovering I was not intending on accepting her hand, she reached back into the vehicle and retrieved an unexpected treat. Forgetting my hesitations, I eagerly devoured the snack. As I chewed, she met my gaze and I noticed she had brown eyes of her own. 
+                        <br/> 
+                        From that day on I would greet her at the gates in anticipation of the treats and companionship she would bring, and while I don’t know if she would remember me, I will remember her for the rest of my life.</p>
+                    </div>
+                    </div>
+                
+                    <div id="two">
+                        <div class="animatedParent">
+                            <div class="animated fadeInDownShort delay-3500 box text-center"><a href="#three" id="new-btn">1 New Story</a></div>
+                        </div>                        
+                        <div class="text-border">
+                        <p class="text">I grew quickly and the once dewy spring grass yellowed and crunched under my feet as I toddled and danced around my mother’s knees. She watched me with empty brown eyes that reminded me of the stagnant mud puddles I was so cautious to tread in. Even at my young age, I understood times were hard.
+                        <br/> 
+                        Those who I used to see in the meadow disappeared from their nearby homes for reasons I was ignorant to. I loved my home - for I did not know anything else. But while my heart remained full, my belly was empty.</p> 
+                        <p class="text" style="margin-right:30%;">As much as she tried, my mother could no longer provide the food our stomachs bellowed for, and just as my stomach growled, the winds began to roar louder too. I knew by this time the wind would not hurt me, but on one crisp morning it once again struck fear into my soul. 
+                        </p><br/>
+                        <p class="text">
+                        In with the gusts came a type of stranger I had never seen before. As my mother began to protest his presence, he, like an angered bear, struck out his tubby arms and barked noises previously unheard in my innocence. 
+                        <br/>     
+                        For reasons that remain unknown to me, on that morning the unwelcome stranger forced my mother and me out of our home and any traces of us were carried away with the wind.</p>
+                    </div>
+                    </div>
+        
+                    <div id="one">
+                        <div class="animatedParent">
+                            <div class="animated fadeInDownShort delay-3500 box text-center"><a href="#two" id="new-btn">1 New Story</a></div>
+                        </div>
+                        <div class="text-border">
+                        <p class="text">I have an extraordinary memory. Some may say this is because I have seen a lot in my few years, and anyone who has witnessed such things would be haunted for the rest of their life. 
+                        <br/>    
+                        But I recall the good moments too. The first I can well remember was the time I looked into my mother’s eyes. 
+                        Spring dew dampened my knees as I laid on the grass next to her, yet to take my first steps. A large gust of wind made me jump as it whipped across the wide open meadow, sending a shiver down my spine. 
+                        <br/> 
+                        My mother turned and wrapped herself around me to shield me from what was left of winter’s howl and a strand of her long black hair fell over her face as she did. As she looked down at me the sun glistened in her large doe-like eyes, and I caught a reflection of myself. I had the same delicate facial features, accented by the same brown eyes that had been passed down through generations, filled with determination and resilience. Then, as her sweet warm breath blew gently into my face, I knew that in that moment everything was as it was meant to be.
+                        <br/> 
+                        In my early years my brain matured quickly, at six times the rate of a normal boy, and with this premature maturity came an onslaught of harsh realities that made me frequently long for the time the only thing I feared was the wind.</p>
+                    </div>
+                    </div>
+                    
+                </div><!--end of story col-->
+                <div class="col-xs-12 col-sm-2">
+                    <div id="stories">
+                        <h3 style="padding-left:10px; padding-top:10px;">Stories</h3>
+                        <ul class="nav nav-pills">
+                            <li class="nav-item">
+                                <a class="nav-link" id="ch-1" href="#one"><img src="../Website/assets/ch1.png" /></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="ch-2" href="#two"><img src="../Website/assets/ch2.png" /></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="ch-3" href="#three"><img src="../Website/assets/ch3.png" /></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="ch-4" href="#four"><img src="../Website/assets/ch4.png" /></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="ch-5" href="#five"><img src="../Website/assets/ch5.png" /></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="ch-6" href="#six"><img src="../Website/assets/ch6.png" /></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="ch-7" href="#seven"><img src="../Website/assets/ch7.png" /></a>
+                            </li>
+                        </ul>
+                    </div><!--end of stories-->
+                    <div id="reading">
+                        <h3 style="padding-left:10px; padding-top:10px;">Suggested</h3>
+                        <ul class="reading-links">
+                            <li class="read-item">
+                              <a class="read-link" href="http://jov.arvojournals.org/article.aspx?articleid=2121452" target="_blank"><i class="fas fa-quote-left"></i> Dichromatic Colour Vision</a>
+                            </li>
+                            <li class="read-item">
+                              <a class="read-link" href="https://www.ncbi.nlm.nih.gov/pubmed/23743707" target="_blank"><i class="fas fa-quote-left"></i> Long Term Memory</a>
+                            </li>
+                            <li class="read-item">
+                              <a class="read-link" href="https://www.nspcc.org.uk/preventing-abuse/child-abuse-and-neglect/neglect/child-neglect-facts-statistics/" target="_blank"><i class="fas fa-quote-left"></i> Neglect</a>
+                            </li>
+                        </ul>
+                    </div><!--end of suggested reading-->
+                    <div id="trending">
+                        <h3 style="padding-left:10px; padding-top:10px;">Trending</h3>
+                        <div id="stat1">
+                            <h2><i class="fas fa-chart-line" style="width:18px;"></i> 6½</h2>
+                            <h5>human years is equivalent to one horse year.</h5>
+                        </div>
+                        <div id="stat2">
+                            <h2><i class="fas fa-chart-line" style="width:18px;"></i> 96%</h2>
+                            <h5>of the Hallelujah Horses that have been placed are still in homes of original adopters.</h5>
+                        </div>
+                        <div id="stat3">
+                            <h2><i class="fas fa-chart-line" style="width:18px;"></i> 85%</h2>
+                            <h5>The rescue's initial success rate benchmark.</h5>
+                        </div>
+                        <div id="stat4">
+                            <h2><i class="fas fa-chart-line" style="width:18px;"></i> ⅔</h2>
+                            <h5>of the 907 horses were intended for slaughter before the mission was employed.</h5>
+                        </div>
+                        <div id="stat5">
+                            <h2><i class="fas fa-chart-line" style="width:18px;"></i> 150</h2>
+                            <h5>thousand dollars needed to stop the slaughter auction.</h5>
+                        </div>
+                        <div id="stat6">
+                            <h2><i class="fas fa-chart-line" style="width:18px;"></i> 12"</h2>
+                            <h5>The longest hoof length upon rescue was 12 inches overgrown.</h5>
+                        </div>
+                        <div id="stat7">
+                            <h2><i class="fas fa-chart-line" style="width:18px;"></i> 20</h2>
+                            <h5>aged and blind stallions were rehomed in 2018, completeing the rescue mission.</h5>
+                        </div>
+                        
+                    
+                    </div><!--end of trending-->
+                </div><!--end of col-->
+                <div id="right-side" class="col-xs-12 col-sm-3 hidden-sm hidden-xs" style="margin-top:40px; position: absolute; right: 0; padding-right: 0; text-align: right;">
+                    <div id="bar2" class="animatedParent chart" onMouseOver="hide('stat1'); show('stat2')" onMouseOut="hide('stat2'); show('stat1')">
+                        <img class="animated fadeInRight" src="assets/bar1.png">
+                    </div>
+                    <div id="bar3" class="animatedParent chart" onMouseOver="hide('stat1'); show('stat3')" onMouseOut="hide('stat3'); show('stat1')">
+                        <img class="animated fadeInRight delay-250" src="assets/bar2.png">
+                    </div>
+                    <div id="bar4" class="animatedParent chart" onMouseOver="hide('stat1'); show('stat4')" onMouseOut="hide('stat4'); show('stat1')">
+                        <img class="animated fadeInRight delay-500" src="assets/bar3.png">
+                    </div>
+                    <div id="bar5" class="animatedParent chart" onMouseOver="hide('stat1'); show('stat5')" onMouseOut="hide('stat5'); show('stat1')">
+                        <img class="animated fadeInRight delay-750" src="assets/bar4.png">
+                    </div>
+                    <div id="bar6" class="animatedParent chart" onMouseOver="hide('stat1'); show('stat6')" onMouseOut="hide('stat6'); show('stat1')">
+                            <img class="animated fadeInRight delay-1000" src="assets/bar5.png">
+                        </div>
+                    <div id="bar7" class="animatedParent chart" onMouseOver="hide('stat1'); show('stat7')" onMouseOut="hide('stat7'); show('stat1')">
+                        <img class="animated fadeInRight delay-1250" src="assets/bar6.png">
+                    </div>    
+                </div><!--end of right-sidebar-->
+                <!--MODALS-->
+                <div id="shortcut-modal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">There are no shortcuts to improving equine welfare.</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>In May 2018 the final Hallelujah Horses were placed in adopted homes or rescue organisations; however the completion of the two year case does not imply an end to equine mistreatment and neglect. 70% of United States equine rescues operate at over capacity to satisfy the constant need for increased animal welfare.</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default modal-button" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                    </div>
+                </div><!--shortcut-->
+                <div id="thanks-modal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Acknowledgements</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>A thank you to all those involved in creating, curating and inspiring this project.</p>
+                            <p style="font-style: italic;">Special thanks to Elaine Nash for initiating the Hallelujah Horses rescue mission and continuing to be an involved advocate for equine welfare.</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default modal-button" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="about-modal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">About the Project</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>Prompted to create a digital media piece as a final year university project, Mikayla Billin founded the ideas of Francisco based upon her experience with a Hallelujah Horse of the same name.</p>
+                            <p>A digital exploration of a true story, Francisco recounts the largest equine rescue mission in the United States through a blend of traditional and interactive storytelling from the horse’s perspective. This innovative viewpoint combined with statements of hard hitting facts and unfiltered content employs a way to raise awareness of animal and equine welfare, a topic generally overlooked to the public, while avoiding stereotypes that currently exist around the subject. With the rescue mission highly reliant on forms of online communication, the project utilises social media style engagement to portray its importance as well as to investigate the recent shift in digital ways of thinking. The project aims to merge digital mannerisms and narration methods to create an interactive exploration that contradicts stereotypical animal welfare campaigns to generate awareness and community-style involvement both online and off.</p>
+                            <p>It is Mikayla's hope that the project will continue to develop and encourage audiences to participate in the creation of a communcal space advocating for animal and equine welfare, while also showing appreciation for both horses and humans involved in the Hallelujah Horses rescue case.</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default modal-button" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="messages-modal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Coming Soon</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>We are in the process of implementing a collaborative element to this project. Messages will allow you to send in your personal stories, opinions and thoughts to help direct the advancement of our project. The aim is to hear from evreyone who was involved with the rescue, and in result capture all of the 907 Hallelujah Horses as well!</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default modal-button" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="market-modal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Coming Soon</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>We are in the process of implementing a way to give back. We are currently in search of ways to raise money for those who have given so much to the welfare of the Hallelujah Horses. Possibilities include sales of postcards, posters, clothing, jewelery, photography, etc. If you have any ideas, please get in touch!</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default modal-button" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="map-modal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Coming Soon</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>We are collecting data of where the Hallelujah Horses have ended up. So far we have covered about 40% of states, but are aware there are many more horses out there. When enough data comes back this will be implemented in an interactive map of the Hallelujah Horses' journeys.</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default modal-button" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--end of row-->
+    </div><!--end of container fluid-->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/myscript.js"></script>
+    <script>window.jQuery || document.write('<script src="bootstrap/assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/css3-animate-it.js"></script>
+</body>
+</html>
