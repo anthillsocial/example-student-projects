@@ -1,0 +1,46 @@
+[
+    { "lat": 51.4323, "lng": -0.117545, "icon": "streatham", "popup": "Caroline Close" },
+    { "lat": 51.444114, "lng": -0.127963, "icon": "streatham", "popup": "Tierney Road" },
+    { "lat": 51.446692, "lng": -0.12638, "icon": "streathamBlack", "popup": "Sulina Road <br><br> While it is a female name, it was unlikely that the road, originally called Lynton Cottages (Gower, 2004, pp.13), was named for it's name, and moreso for the town Sulina in Romania." },
+    { "lat": 51.412404, "lng": -0.143107, "icon": "streatham", "popup": "Lilian Road" },
+    { "lat": 51.427618, "lng": -0.134556, "icon": "streatham", "popup": "Campbell Close <br><br> This can also be found on the female map as it is a unisex name." },
+    { "lat": 51.414916, "lng": -0.130133, "icon": "streatham", "popup": "Ellison Road <br><br> This can also be found on the female map as it is a unisex name." },
+    { "lat": 51.423778, "lng": -0.132523, "icon": "streathamBlack", "popup": "Ellora Road <br><br> This is a female name, but the road is most likely named after the Ellora caves in India." },
+    { "lat": 51.430775, "lng": -0.133118, "icon": "streatham", "popup": "Prentis Road <br><br> This road is specifically named after Elizabeth Prentis, who died in 1892. Beriah Drew, Lord of the Manor of Leigham, named it after his wife's maiden name (Brown, 2003, pp. 15)" },
+    { "lat": 51.430534, "lng": -0.125055, "icon": "streatham", "popup": "Angles Road <br><br> This road is specifically named after Jane Angles Fisher, the daughter of Beriah Drew, a local landowner (Gower, 2012, pp. 16)" },
+
+
+
+    { "lat": 51.635746, "lng": -0.064037, "icon": "edmonton", "popup": "Mina Terrace" },
+    { "lat": 51.631894, "lng": -0.048726, "icon": "edmonton", "popup": "St Mary's Road" },
+    { "lat": 51.634942, "lng": -0.042018, "icon": "edmonton", "popup": "Shirley Grove" },
+    { "lat": 51.634784, "lng": -0.05102, "icon": "edmonton", "popup": "Elizabeth Ride<br><br>Queen Elizabeth" },
+    { "lat": 51.634625, "lng": -0.069148, "icon": "edmonton", "popup": "Winifred Terrace<br><br>Winifred is a feminine name derived from a Welsh name Gwenfrewi, possibly influenced by an Old English name Winfred" },
+    { "lat": 51.630301, "lng": -0.053932, "icon": "edmonton", "popup": "Rosemary Avenue<br><br>While it is a female name, it was also a plant" },
+    { "lat": 51.637758, "lng": -0.047675, "icon": "edmonton", "popup": "Beatrice Road<br><br>While it is a female name, it was also an Italian form of Beatrix. " },
+    { "lat": 51.612263, "lng": -0.063549, "icon": "edmonton", "popup": "Hester Road<br><br> Hester is both a female given name and a surname. As a given name Hester is a variant of Esther." },
+    { "lat": 51.612141, "lng": -0.067061, "icon": "edmonton", "popup": "Joyce Avenue" },
+    { "lat": 51.616878, "lng": -0.058454, "icon": "edmonton", "popup": "Rose Mews<br><br>female name or plant" },
+    { "lat": 51.634886, "lng": -0.044748, "icon": "edmonton", "popup": "Nightingale Road<br><br>surname; associated with Florence Nightingale" },
+    { "lat": 51.617575, "lng": -0.047917, "icon": "edmontonBlack", "popup": "Stacey Avenue<br><br>This can also be found on the female map as it is a unisex name." },
+    { "lat": 51.632089, "lng": -0.056219, "icon": "edmontonBlack", "popup": "Denny Road<br><br>This can also be found on the female map as it is a unisex name." },
+
+
+
+{ "lat": 51.51506775166417, "lng": 0.014067057431394612, "icon": "newham", "popup": "Minnie Baldock Street<br><br> Named after suffragette Minnie Baldock. She co-founded the first branch of the Women’s Social and Political Union. After working in a sweated shirt factory most of her life she joined the socialist party in 1892 called the Independent Labour Party. Even though women weren’t allowed to be MPs at the time she was chosen by the party to sit on the West Ham Board of Guardians in 1905"},
+{ "lat": 51.5347936, "lng": 0.0128859, "icon": "newham", "popup": "Ada Gardens<br><br> Named after Ada Lovelace who was the first ever computer programmer and child of famous poet Lord Byron. She worked on Charles Babbage’s famous computer, the analytical engine."},
+{ "lat": 51.5237712, "lng": 0.0120833, "icon": "newhamBlack", "popup": "Protea Close<br><br> Named after the protea flower which is a symbol of strength and endurance which can often linked to feminity."},
+{ "lat": 51.5476013, "lng": 0.0037326, "icon": "newham", "popup": "Maryland Street<br><br> Derives from Queen Henrietta of France, she was the wife of Charles the first ."},
+{ "lat": 51.5331121, "lng": 0.0165983, "icon": "newham", "popup": "Maud Road<br><br> Maud of Wales was Queen of Norway as the wife of King Haakon VII. She was the youngest daughter of Edward VII and Queen Alexandra of the United Kingdom. She was the first queen of an independent Norway in 500 years, she was known for her dedicated charity work."},
+{ "lat": 51.5508021, "lng": 0.0053416, "icon": "newham", "popup": "Cherry Tree Road<br><br> Named by Sophie Morton after cherry trees."},
+{ "lat": 51.5422185, "lng": 0.0151926, "icon": "newham", "popup": "Eleanor Road<br><br> Named after Eleanor Marx youngest daughter of Karl Marx. She herself was also a socialist who worked towards the liberation of the working class and women. She was the heart of the early trade union movement. She lived most her life in East London"},
+{ "lat": 51.534185, "lng": 0.0467013, "icon": "newham", "popup": "Katherine Road<br><br> Named after Katherine Fry, daughter of philanthropist and prison reformer Elizabeth Fry. Elizabeth Road is off Katherine Road opposite Milton Avenue and Fry Road runs between Elizabeth Road and Phashet Grove. Katherine Fry wrote a number of books including A History of Parishes of East and West Ham."},
+{ "lat": 51.553615, "lng": 0.0240669, "icon": "newham", "popup": " Anna Neagle Close<br><br> Anna Neagle Close, Forest Gate was popular on both the stage and screen, Anna Neagle caught the eye of film producer Herbert Wilcox later to become her husband while performing in the West End in 1931. Her first film was a box office hit and by the late 1940s, she had become the most in demand British film actress. She continued to perform up to her death in 1986, aged 81.."},
+{ "lat": 51.5360448, "lng": 0.0062772, "icon": "newham", "popup": "Nina Mackay Close<br><br> She was a police officer Murdered in 1997 by a man with schizophrenia. She was born in Essex."},
+{ "lat": 51.5530787, "lng": 0.0245877, "icon": "newham", "popup": "Vera Lynn Close<br><br> A singer known as the Forces’ Sweetheart in World War 2. Dame Vera Lynn, from East Ham whose songs were popular during the War."},
+{ "lat": 51.5376883, "lng": 0.0418248, "icon": "newham", "popup": "Fry Road <br><br> Elizabeth Fry famous philanthropist and her daughter lived at Plashet House in East Ham for 20 years. Her Daughter Katherine fry was honoured with the street name change from Red Post Lane in 1888 for being a Local Historian"},
+{ "lat": 51.5369424, "lng": 0.0405327, "icon": "newham", "popup": "Elizabeth Road <br><br> Elizabeth Fry, sometimes referred to as Betsy Fry, was an English prison reformer, social reformer, philanthropist and Quaker. Fry was a major driving force behind new legislation to improve the treatment of prisoners, especially female inmates, and as such has been called the 'Angel of Prisons.'"}
+
+
+    
+]

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Street Names</title>
+<link rel="icon" href="/assets/streetNameFavicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column; /* everything will layer on top of each other rather than next to each other */
+  justify-content: center;  /* center horizontally */
+  align-items: center;      /* center vertically */ 
+  background-color: #ffffff; /* background will be an image drawn by LEvy but for now it will be white */
+  background-image: url('/assets/finalBG.jpg'); /* background made by LEVY */
+}
+
+iframe {
+  width: 600px;
+  height: 600px;
+}
+
+.container {
+  display: flex;
+  gap: 60px; /* space between iframes */
+  width: 100%;
+  justify-content: center; /* stays central */
+}
+
+img {
+  width: 100%;
+  border: 3px solid #2d3034; /* taken from a colour from the tiotle image */
+}
+
+.navbar-container { /* where all the popup icons go into so they all stay in a line */
+  display: flex; 
+  gap: 10%; /* space between iframes as a percentage so as the window gets smaller the size of the gaps will get smaller so that the icons still show up instead of disappearing like it did with px */
+  width: 100%;
+  justify-content: center;
+}
+
+.infoPopUp, .dataPopUp, .streathamPopUp, .edmontonPopUp, .newhamPopUp, .refPopUp { /* each of the pop up circles */
+  top:20px;
+  left: 550px;
+  width: 50px;
+  height: 50px;
+  background-color: white; /* temp background for if levy does png images */
+  background-size: 50px;
+  border-radius: 50%; /* curved edges */
+  border: 2px solid #384c86; /* same as the icons */
+  background-repeat: no-repeat; /* the image in the icon will only be one */
+}
+
+.infoPopUp:hover, .dataPopUp:hover, .streathamPopUp:hover, .edmontonPopUp:hover, .newhamPopUp:hover, .refPopUp:hover {
+  top:20px;
+  left: 550px;
+  width: 50px;
+  height: 50px;
+  background-color: #7c3738; /* highlights when hovered */
+  background-size: 50px;
+  border-radius: 50%;
+  border: 3px solid #7c3738; /* slightly enlarges the border so it highlights what you've chosen subtley */
+  background-repeat: no-repeat; 
+}
+
+
+/* images for icons, some are placeholdersd - levy add each one in place of placehodlers */
+.infoPopUp {
+  background-image: url(assets/genInfoPopupIcon.jpg); 
+}
+
+.dataPopUp {
+  background-image: url(assets/dataPopupIcon.jpg);
+}
+
+.streathamPopUp {
+  background-image: url(assets/streathamPopupIcon.jpg); 
+}
+
+.edmontonPopUp {
+  background-image: url(assets/edmontonPopupIcon.jpg);
+}
+
+.newhamPopUp {
+  background-image: url(assets/newhamPopupIcon.jpg);
+}
+
+.refPopUp {
+  background-image: url(assets/refPopupIcon.jpg); 
+}
+
+/* the pop up boxes for the information cards */
+.content {
+  width: 800px;
+  height: 800px;
+  margin-top: auto; /* appears in the middle of the window */
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.9); /* white and very slightly seethrough */
+  border: 2px solid #7c3738; /* same as place icon colours */
+  pointer-events: none;
+  padding-top: 0%;
+  padding-left: 1%;
+  padding-right: 1%;
+  border-radius: 5%;
+  position: absolute ; 
+  visibility: hidden; /* wont show unless activated by hovering over specific tab */
+  transform: scale(0.95); /* animation start point */
+  transition: 0.1s; /* time for animation */
+}
+
+.popUp-container {
+  display: flex;
+  gap: 10px; /* space between iframes */
+  width: 390px;
+  justify-content: left; 
+  padding-bottom: 0px;
+}
+
+.caption-container {
+  display: flex;
+  gap: 50%; /* space between iframes */
+  width: 100%;
+  justify-content: center; /* stays central */
+}
+.content-container {
+  display: flex;/* space between iframes */
+  width: 100%;
+  justify-content: center; /* stays central */
+  padding-bottom: 0px;
+}
+
+h3 {
+  color: #384c86; 
+  font-size: 28px;
+}
+
+p {
+  font-size: 16px;
+}
+
+ul {
+  font-size: 15px;
+}
+
+/* whhen you hover over individual icons they will show their individual content*/
+.genInfo:hover .content {
+  visibility: visible;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.dataInfo:hover .content {
+  visibility: visible;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.streatham:hover .content {
+  visibility: visible;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.edmonton:hover .content {
+  visibility: visible;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.newham:hover .content {
+  visibility: visible;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.ref:hover .content {
+  visibility: visible;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+
+}
+
+</style>
+</head>
+
+<body>
+  <br><br><br><br><br>
+  <!-- title image  --> 
+  <div>
+    <img src="assets/streetNamesTitle.jpeg" alt="websiteTitleImage">
+  </div>
+  <br>
+
+  <!-- navigation bar and the content inside each one  --> 
+    <div class="navbar-container">
+      <div class="genInfo infoPopUp">
+        <div class="content">
+          <h3 style="margin-bottom: -5px;"> What is a Street Name? </h3>
+          <h3 style="margin-bottom: -5px; font-size: 22px; color: #2d3034">Street Names </h3>
+          <p> When you think of a street name, it simply just a sign on the street or on your gps that helps your get to the right building/house just a label on a map. But if you dig deeper, you’ll find that street names play a huge part in the history and of place. In London it holds the history, culture, values and power structures of the city. If you ever walk from West to East London that becomes even more apparent on the dynamics of street names and how they change from one borough to another. How many London streets are named after a member of the aristocrats, military officials, and politicians? How many are named after people who were socialites? Or named after memories of the British Empire? And its not all depressing some street names in London come from businesses from Pubs to Butcheries such as Angel Lane which was Angel Inn or Butcher Row. A reflection of the industries that made London the city it is. <br><br> </p>
+          <h3 style="margin-bottom: -5px; font-size: 22px; color: #2d3034">Purpose of the Study</h3>
+          <p>o	This study is to explore London’s deep rooted societal dynamics embedded in something as niche as the city’s street names. By analysing these names, we hope to uncover the biases that have shaped the city’s identity over time particularly those tied to the patriarchy, class and colonialism. Our goal is more than just cataloguing theses names but to examine whose history is being erased and how we can shed a light onto how we commemorate a diverse range of figures in our currently urban environments as naming is a form of representation. <br><br></p>
+          <h3 style="margin-bottom: -5px; font-size: 22px; color: #2d3034">Why Do Street Names Matter in London?</h3>
+          <p>o	London is a city shaped by centuries of history, and street names are often the most immediate form of "memory" embedded in the urban space. From the legacy of the British Empire to more contemporary debates around who gets honoured in public spaces, London’s streets can reveal power dynamics that have shaped the city's development. <br></p>
+          <h3 style="font-size: 22px; color: #2d3034; margin-bottom: -5px;">Key</h3>
+            <p>
+              o <b style="color:#384c86; font-size: 20px">BLUE MAP</b> (left-hand side) - visualises male streets across London <br>
+              o <b style="color:#7c3738; font-size: 20px">RED MAP</b> (right-hand side) - visualises female streets across London <br>
+              o <b style="color:#384c86; font-size: 20px">BLUE ICONS</b> (left-hand side) - male streets<br>
+              o <b style="color:#7c3738; font-size: 20px">RED ICONS</b> (right-hand side) - female streets<br>
+              o <b style="color: #2d3034; font-size: 20px">BLACK ICONS</b> (left-hand side) - interesting/related streets <br>
+              o Corresponding icons can be found on area info cards
+            </p>
+        </div>
+      </div>
+
+      <div class="dataInfo dataPopUp">
+        <div class="content">
+          <h3 style="margin-bottom: -10px;"> Data Collection </h3>
+          <h3 style="font-size: 22px; color: #2d3034; margin-bottom: -10px;"> How the Data was Collected</h3>
+          <p style="margin-bottom: -10px;"> The dataset used in our project was sourced from the Ordnance Survey OS Open Names dataset, downloaded via data.gov.uk. This dataset is a comprehensive, publicly available database containing street names, place names, and postcodes across Great Britain. It includes accurate and up-to-date geographic information, with over 870,000 named roads and associated coordinate data. The data was downloaded in CSV format, which allowed it to be processed using command-line tools. To make the dataset manageable and relevant to the project, it was filtered to include our three selected areas: Streatham, Edmonton, and Newham. This filtering process involved using terminal commands (e.g., grep, csvcut) to search for specific location names and extract only the relevant rows from the dataset. After filtering, the cleaned datasets were imported into Google Sheets, where further organisation manual based on gender took place. At this stage, each street name was examined individually and categorised (e.g., male, female, unisex, or unnamed). After we researched the origin or meaning of each name manually as well. Additionally google maps was used to verify street locations because we wanted accuracy on our selected areas. 
+            <br> The commands used: <br>
+            cd '/Users/anya/Desktop/opname_csv_gb-2/data’ - (changes directory to data folder) <br>
+cat *.csv (combine all the data files into one long string of data)<br>
+cat *.csv | grep "SEARCHED NAME" - (searches for inputted name in all the data)<br>
+cat *.csv | grep "SEARCHEDNAME" > ~/Desktop/NAMEOFFILE.csv (puts it all into one file)<br>
+csvcut -c COLUMNS WANTED ~/Desktop/FILENAME.csv | csvgrep -c 2 -r SEARCHEDNAME| csvlook - (prints filtered columns to you in terminal)<br>
+csvcut -c COLUMNS WANTED ~/Desktop/FILENAME.csv | csvgrep -c 2 -r SEARCHEDNAME > ~/Desktop/NAMEOFFILE.csv - (puts filtered data all into one file) 
+</p>
+          <h3 style="font-size: 22px; color: #2d3034; margin-bottom: -10px;"> What Counts as a Name?</h3>
+          <p style="margin-bottom: 0px;">In our project, a “name” refers specifically to the official street name as recorded in the OS Open Names dataset. This includes the main identifying part of a street (e.g., Victoria, King, Baker) along with its full form when necessary (e.g., Victoria Road, King Street). We mainly focused on Proper nouns excluding the suffix (e.g., Road, Street, Avenue). This is because suffixes do not typically carry gender or cultural meaning. <br><br>
+              Names were then categorised based on perceived gender association: <br>
+              o	<b style="color:#384c86">Male</b> (e.g., names historically associated with men)  <br>
+              o	<b style="color: #7c3738">Female</b> (e.g., names historically associated with women)  <br>
+              o	Unisex (names that could not be clearly assigned)  <br>
+              o	Non-personal names (e.g., places or occupations terms)  <br>
+              It is important to note that not all street names refer to people. Many are derived from locations, landmarks, or descriptive terms. Therefore, only names that could reasonably be interpreted as personal or gendered names were included in the gender analysis. This distinction is important because street naming practices often reflect broader cultural and historical values, including patterns of gender representation in public spaces.
+            </p>
+        </div>
+      </div>
+
+      <div class="streatham streathamPopUp">
+        <div class="content">
+          <h3 style="margin-bottom: 5px;">Streatham Findings - Anya Patel</h3>
+          <div class="content-container" style="margin-bottom: -20px;">
+            <img style="flex-grow: 0; width: 110px; padding-right: 20px; padding-left: 10px; border: none" src="assets/streatham.png" alt="Streatham's icon">
+            <p style="flex-grow: 1; padding-right: 20px">Out of the 388 streets in Streatham, only 18.9% were "named" streets. Of these, the majority were male: 16.5% being named after men, compared to just 1.3% after women (Fig. 1), meaning there were roughly 12 times as many male-named streets to female. <br><br>
+               Of all gendered street names, 90.1% were male, 7% female, and 2.8% unisex (Fig. 2). This reveals a clear imbalance in who is publically represented, highlighting how urban spaces reflect historical patterns of who gets recognition and who gets excluded. </p>
+            </div>
+            <p> Of the small number of female street names (five in total, excluding unisex names), two were named by a single landowner, Beriah Drew: one after his wife's maiden name, Elizabeth Prentis (Brown, 2003, pp.15) and another after his daughter, Jane Angles Fisher (Gower, 2012, pp.16). The remaining female names had no documentation of their names having much or any historical significance that I could find. In contrast, many of the male street names were accompied by a historical story (which can be explored by clicking the markers on the map), reinforcing male visibility and existing historical patterns.</p>
+          <div class="popUp-container" style="margin-bottom: -10px;">
+            <img src="assets/streathamNUpiechart.png" alt="Pie chart of named to unnamed streets in Streatham">
+            <img src="assets/streathamMFpiechart.png" alt="Pie chart of male to female named streets in Streatham">
+          </div>
+          <div class="caption-container" style="margin-bottom: -20px;">
+            <p>Fig. 1</p>
+            <p>Fig. 2</p>
+          </div>
+          <p style="padding-top: -20px;">Another thing I noticed was that this pattern extended beyond just street names, but in public institutions as well. In Streatham, no schools were found to have had any female names or connotations, compared to the seven named after male figures. This suggests that gender imbalance is not limited to street naming, but is embdedded all throughout the naming of public spaces. These have been plotted as black markers on the map. <br><bR>
+          Although not the main focus of this project, patterns of racial representation were also evident. Of the male street names identified, only two appeared to be named after people of colour - Namba Roy Close, and Francis Barber Close - compared to at least 19 named after white men. This indicates that inequalities in representation extends much farther beyond gender alone, reflecting greater structures of exclusion within everyday spaces, and shaping whose histories are seen, remembered, and valued..</p>
+        </div>
+      </div>
+
+     <div class="edmonton edmontonPopUp">
+        <div class="content">
+          <h3 style="margin-bottom: 5px;">Edmonton Findings - Levy Nguyen</h3>
+          <div class="content-container">
+            <img style="flex-grow: 0; width: 180px; padding-right: 30px; padding-left: 10px; border: none" src="assets/edmonton.png" alt="Edmonton's icon">
+            <p style="flex-grow: 2; padding-right: 20px">Looking at the 666 streets analysed in Edmonton, there are roughly 7.5 times more streets named after men than women. <br><br>
+Focusing specifically on gendered street names, The imbalance highlights how urban naming practices continue to reproduce historical patterns of recognition and exclusion, privileging male figures in the public landscape.
+This disparity can be better understood in relation to the historical development of Upper Edmonton (see Enfield Society). Much of the area’s street layout emerged during the 19th-century expansion of London, when suburban development was closely tied to landownership and industrial growth. Street names from this period often commemorate landowners who were predominantly white, male, and associated with British imperial and Christian traditions. As a result, the naming landscape reflects a historically narrow representation that does not align with the area’s current diversity.
+
+            </p>
+          </div>
+          <p>
+            Contemporary Edmonton is shaped by multicultural communities, including significant Nigerian diaspora and Turkish Cypriots populations, yet these identities are largely absent from the street naming system. This contrast underscores how street names can function as cultural artefacts, preserving older power structures while overlooking newer forms of social and cultural contribution.
+
+          </p>
+          <div class="popUp-container">
+            <img style="border: none" src="assets/edmontonNUpiechart.png" alt="Pie chart of male to female named streets in Edmonton">
+            <img style="border: none" src="assets/edmontonMFpiechart.png" alt="Pie chart of named to unnamed streets in Edmonton">
+          </div>
+          <div class="caption-container">
+            <p>Fig. 3</p>
+            <p>Fig. 4</p>
+          </div>
+          <div>
+          <p">Black Boy Lane was renamed La Rose Lane following concerns about racial connotations and in the context of the Black Lives Matter protests. Such changes highlight growing awareness of how public spaces encode historical inequalities and the need to reassess whose histories are commemorated.</p>
+          </div> 
+        </div>
+      </div>
+
+      <div class="newham newhamPopUp">
+        <div class="content">
+          <h3 style="margin-bottom: -10px;">Newham Findings - Joy Jimmy</h3>
+          <div class="content-container" style="margin-bottom: -20px;">
+            <img style="flex-grow: 0; width: 200px; padding-right: 20px; padding-left: 10px; border: none" src="assets/newham.png" alt="Newham's icon">
+            <p style="flex-grow: 2; padding-right: 20px">My data reflects the pattern of male landowners, aristocrats in the area as well male dominated industries such as a Brewer are often given more recoginiton while the feamle representation is lower, though some of the female historical figures in Newham are given more recoginition such as Minnie Baldock Street who was a female suffragette and a member of the working class. Though exception aren't part of the rule and one doesnt balance the other hundreds of men given recognition. This suggests a growing recoginiton of women, I found that Newham council allows its consitituants to register their interst for new streets names which gives hope. But historically affluent men were the ones suggesting urban naming this power is embedded in the everday life of those in the bourough and greater London in general.
+            </p>        
+          </div>
+          <p> This matter because street names aren’t just labels, they show who we value as important. The 85% signifies how deeply ingrained misogyny is in our history which reflects on our modern society actively uplifting men and male historical figures more than women. It reinforces authority, whose legacy becomes part of the environment. Who gets to be remembered in our surroundings? <br><br>
+            Much of Newham was built during the height of the Empire, so lots of street names are related. Just near us there's a Khartoum road and a Dongola roadd, from our war in Sudan in the 1890s. There is much more than gender bias on the street of Newham it also holds racial biases. Racial and gender biases aren’t separate they intersect and in the context of Newham there is a pattern of erasure for those who aren’t White Male and wealthy. 
+              <br> •	Imperial-themed streets: Streets in Newham reflect imperial expansion, such as Khartoum Road and Dongola Road (Sudan war, 1890s), as well as Mafeking, Kimberley, and Ladysmith (Boer War).
+            </p>
+          <div class="popUp-container">
+            <img src="assets/newhamNUpiechart.png" alt="Pie chart of named to unnamed streets in Newham">
+            <img src="assets/newhamMFpiechart.png" alt="Pie chart of male to female named streets in Newham">
+          </div>
+          <div class="caption-container">
+            <p>Fig. 5</p>
+            <p>Fig. 6</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref refPopUp">
+        <div class="content">
+          <h3 style="margin-bottom: -12px;">References</h3>
+          <p style="margin-bottom: -12px;">Here is a list of references that were used in this website:</p>
+          <ul>
+            <li>Gower G. (2004) Streatham Heritage Trail: Streatham Hill Triangle. The Streatham Society. Local History Publications. Available at: https://www.streathamsociety.org.uk/pdf/streatham-heritage-trail-streatham-hill-triangle.pdf</li>
+            <li>Bloice B. (2000) Streatham Heritage Trail: Streatham Village. The Streatham Society. Local History Publications. Available at: https://www.streathamsociety.org.uk/pdf/streatham-heritage-trail-streatham-park.pdf</li>
+            <li>Brown J.W. (2003) Streatham Heritage Trail: Streatham Park. The Streatham Society. Local History Publications. Available at: https://www.streathamsociety.org.uk/pdf/streatham-heritage-trail-streatham-village.pdf</li>
+            <li>Brown J.W. (2001) Streatham Heritage Trail: Greyhound Lane. The Streatham Society. Local History Publications. Available at: https://www.streathamsociety.org.uk/pdf/streatham-heritage-trail-greyhound-lane.pdf</li>
+            <li>Harris J. (2001) Streatham Heritage Trail: Two Victorian Stream Hill Estates, Roupell Park & Leigham Court. The Streatham Society. Local History Publications. Available at: https://www.streathamsociety.org.uk/pdf/streatham-heritage-trail-roupell-park.pdf</li>
+            <li>Gower G. (2012) Streatham Heritage Trail: Streatham’s Highways & Byways. The Streatham Society. Local History Publications. Available at: https://www.streathamsociety.org.uk/pdf/streatham-heritage-trail-streatham.pdf</li>
+            <li>Sheppard F.H.W. (1956). ‘Tulse Hill and Brockwell Park’, in Survey of London: Volume 26, Lambeth: Southern Area. London County Council. <br>Available at: https://www.british-history.ac.uk/survey-london/vol26/pp155-166#fnn1</li>
+            <li>The Streatham Society. The Black People of Streatham. The Streatham Society. Available at: https://www.streathamsociety.org.uk/people/the-black-people-of-streatham#:~:text=Francis%20Barber%20was%20born%20a,Teesdale%2C%20North%20Riding%20of%20Yorkshire.</li>
+            <li>BBC News (2023) [Title of article]. Available at:https://www.bbc.co.uk/news/uk-england-london-64354190</li>
+            <li>Familypedia (n.d.) Edmonton, London. Available at: https://familypedia.fandom.com/wiki/Edmonton,_London</li>
+            <li>Enfield Society (2020) Lower Edmonton. Available at: https://enfieldsociety.org.uk/2020/11/09/lower-edmonton/</li>
+            <li>London Borough of Enfield (n.d.) Factsheets: Lower Edmonton Libraries. Available at: https://www.enfield.gov.uk/__data/assets/pdf_file/0018/104454/Factsheets-Lower-Edmonton-Libraries.pdf</li>
+            <li>Alberta Jewish News (n.d.) FSWC urges Edmonton and London to rename streets honouring Nazis. Available at: https://albertajewishnews.com/fswc-urges-edmonton-and-london-to-rename-streets-honouring-nazis/</li>
+            <li>Morton, S. (2018). The stories behind some of Newham’s road names. [online] Newham Recorder. Available at: https://www.newhamrecorder.co.uk/lifestyle/21431189.stories-behind-newhams-road-names/ [Accessed 4 May 2026].</li>
+            <li>Etymologynerd.com. (2026). Available at: https://www.etymologynerd.com/uploads/1/5/8/8/15888322/london.png [Accessed 4 May 2026].</li>
+            <li>Habben, F.H. (1896). London Street Names. Philadelphia, J.B. Lippincott company.</li>
+            <li>Lockie, C. (2013). Heroes And Heartbreak In Newham’s Eponymous Streets. [online] Londonist. Available at: https://londonist.com/2013/07/newhamstreets [Accessed 4 May 2026].</li>
+            <li>Walker, J. (2026). What’s in a name. [online] E7-nowandthen.org. Available at: https://www.e7-nowandthen.org/2013/12/whats-in-name.html [Accessed 4 May 2026].</li>
+            <li>Bell, R. (2024). Katherine Road: from county lane to city street | Newham Heritage Month. [online] Newham Heritage Month. Available at: https://www.newhamheritagemonth.org/records/katherine-road-from-county-lane-to-city-street/ [Accessed 4 May 2026].</li>
+            <li>Council, N. (2026). Street Naming Campaign – Newham Council. [online] Newham Council. Available at: https://www.newham.gov.uk/streetnamingcampaign [Accessed 4 May 2026].</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+
+  <br>
+
+  <!--  the maps --> 
+    <div class="container">
+    <iframe style="border: 5px solid #384c86;" src="mapM.html"></iframe>
+
+    <iframe style="border: 5px solid #7c3738;"src="mapF.html"></iframe>
+  </div>
+
+</body>
+</html>
