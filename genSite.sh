@@ -10,6 +10,7 @@ camel_to_words() {
 # Module labels (ordered list)
 read -r -d '' MODULE_LABELS_TEXT <<'EOT'
 MA3801="Advanced Digital Media (Y3)"
+MA3120=Contemp' Digital Practice (Y3)"
 MA2013="Experimental Interfaces (Y2)"
 MA2806="Data Journalism & Visualisation (Y2)"
 MA1805="Coding for the arts (Y1)"
